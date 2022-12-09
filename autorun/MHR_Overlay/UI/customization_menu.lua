@@ -11,6 +11,8 @@ local language;
 local part_names;
 local time_UI;
 local keyboard;
+local non_players;
+
 local label_customization;
 local bar_customization;
 local large_monster_UI_customization;
@@ -23,6 +25,7 @@ local rage_customization;
 local body_parts_customization;
 local ailments_customization;
 local ailment_buildups_customization;
+local module_visibility_customization;
 
 customization_menu.font = nil;
 customization_menu.font_range = {0x1, 0xFFFF, 0};
@@ -50,6 +53,7 @@ customization_menu.displayed_buildup_bar_relative_types = {};
 customization_menu.displayed_damage_meter_UI_highlighted_bar_types = {};
 customization_menu.displayed_damage_meter_UI_damage_bar_relative_types = {};
 customization_menu.displayed_damage_meter_UI_my_damage_bar_location_types = {};
+customization_menu.displayed_damage_meter_UI_total_damage_location_types = {};
 customization_menu.displayed_damage_meter_UI_sorting_types = {};
 customization_menu.displayed_damage_meter_UI_dps_modes = {};
 
@@ -68,6 +72,7 @@ customization_menu.buildup_bar_relative_types = {};
 customization_menu.damage_meter_UI_highlighted_bar_types = {};
 customization_menu.damage_meter_UI_damage_bar_relative_types = {};
 customization_menu.damage_meter_UI_my_damage_bar_location_types = {};
+customization_menu.damage_meter_UI_total_damage_location_types = {};
 customization_menu.damage_meter_UI_sorting_types = {};
 customization_menu.damage_meter_UI_dps_modes = {};
 
@@ -149,10 +154,16 @@ function customization_menu.init()
 
 	customization_menu.displayed_damage_meter_UI_damage_bar_relative_types =
 		{language.current_language.customization_menu.total_damage, language.current_language.customization_menu.top_damage};
-	customization_menu.displayed_damage_meter_UI_my_damage_bar_location_types = {language.current_language
+	
+		customization_menu.displayed_damage_meter_UI_my_damage_bar_location_types = {language.current_language
 		.customization_menu.normal, language.current_language.customization_menu.first,
                                                                               language.current_language
 		.customization_menu.last};
+
+	customization_menu.displayed_damage_meter_UI_total_damage_location_types = {
+		language.current_language.customization_menu.first,
+    	language.current_language.customization_menu.last};
+
 	customization_menu.displayed_damage_meter_UI_sorting_types =
 		{language.current_language.customization_menu.normal, language.current_language.customization_menu.damage,
    language.current_language.customization_menu.dps};
@@ -215,6 +226,11 @@ function customization_menu.init()
 	customization_menu.damage_meter_UI_my_damage_bar_location_types =
 		{language.default_language.customization_menu.normal, language.default_language.customization_menu.first,
    language.default_language.customization_menu.last};
+
+	customization_menu.damage_meter_UI_total_damage_location_types = {
+		language.current_language.customization_menu.first,
+		language.current_language.customization_menu.last};
+
 	customization_menu.damage_meter_UI_sorting_types = {language.default_language.customization_menu.normal,
                                                      language.default_language.customization_menu.damage,
                                                      language.default_language.customization_menu.dps};
@@ -542,6 +558,11 @@ function customization_menu.draw()
 	if damage_meter_UI_changed or modifiers_changed then
 		for _, _player in pairs(player.list) do
 			player.init_UI(_player);
+			
+		end
+
+		for _, servant in pairs(non_players.servant_list) do
+			non_players.init_UI(servant);
 		end
 
 		player.init_total_UI(player.total);
@@ -638,6 +659,10 @@ function customization_menu.draw_global_settings()
 
 			for _, _player in pairs(player.list) do
 				player.init_UI(_player);
+			end
+
+			for _, servant in pairs(non_players.servant_list) do
+				non_players.init_UI(servant);
 			end
 		end
 
@@ -759,129 +784,112 @@ function customization_menu.draw_global_settings()
 			imgui.tree_pop();
 		end
 
-		if imgui.tree_node(language.current_language.customization_menu.module_visibility_on_different_screens) then
-			if imgui.tree_node(language.current_language.customization_menu.during_quest) then
-				changed, cached_config.module_visibility.during_quest.small_monster_UI =
-					imgui.checkbox(language.current_language.customization_menu.small_monster_UI,
-						cached_config.module_visibility.during_quest.small_monster_UI);
+		if imgui.tree_node(language.current_language.customization_menu.renderer) then
+			changed, cached_config.renderer.use_d2d_if_available =
+				imgui.checkbox(language.current_language.customization_menu.use_d2d_if_available,
+					cached_config.renderer.use_d2d_if_available);
 
-				config_changed = config_changed or changed;
+			config_changed = config_changed or changed;
 
-				changed, cached_config.module_visibility.during_quest.large_monster_dynamic_UI = imgui.checkbox(
+			imgui.tree_pop();
+		end
+
+		if imgui.tree_node(language.current_language.customization_menu.module_visibility_based_on_game_state) then
+
+			if imgui.tree_node(language.current_language.customization_menu.in_training_area) then
+
+				changed, cached_config.module_visibility.in_training_area.large_monster_dynamic_UI = imgui.checkbox(
 					language.current_language.customization_menu.large_monster_dynamic_UI,
-					cached_config.module_visibility.during_quest.large_monster_dynamic_UI);
+					cached_config.module_visibility.in_training_area.large_monster_dynamic_UI);
 
 				config_changed = config_changed or changed;
-				imgui.same_line();
 
-				changed, cached_config.module_visibility.during_quest.large_monster_static_UI = imgui.checkbox(
+				changed, cached_config.module_visibility.in_training_area.large_monster_static_UI = imgui.checkbox(
 					language.current_language.customization_menu.large_monster_static_UI,
-					cached_config.module_visibility.during_quest.large_monster_static_UI);
+					cached_config.module_visibility.in_training_area.large_monster_static_UI);
 
 				config_changed = config_changed or changed;
 
-				changed, cached_config.module_visibility.during_quest.large_monster_highlighted_UI = imgui.checkbox(
+				changed, cached_config.module_visibility.in_training_area.large_monster_highlighted_UI = imgui.checkbox(
 					language.current_language.customization_menu.large_monster_highlighted_UI,
-					cached_config.module_visibility.during_quest.large_monster_highlighted_UI);
+					cached_config.module_visibility.in_training_area.large_monster_highlighted_UI);
 
 				config_changed = config_changed or changed;
 
-				changed, cached_config.module_visibility.during_quest.time_UI =
-					imgui.checkbox(language.current_language.customization_menu.time_UI,
-						cached_config.module_visibility.during_quest.time_UI);
-
-				config_changed = config_changed or changed;
-				imgui.same_line();
-
-				changed, cached_config.module_visibility.during_quest.damage_meter_UI =
-					imgui.checkbox(language.current_language.customization_menu.damage_meter_UI,
-						cached_config.module_visibility.during_quest.damage_meter_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.during_quest.endemic_life_UI =
-					imgui.checkbox(language.current_language.customization_menu.endemic_life_UI,
-						cached_config.module_visibility.during_quest.endemic_life_UI);
-
-				config_changed = config_changed or changed;
-				imgui.tree_pop();
-			end
-
-			if imgui.tree_node(language.current_language.customization_menu.quest_result_screen) then
-				changed, cached_config.module_visibility.quest_result_screen.small_monster_UI = imgui.checkbox(
-					language.current_language.customization_menu.small_monster_UI,
-					cached_config.module_visibility.quest_result_screen.small_monster_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.quest_result_screen.large_monster_dynamic_UI = imgui.checkbox(
-					language.current_language.customization_menu.large_monster_dynamic_UI,
-					cached_config.module_visibility.quest_result_screen.large_monster_dynamic_UI);
-
-				config_changed = config_changed or changed;
-				imgui.same_line();
-
-				changed, cached_config.module_visibility.quest_result_screen.large_monster_static_UI = imgui.checkbox(
-					language.current_language.customization_menu.large_monster_static_UI,
-					cached_config.module_visibility.quest_result_screen.large_monster_static_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.quest_result_screen.large_monster_highlighted_UI = imgui.checkbox(
-					language.current_language.customization_menu.large_monster_highlighted_UI,
-					cached_config.module_visibility.quest_result_screen.large_monster_highlighted_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.quest_result_screen.time_UI =
-					imgui.checkbox(language.current_language.customization_menu.time_UI,
-						cached_config.module_visibility.quest_result_screen.time_UI);
-
-				config_changed = config_changed or changed;
-				imgui.same_line();
-
-				changed, cached_config.module_visibility.quest_result_screen.damage_meter_UI = imgui.checkbox(
+				changed, cached_config.module_visibility.in_training_area.damage_meter_UI = imgui.checkbox(
 					language.current_language.customization_menu.damage_meter_UI,
-					cached_config.module_visibility.quest_result_screen.damage_meter_UI);
+					cached_config.module_visibility.in_training_area.damage_meter_UI);
 
 				config_changed = config_changed or changed;
 
-				changed, cached_config.module_visibility.during_quest.endemic_life_UI =
-					imgui.checkbox(language.current_language.customization_menu.endemic_life_UI,
-						cached_config.module_visibility.during_quest.endemic_life_UI);
+				changed, cached_config.module_visibility.in_training_area.endemic_life_UI = imgui.checkbox(
+					language.current_language.customization_menu.endemic_life_UI,
+					cached_config.module_visibility.in_training_area.endemic_life_UI);
 
 				config_changed = config_changed or changed;
 				imgui.tree_pop();
 			end
 
-			if imgui.tree_node(language.current_language.customization_menu.training_area) then
-				changed, cached_config.module_visibility.training_area.large_monster_dynamic_UI = imgui.checkbox(
-					language.current_language.customization_menu.large_monster_dynamic_UI,
-					cached_config.module_visibility.training_area.large_monster_dynamic_UI);
-
+			if imgui.tree_node(language.current_language.customization_menu.cutscene) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.cutscene);
 				config_changed = config_changed or changed;
-				imgui.same_line();
-
-				changed, cached_config.module_visibility.training_area.large_monster_static_UI = imgui.checkbox(
-					language.current_language.customization_menu.large_monster_static_UI,
-					cached_config.module_visibility.training_area.large_monster_static_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.training_area.damage_meter_UI =
-					imgui.checkbox(language.current_language.customization_menu.damage_meter_UI,
-						cached_config.module_visibility.training_area.damage_meter_UI);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.module_visibility.during_quest.endemic_life_UI =
-					imgui.checkbox(language.current_language.customization_menu.endemic_life_UI,
-						cached_config.module_visibility.during_quest.endemic_life_UI);
-
-				config_changed = config_changed or changed;
-
 				imgui.tree_pop();
 			end
+
+			if imgui.tree_node(language.current_language.customization_menu.loading_quest) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.loading_quest);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.quest_start_animation) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.quest_start_animation);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.playing_quest) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.playing_quest);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.killcam) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.killcam);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.quest_end_timer) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.quest_end_timer);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.quest_end_animation) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.quest_end_animation);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.quest_end_screen) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.quest_end_screen);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.reward_screen) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.reward_screen);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
+			if imgui.tree_node(language.current_language.customization_menu.summary_screen) then
+				changed = module_visibility_customization.draw(cached_config.module_visibility.summary_screen);
+				config_changed = config_changed or changed;
+				imgui.tree_pop();
+			end
+
 			imgui.tree_pop();
 		end
 
@@ -1429,8 +1437,23 @@ function customization_menu.draw_damage_meter_UI()
 
 			config_changed = config_changed or changed;
 
-			changed, cached_config.settings.freeze_dps_on_quest_clear = imgui.checkbox(
-				language.current_language.customization_menu.freeze_dps_on_quest_clear, cached_config.settings.freeze_dps_on_quest_clear);
+			changed, cached_config.settings.freeze_dps_on_quest_end = imgui.checkbox(
+				language.current_language.customization_menu.freeze_dps_on_quest_end, cached_config.settings.freeze_dps_on_quest_end);
+
+			config_changed = config_changed or changed;
+
+			changed, cached_config.settings.show_my_otomos_separately = imgui.checkbox(
+				language.current_language.customization_menu.show_my_otomos_separately, cached_config.settings.show_my_otomos_separately);
+
+			config_changed = config_changed or changed;
+
+			changed, cached_config.settings.show_other_otomos_separately = imgui.checkbox(
+				language.current_language.customization_menu.show_other_otomos_separately, cached_config.settings.show_other_otomos_separately);
+
+			config_changed = config_changed or changed;
+
+			changed, cached_config.settings.show_followers_separately = imgui.checkbox(
+				language.current_language.customization_menu.show_followers_separately, cached_config.settings.show_followers_separately);
 
 			config_changed = config_changed or changed;
 
@@ -1476,6 +1499,17 @@ function customization_menu.draw_damage_meter_UI()
 
 			if changed then
 				cached_config.settings.my_damage_bar_location = customization_menu.damage_meter_UI_my_damage_bar_location_types[index];
+			end
+
+			changed, index = imgui.combo(
+				language.current_language.customization_menu.total_damage_location,
+				table_helpers.find_index(customization_menu.damage_meter_UI_total_damage_location_types, cached_config.settings.total_damage_location),
+				customization_menu.displayed_damage_meter_UI_total_damage_location_types);
+
+			config_changed = config_changed or changed;
+
+			if changed then
+				cached_config.settings.total_damage_location = customization_menu.damage_meter_UI_total_damage_location_types[index];
 			end
 
 			changed, index = imgui.combo(language.current_language.customization_menu.dps_mode, 
@@ -1586,8 +1620,12 @@ function customization_menu.draw_damage_meter_UI()
 			tracked_damage_types_changed = tracked_damage_types_changed or changed;
 
 			if tracked_damage_types_changed then
-				for player_id, _player in pairs(player.list) do
+				for _, _player in pairs(player.list) do
 					player.update_display(_player);
+				end
+
+				for _, servant in pairs(non_players.servant_list) do
+					player.update_display(servant);
 				end
 
 				player.update_display(player.total);
@@ -1678,18 +1716,18 @@ function customization_menu.draw_damage_meter_UI()
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.myself.word_player = imgui.checkbox(
-						language.current_language.customization_menu.word_player, cached_config.player_name_label.include.myself.word_player);
+					changed, cached_config.player_name_label.include.myself.type = imgui.checkbox(
+						language.current_language.customization_menu.type, cached_config.player_name_label.include.myself.type);
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.myself.player_id = imgui.checkbox(
-						language.current_language.customization_menu.player_id, cached_config.player_name_label.include.myself.player_id);
+					changed, cached_config.player_name_label.include.myself.id = imgui.checkbox(
+						language.current_language.customization_menu.id, cached_config.player_name_label.include.myself.id);
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.myself.player_name = imgui.checkbox(
-						language.current_language.customization_menu.player_name, cached_config.player_name_label.include.myself.player_name);
+					changed, cached_config.player_name_label.include.myself.name = imgui.checkbox(
+						language.current_language.customization_menu.name, cached_config.player_name_label.include.myself.name);
 
 					config_changed = config_changed or changed;
 
@@ -1712,18 +1750,18 @@ function customization_menu.draw_damage_meter_UI()
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.others.word_player = imgui.checkbox(
-						language.current_language.customization_menu.word_player, cached_config.player_name_label.include.others.word_player);
+					changed, cached_config.player_name_label.include.others.type = imgui.checkbox(
+						language.current_language.customization_menu.type, cached_config.player_name_label.include.others.type);
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.others.player_id = imgui.checkbox(
-						language.current_language.customization_menu.player_id, cached_config.player_name_label.include.others.player_id);
+					changed, cached_config.player_name_label.include.others.id = imgui.checkbox(
+						language.current_language.customization_menu.id, cached_config.player_name_label.include.others.id);
 
 					config_changed = config_changed or changed;
 
-					changed, cached_config.player_name_label.include.others.player_name = imgui.checkbox(
-						language.current_language.customization_menu.player_name, cached_config.player_name_label.include.others.player_name);
+					changed, cached_config.player_name_label.include.others.name = imgui.checkbox(
+						language.current_language.customization_menu.name, cached_config.player_name_label.include.others.name);
 
 					config_changed = config_changed or changed;
 
@@ -1909,6 +1947,10 @@ function customization_menu.draw_damage_meter_UI()
 		changed = label_customization.draw(language.current_language.customization_menu.total_damage_value_label, cached_config.total_damage_value_label);
 		config_changed = config_changed or changed;
 
+		changed = label_customization.draw(language.current_language.customization_menu.total_cart_count_label, cached_config.total_cart_count_label);
+		config_changed = config_changed or changed;
+
+
 		changed = bar_customization.draw(language.current_language.customization_menu.damage_bar, cached_config.damage_bar);
 		config_changed = config_changed or changed;
 
@@ -2008,6 +2050,8 @@ function customization_menu.init_module()
 	part_names = require("MHR_Overlay.Misc.part_names");
 	time_UI = require("MHR_Overlay.UI.Modules.time_UI");
 	keyboard = require("MHR_Overlay.Game_Handler.keyboard");
+	non_players = require("MHR_Overlay.Damage_Meter.non_players");
+
 	label_customization = require("MHR_Overlay.UI.Customizations.label_customization");
 	bar_customization = require("MHR_Overlay.UI.Customizations.bar_customization");
 	large_monster_UI_customization = require("MHR_Overlay.UI.Customizations.large_monster_UI_customization");
@@ -2018,6 +2062,7 @@ function customization_menu.init_module()
 	body_parts_customization = require("MHR_Overlay.UI.Customizations.body_parts_customization");
 	ailments_customization = require("MHR_Overlay.UI.Customizations.ailments_customization");
 	ailment_buildups_customization = require("MHR_Overlay.UI.Customizations.ailment_buildups_customization");
+	module_visibility_customization = require("MHR_Overlay.UI.Customizations.module_visibility_customization");
 
 	customization_menu.init();
 	customization_menu.reload_font(false);

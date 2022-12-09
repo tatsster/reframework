@@ -15,7 +15,7 @@
                 "visibility": true
             },
             "text": "x%d",
-            "visibility": false
+            "visibility": true
         },
         "damage_bar": {
             "colors": {
@@ -42,8 +42,8 @@
         "damage_percentage_label": {
             "color": 4291622113,
             "offset": {
-                "x": 262,
-                "y": 0
+                "x": 262.0,
+                "y": 0.0
             },
             "shadow": {
                 "color": 4278190080,
@@ -76,8 +76,8 @@
         "dps_label": {
             "color": 4291622113,
             "offset": {
-                "x": 155,
-                "y": 0
+                "x": 155.0,
+                "y": 0.0
             },
             "shadow": {
                 "color": 4278190080,
@@ -90,7 +90,7 @@
             "text": "%.1f",
             "visibility": true
         },
-        "enabled": true,
+        "enabled": false,
         "highlighted_damage_bar": {
             "colors": {
                 "background": 2801795072,
@@ -146,17 +146,23 @@
                 "myself": {
                     "cart_count": false,
                     "hunter_rank": true,
+                    "id": false,
                     "master_rank": true,
+                    "name": true,
                     "player_id": false,
                     "player_name": true,
+                    "type": false,
                     "word_player": false
                 },
                 "others": {
                     "cart_count": false,
                     "hunter_rank": true,
+                    "id": false,
                     "master_rank": true,
+                    "name": true,
                     "player_id": false,
                     "player_name": true,
+                    "type": false,
                     "word_player": false
                 }
             },
@@ -177,13 +183,14 @@
         },
         "position": {
             "anchor": "Bottom-Left",
-            "x": 525,
-            "y": 225
+            "x": 525.0,
+            "y": 225.0
         },
         "settings": {
             "damage_bar_relative_to": "Top Damage",
             "dps_mode": "First Hit",
             "freeze_dps_on_quest_clear": true,
+            "freeze_dps_on_quest_end": true,
             "hide_module_if_total_damage_is_zero": false,
             "hide_myself": false,
             "hide_other_players": false,
@@ -193,7 +200,11 @@
             "highlighted_bar": "Me",
             "my_damage_bar_location": "First",
             "orientation": "Vertical",
-            "player_name_size_limit": 150,
+            "player_name_size_limit": 150.0,
+            "show_followers_separately": true,
+            "show_my_otomos_separately": true,
+            "show_other_otomos_separately": true,
+            "total_damage_location": "First",
             "total_damage_offset_is_relative": true
         },
         "sorting": {
@@ -201,8 +212,25 @@
             "type": "Damage"
         },
         "spacing": {
-            "x": 300,
-            "y": 24
+            "x": 300.0,
+            "y": 24.0
+        },
+        "total_cart_count_label": {
+            "color": 4294931315,
+            "offset": {
+                "x": 315,
+                "y": 0
+            },
+            "shadow": {
+                "color": 4278190080,
+                "offset": {
+                    "x": 1,
+                    "y": 1
+                },
+                "visibility": true
+            },
+            "text": "%d/%d",
+            "visibility": true
         },
         "total_damage_label": {
             "color": 4294931315,
@@ -219,7 +247,7 @@
                 "visibility": true
             },
             "text": "%s",
-            "visibility": true
+            "visibility": false
         },
         "total_damage_value_label": {
             "color": 4294931315,
@@ -236,7 +264,7 @@
                 "visibility": true
             },
             "text": "%.0f",
-            "visibility": true
+            "visibility": false
         },
         "total_dps_label": {
             "color": 4294931315,
@@ -253,7 +281,7 @@
                 "visibility": true
             },
             "text": "%.1f",
-            "visibility": true
+            "visibility": false
         },
         "tracked_damage_types": {
             "blast_damage": true,
@@ -269,7 +297,7 @@
         },
         "tracked_monster_types": {
             "large_monsters": true,
-            "small_monsters": true
+            "small_monsters": false
         }
     },
     "endemic_life_UI": {
@@ -323,13 +351,13 @@
             "damage_meter_UI": {
                 "alt": false,
                 "ctrl": false,
-                "key": 0,
+                "key": 219,
                 "shift": false
             },
             "endemic_life_UI": {
                 "alt": false,
                 "ctrl": false,
-                "key": 0,
+                "key": 226,
                 "shift": false
             },
             "large_monster_UI": {
@@ -347,7 +375,7 @@
             "large_monster_highlighted_UI": {
                 "alt": false,
                 "ctrl": false,
-                "key": 0,
+                "key": 221,
                 "shift": false
             },
             "large_monster_static_UI": {
@@ -378,6 +406,15 @@
             "global_scale_modifier": 1
         },
         "module_visibility": {
+            "cutscene": {
+                "damage_meter_UI": false,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": false,
+                "large_monster_static_UI": false,
+                "small_monster_UI": false,
+                "time_UI": false
+            },
             "during_quest": {
                 "damage_meter_UI": true,
                 "endemic_life_UI": true,
@@ -387,7 +424,95 @@
                 "small_monster_UI": true,
                 "time_UI": true
             },
+            "in_training_area": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": true,
+                "large_monster_dynamic_UI": true,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true
+            },
+            "killcam": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": true,
+                "large_monster_dynamic_UI": true,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": true,
+                "time_UI": true
+            },
+            "loading_quest": {
+                "damage_meter_UI": false,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": false,
+                "large_monster_static_UI": false,
+                "small_monster_UI": false,
+                "time_UI": false
+            },
+            "playing_quest": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": true,
+                "large_monster_dynamic_UI": true,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": true,
+                "time_UI": true
+            },
+            "quest_end_animation": {
+                "damage_meter_UI": false,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": false,
+                "large_monster_static_UI": false,
+                "small_monster_UI": false,
+                "time_UI": false
+            },
+            "quest_end_screen": {
+                "damage_meter_UI": false,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": false,
+                "large_monster_static_UI": false,
+                "small_monster_UI": false,
+                "time_UI": false
+            },
+            "quest_end_timer": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": true,
+                "large_monster_dynamic_UI": true,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": true,
+                "time_UI": true
+            },
             "quest_result_screen": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": false,
+                "time_UI": true
+            },
+            "quest_start_animation": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": true,
+                "large_monster_dynamic_UI": true,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": true,
+                "time_UI": true
+            },
+            "reward_screen": {
+                "damage_meter_UI": true,
+                "endemic_life_UI": false,
+                "large_monster_dynamic_UI": false,
+                "large_monster_highlighted_UI": true,
+                "large_monster_static_UI": true,
+                "small_monster_UI": false,
+                "time_UI": true
+            },
+            "summary_screen": {
                 "damage_meter_UI": true,
                 "endemic_life_UI": false,
                 "large_monster_dynamic_UI": false,
@@ -407,6 +532,9 @@
         "performance": {
             "max_monster_updates_per_tick": 2,
             "prioritize_large_monsters": false
+        },
+        "renderer": {
+            "use_d2d_if_available": true
         }
     },
     "large_monster_UI": {
@@ -763,7 +891,7 @@
                 },
                 "offset": {
                     "x": 10,
-                    "y": 45
+                    "y": 111
                 },
                 "part_break": {
                     "bar": {
@@ -1078,7 +1206,7 @@
                         "visibility": true
                     },
                     "size": {
-                        "height": 7,
+                        "height": 20,
                         "width": 200
                     },
                     "visibility": true
@@ -1102,7 +1230,7 @@
                         "visibility": true
                     },
                     "text": "%5.1f%%",
-                    "visibility": false
+                    "visibility": true
                 },
                 "text_label": {
                     "color": 4291622113,
@@ -1136,7 +1264,7 @@
                         "visibility": true
                     },
                     "text": "%.0f/%.0f",
-                    "visibility": false
+                    "visibility": true
                 },
                 "visibility": true
             },
@@ -1168,7 +1296,7 @@
                 "bar": {
                     "colors": {
                         "background": 2281701376,
-                        "foreground": 3110522053,
+                        "foreground": 3117180518,
                         "outline": 3221225472
                     },
                     "offset": {
@@ -1182,14 +1310,14 @@
                         "visibility": true
                     },
                     "size": {
-                        "height": 6,
+                        "height": 7,
                         "width": 185
                     },
                     "visibility": true
                 },
                 "offset": {
                     "x": 10,
-                    "y": 13
+                    "y": 61
                 },
                 "percentage_label": {
                     "color": 4294967295,
@@ -1206,12 +1334,12 @@
                         "visibility": true
                     },
                     "text": "%5.1f%%",
-                    "visibility": false
+                    "visibility": true
                 },
                 "text_label": {
-                    "color": 4288935408,
+                    "color": 4294939539,
                     "offset": {
-                        "x": -70,
+                        "x": 5,
                         "y": 0
                     },
                     "shadow": {
@@ -1223,7 +1351,7 @@
                         "visibility": true
                     },
                     "text": "%s",
-                    "visibility": false
+                    "visibility": true
                 },
                 "timer_label": {
                     "color": 4294967295,
@@ -1240,7 +1368,7 @@
                         "visibility": true
                     },
                     "text": "%2.0f:%02.0f",
-                    "visibility": false
+                    "visibility": true
                 },
                 "value_label": {
                     "color": 4294967295,
@@ -1257,13 +1385,13 @@
                         "visibility": true
                     },
                     "text": "%.0f/%.0f",
-                    "visibility": false
+                    "visibility": true
                 },
-                "visibility": false
+                "visibility": true
             },
             "settings": {
                 "hide_dead_or_captured": true,
-                "max_distance": 300,
+                "max_distance": 300.0,
                 "opacity_falloff": true,
                 "render_highlighted_monster": true,
                 "render_not_highlighted_monsters": true,
@@ -1287,14 +1415,14 @@
                         "visibility": true
                     },
                     "size": {
-                        "height": 6,
+                        "height": 7,
                         "width": 185
                     },
                     "visibility": true
                 },
                 "offset": {
                     "x": 10,
-                    "y": 7
+                    "y": 37
                 },
                 "percentage_label": {
                     "color": 4294967295,
@@ -1311,12 +1439,12 @@
                         "visibility": true
                     },
                     "text": "%5.1f%%",
-                    "visibility": false
+                    "visibility": true
                 },
                 "text_label": {
                     "color": 4288935408,
                     "offset": {
-                        "x": -70,
+                        "x": 5,
                         "y": 0
                     },
                     "shadow": {
@@ -1328,7 +1456,7 @@
                         "visibility": true
                     },
                     "text": "%s",
-                    "visibility": false
+                    "visibility": true
                 },
                 "timer_label": {
                     "color": 4294967295,
@@ -1345,7 +1473,7 @@
                         "visibility": true
                     },
                     "text": "%2.0f:%02.0f",
-                    "visibility": false
+                    "visibility": true
                 },
                 "value_label": {
                     "color": 4294967295,
@@ -1362,9 +1490,9 @@
                         "visibility": true
                     },
                     "text": "%.0f/%.0f",
-                    "visibility": false
+                    "visibility": true
                 },
-                "visibility": false
+                "visibility": true
             },
             "viewport_offset": {
                 "x": -100,
@@ -1654,15 +1782,15 @@
                     "hide_disabled_ailments": true,
                     "hide_inactive_ailments_with_no_buildup_support": true,
                     "offset_is_relative_to_parts": true,
-                    "time_limit": 15
+                    "time_limit": 15.0
                 },
                 "sorting": {
                     "reversed_order": false,
-                    "type": "Normal"
+                    "type": "Buildup Percentage"
                 },
                 "spacing": {
-                    "x": 0,
-                    "y": 24
+                    "x": 0.0,
+                    "y": 24.0
                 },
                 "text_label": {
                     "color": 4294947554,
@@ -2010,7 +2138,7 @@
                     "x": 0,
                     "y": 33
                 },
-                "visibility": true
+                "visibility": false
             },
             "enabled": true,
             "health": {
@@ -2117,6 +2245,7 @@
                     "crown_thresholds": false,
                     "monster_id": false,
                     "monster_name": true,
+                    "scrown_thresholds": false,
                     "size": true
                 },
                 "offset": {
@@ -2136,8 +2265,8 @@
             },
             "position": {
                 "anchor": "Top-Right",
-                "x": 615,
-                "y": 25
+                "x": 615.0,
+                "y": 25.0
             },
             "rage": {
                 "bar": {
@@ -3797,5 +3926,5 @@
             "visibility": true
         }
     },
-    "version": "2.2.1"
+    "version": "2.3.2"
 }

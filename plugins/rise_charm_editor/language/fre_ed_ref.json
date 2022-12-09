@@ -12,8 +12,6 @@
         "m_title_error": "Erreur",
         "m_text_error_add_charm": "Échec de l'ajout du talisman. Aucun espace d'inventaire libre n'a été trouvé.",
         "m_button_sell_charm": "Vends Talisman",
-        "m_button_make_legal": "Rendre légal",
-        "m_checkbox_disable_sanity_check": "Désactiver la vérification d'intégrité",
         "m_button_export_charms": "Exporter des talismans",
         "m_button_import_charms": "Importer des talismans",
         "m_button_ok": "OK",
@@ -29,9 +27,7 @@
         "m_text_warning": "Avertissement",
         "m_text_warning_hr": "La définition manuelle du rang de chasseur n'est pas recommandée. Si vous définissez votre rang de chasseur sans ajuster vos points de rang de chasseur, vous serez bloqué à ce rang de chasseur spécifique jusqu'à ce que vous acquériez légitimement l'XP nécessaire pour accéder à ce rang. Au lieu de cela, modifiez uniquement les points de rang Hunter, puis terminez n'importe quelle quête et votre rang de chasseur s'ajustera en conséquence.",
         "m_label_hunter_rank": "Rang de chasseur",
-        "m_label_hr_points": "HR Points",
-        "m_label_master_rank": "Rang Maître",
-        "m_label_mr_points": "MR Points"
+        "m_label_hr_points": "HR Points"
     },
     "Itembox Editor": {
         "m_button_add_all": "Ajouter tous les éléments",

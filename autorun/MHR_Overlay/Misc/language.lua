@@ -127,7 +127,10 @@ language.default_language = {
 		buildup = "Buildup:",
 		total_buildup = "Total Buildup",
 		part_break = "Break",
-		part_sever = "Sever"
+		part_sever = "Sever",
+
+		otomo = "Buddy",
+		servant = "Follower",
 	},
 
 	customization_menu = {
@@ -147,10 +150,19 @@ language.default_language = {
 		large_monster_highlighted_UI = "Large Monster Highlighted UI",
 
 		language = "Language",
-		module_visibility_on_different_screens = "Module Visibility on Different Screens",
-		during_quest = "During Quest",
-		quest_result_screen = "Quest Result Screen",
-		training_area = "Training Area",
+		module_visibility_based_on_game_state = "Module Visibility based on Game State",
+		in_lobby = "In Lobby",
+		in_training_area = "In Training Area",
+		cutscene = "Cutscene",
+		loading_quest = "Loading Quest",
+		quest_start_animation = "Quest Start Animation",
+		playing_quest = "Playing Quest",
+		killcam = "Killcam",
+		quest_end_timer = "Quest End Timer",
+		quest_end_animation = "Quest End Animation",
+		quest_end_screen = "Quest End Screen",
+		reward_screen = "Reward Screen",
+		summary_screen = "Summary Screen",
 
 		performance = "Performance",
 
@@ -162,6 +174,9 @@ language.default_language = {
 		size = "Size",
 		bold = "Bold",
 		italic = "Italic",
+
+		renderer = "Renderer",
+		use_d2d_if_available = "Use Direct2D if available",
 
 		enabled = "Enabled",
 		settings = "Settings",
@@ -279,6 +294,7 @@ language.default_language = {
 		total_damage = "Total Damage",
 
 		my_damage_bar_location = "My Damage Bar Location",
+		total_damage_location = "Total Damage Bar Location",
 		first = "First",
 		last = "Last",
 
@@ -298,9 +314,12 @@ language.default_language = {
 
 		other_players = "Other Players",
 		hunter_rank = "Hunter Rank",
-		word_player = "Word \"Player\"";
-		player_id = "Player ID",
-		player_name = "Player Name",
+		id = "ID",
+		name = "Name",
+
+		show_my_otomos_separately = "Show my Buddies separately",
+		show_other_otomos_separately = "Show other Buddies separately",
+		show_followers_separately = "Show Followers separately",
 
 		dps_mode = "DPS Mode",
 		dps = "DPS",
@@ -381,11 +400,12 @@ language.default_language = {
 
 		cart_count = "Cart Count",
 		cart_count_label = "Cart Count Label",
+		total_cart_count_label = "Total Cart Count Label",
 
 		prioritize_large_monsters = "Large Monsters on High Priority",
 		max_monster_updates_per_tick = "Max Monster Updates per Tick",
 
-		freeze_dps_on_quest_clear = "Freeze DPS when Quest is cleared",
+		freeze_dps_on_quest_end = "Freeze DPS on Quest End",
 
 
 		health_break_severe_filter = "Health + Break + Severe",
@@ -412,7 +432,7 @@ language.default_language = {
 		lowest_health_percentage = "Lowest Health Percentage",
 		highest_health_percentage = "Highest Health Percentage",
 
-		reframework_outdated = "Installed REFramework version is outdated. Please, update. Otherwise, MHR Overlay won't work correctly."
+		reframework_outdated = "Installed REFramework version is outdated. Please, update. Otherwise, MHR Overlay won't work correctly.",
 	}
 };
 

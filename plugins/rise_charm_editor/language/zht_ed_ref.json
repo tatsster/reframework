@@ -12,8 +12,6 @@
         "m_title_error": "錯誤",
         "m_text_error_add_charm": "添加護石失敗，裝備箱已滿",
         "m_button_sell_charm": "出售護石",
-        "m_button_make_legal": "使合法",
-        "m_checkbox_disable_sanity_check": "禁用健全性檢查",
         "m_button_export_charms": "出口護身符",
         "m_button_import_charms": "進口護身符",
         "m_button_ok": "好",
@@ -29,9 +27,7 @@
         "m_text_warning": "警告",
         "m_text_warning_hr": "不建議手動設置獵人等級。如果你設置了獵人等級而沒有調整獵人等級點數，你將被卡在那個特定的獵人等級，直到你合法地獲得達到該等級所需的經驗點數。相反，只編輯獵人等級經驗點數，然後完成任何任務，你的獵人等級就會相應調整。",
         "m_label_hunter_rank": "獵人等級",
-        "m_label_hr_points": "HR 點數",
-        "m_label_master_rank": "大師等級",
-        "m_label_mr_points": "MR 點數"
+        "m_label_hr_points": "HR 點數"
     },
     "Itembox Editor": {
         "m_button_add_all": "添加全部道具",

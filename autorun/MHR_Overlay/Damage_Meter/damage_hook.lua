@@ -5,6 +5,8 @@ local small_monster;
 local large_monster;
 local ailments;
 local table_helpers;
+local singletons;
+local non_players;
 
 local enemy_character_base_type_def = sdk.find_type_definition("snow.enemy.EnemyCharacterBase");
 local enemy_character_base_after_calc_damage_damage_side_method = enemy_character_base_type_def:get_method("afterCalcDamage_DamageSide");
@@ -21,6 +23,8 @@ local get_total_damage_method = enemy_calc_damage_info_type_def:get_method("get_
 local get_physical_damage_method = enemy_calc_damage_info_type_def:get_method("get_PhysicalDamage");
 local get_elemental_damage_method = enemy_calc_damage_info_type_def:get_method("get_ElementDamage");
 
+local stun_damage_field = enemy_calc_damage_info_type_def:get_field("<StunDamage>k__BackingField");
+
 local get_condition_damage_method = enemy_calc_damage_info_type_def:get_method("get_ConditionDamage");
 local get_condition_type_method = enemy_calc_damage_info_type_def:get_method("get_ConditionDamageType");
 local get_condition_damage2_method = enemy_calc_damage_info_type_def:get_method("get_ConditionDamage2");
@@ -32,9 +36,7 @@ local stock_mystery_core_break_damage_type_def = sdk.find_type_definition("snow.
 
 local quest_manager_type_def = sdk.find_type_definition("snow.QuestManager");
 
-local not_host_cart_method = quest_manager_type_def:get_method("netRecvForfeit");
-local host_cart_method = quest_manager_type_def:get_method("netSendForfeit");
-local offline_cart_method = quest_manager_type_def:get_method("notifyDeath");
+local quest_forfeit_method = quest_manager_type_def:get_method("questForfeit");
 
 local packet_quest_forfeit_type_def = sdk.find_type_definition("snow.QuestManager.PacketQuestForfeit");
 local dead_player_id_field = packet_quest_forfeit_type_def:get_field("_DeadPlIndex");
@@ -86,14 +88,14 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 
 	-- 4 is virtual player in singleplayer that "owns" 2nd otomo
 	if not quest_status.is_online and attacker_id == 4 then
-		attacker_id = player.myself.id;
+		--attacker_id = player.myself.id;
 	end
 
 	if is_marionette_attack then
 		large_monster.update_all_riders();
 		for enemy, monster in pairs(large_monster.list) do
 			if monster.unique_id == attacker_id then
-				attacker_id = monster.rider_id;
+				--attacker_id = monster.rider_id;
 				break
 			end
 		end
@@ -150,22 +152,25 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 	-- 31 - EcSwampLeech
 	-- 32 - EcPenetrateFish
 
-	--xy = "\nPlayer: " .. tostring(attacker_id) ..
-	--" Damage: " .. tostring(damage_object.total_damage) ..
-	--" Type: ("	.. tostring(attacker_type) ..
-	--") " ..
-	--" Condition Damage: " .. tostring(condition_damage) ..
-	--" Condition Type: ("	.. tostring(attacker_type) ..
-	--") " .. tostring(condition_type);
+	local damage_source_type = damage_hook.get_damage_source_type(attacker_type, is_marionette_attack);
 
-	--if string.len(xy) > 2300 then
-	--	xy = "";
-	--end
+	local attacking_player = non_players.get_servant(attacker_id);
+	if attacking_player == nil then
+		attacking_player = player.get_player(attacker_id);
+	end
 
-	local damage_source_type = damage_hook.get_damage_source_type(attacker_type,
-		is_marionette_attack);
+	--[[xy = xy .. "\nPlayer: " .. tostring(attacker_id) ..
+	" " .. tostring(attacking_player.name) ..
+	" Damage: " .. tostring(damage_object.total_damage) ..
+	" Type: ("	.. tostring(attacker_type) ..
+	") " ..
+	" Condition Damage: " .. tostring(condition_damage) ..
+	" Condition Type: ("	.. tostring(attacker_type) ..
+	") " .. tostring(condition_type);
 
-	local attacking_player = player.get_player(attacker_id);
+	if string.len(xy) > 2300 then
+		xy = "";
+	end--]]
 
 	local monster;
 	if is_large_monster then
@@ -174,18 +179,17 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 		monster = small_monster.get_monster(enemy);
 	end
 
-	local stun_damage = enemy_calc_damage_info:get_field("<StunDamage>k__BackingField");
-	if stun_damage ~= 0 and stun_damage ~= nil then
+	local stun_damage = stun_damage_field:get_data(enemy_calc_damage_info);
+	if attacking_player ~= nil then
 		ailments.apply_ailment_buildup(monster, attacker_id, ailments.stun_id, stun_damage);
-	end
 
-	ailments.apply_ailment_buildup(monster, attacker_id, condition_type, condition_damage);
-	ailments.apply_ailment_buildup(monster, attacker_id, condition_type2, condition_damage2);
-	ailments.apply_ailment_buildup(monster, attacker_id, condition_type3, condition_damage3);
+		ailments.apply_ailment_buildup(monster, attacker_id, condition_type, condition_damage);
+		ailments.apply_ailment_buildup(monster, attacker_id, condition_type2, condition_damage2);
+		ailments.apply_ailment_buildup(monster, attacker_id, condition_type3, condition_damage3);
+	end
 
 	player.update_damage(player.total, damage_source_type, is_large_monster, damage_object);
 	player.update_damage(attacking_player, damage_source_type, is_large_monster, damage_object);
-
 end
 
 --function damage_hook.on_mystery_core_break(enemy)
@@ -193,28 +197,17 @@ end
 --end
 
 -- Coavins code
-function damage_hook.cart(type, args)
-	if not quest_status.is_online then --We reach here with notifyDeath when player is offline
-		player.myself.cart_count = player.myself.cart_count + 1;
+function damage_hook.cart(dead_player_id, flag_cat_skill_insurance)
+	-- flag_cat_skill_insurance = 0
+	-- flag_cat_skill_insurance = 1
+	local player_ = player.list[dead_player_id];
+	if player_ == nil then
 		return;
 	end
 
-	if player.myself.id == 0 then -- If player is host, netSendForfeit is always correct
-		if type == "host" then
-			local player_id = sdk.to_int64(args[3]);
-			player.list[player_id].cart_count = player.list[player_id].cart_count + 1;
-		end
-	else
-		if type == "not host" then
-			local packet_quest_forfeit = sdk.to_managed_object(args[3]);
-			local player_id = dead_player_id_field:get_data(packet_quest_forfeit);
-			local is_from_host = is_from_host_field:get_data(packet_quest_forfeit)
+	player_.cart_count = player_.cart_count + 1;
 
-			if is_from_host then -- Data is sent twice, 1 from host and 1 from dead player. Check if from host to only add 1
-				player.list[player_id].cart_count = player.list[player_id].cart_count + 1;
-			end
-		end
-	end
+	quest_status.get_cart_count();
 end
 
 --function damage_hook.on_get_finish_shoot_wall_hit_damage_rate(enemy, rate, is_part_damage)
@@ -232,6 +225,8 @@ function damage_hook.init_module()
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	ailments = require("MHR_Overlay.Monsters.ailments");
 	table_helpers = require("MHR_Overlay.Misc.table_helpers");
+	singletons = require("MHR_Overlay.Game_Handler.singletons");
+	non_players = require("MHR_Overlay.Damage_Meter.non_players");
 
 	--sdk.hook(get_finish_shoot_wall_hit_damage_rate_method, function(args)
 	--	pcall(damage_hook.on_get_finish_shoot_wall_hit_damage_rate, sdk.to_managed_object(args[2]), sdk.to_float(args[3]), sdk.to_int64(args--[4]));
@@ -245,20 +240,8 @@ function damage_hook.init_module()
 		return retval;
 	end);
 
-	sdk.hook(not_host_cart_method, function(args)
-		pcall(damage_hook.cart, "not host", args);
-	end, function(retval)
-		return retval;
-	end);
-
-	sdk.hook(host_cart_method, function(args)
-		pcall(damage_hook.cart, "host", args);
-	end, function(retval)
-		return retval;
-	end);
-
-	sdk.hook(offline_cart_method, function(args)
-		pcall(damage_hook.cart, "offline", args);
+	sdk.hook(quest_forfeit_method, function(args)
+		pcall(damage_hook.cart, sdk.to_int64(args[3]), (sdk.to_int64(args[4]) & 0xFFFFFFFF));
 	end, function(retval)
 		return retval;
 	end);
