@@ -1,0 +1,254 @@
+﻿{
+  "QuestID": 340200,
+  "QuestText": {
+    "QuestInfo": [
+      {
+        "Language": "ENG",
+        "Name": "How did they all get in there???",
+        "Client": "Soul",
+        "Description": "Somehow,a bunch of monsters just got in the arena.\r\nClean that up would you? Bring some good gear!",
+        "Target": "This is not gonna be easy.",
+        "Fail": "Dark Soul Sounds"
+      }
+    ],
+    "FallbackLanguage": "ENG",
+    "DebugName": "",
+    "DebugClient": "",
+    "DebugDescription": ""
+  },
+  "QuestData": {
+    "QuestType": 8,
+    "QuestLevel": 5,
+    "EnemyLevel": 3,
+    "Map": 10,
+    "BaseTime": 11,
+    "TimeVariation": 0,
+    "TimeLimit": 80,
+    "Carts": 3,
+    "QuestConditions": [
+      22,
+      0
+    ],
+    "TargetTypes": [
+      5,
+      0
+    ],
+    "TargetMonsters": [
+      0,
+      0
+    ],
+    "TargetItemIds": [
+      67108864,
+      0
+    ],
+    "TargetAmounts": [
+      6,
+      0
+    ],
+    "Monsters": [
+      {
+        "Id": 71,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 77,
+        "SpawnCondition": 7,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 81,
+        "SpawnCondition": 8,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 72,
+        "SpawnCondition": 9,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 1849,
+        "SpawnCondition": 10,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 1369,
+        "SpawnCondition": 11,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      }
+    ],
+    "ExtraMonsterCount": 1,
+    "SwapExitRide": false,
+    "SwapFrequencies": [
+      0,
+      0
+    ],
+    "SwapConditions": [
+      0,
+      0
+    ],
+    "SwapParams": [
+      0,
+      0
+    ],
+    "SwapExitTimes": [
+      0,
+      0
+    ],
+    "SwapStopType": 0,
+    "SwapStopParam": 0,
+    "SwapExecType": 0,
+    "Reward": {
+      "Zenny": 101520,
+      "Points": 2040,
+      "HRP": 3050
+    },
+    "SupplyTable": 310003,
+    "Icons": [
+      47,
+      49,
+      50,
+      48,
+      68
+    ],
+    "Tutorial": false,
+    "FromNpc": false,
+    "ArenaParam": {
+      "FenceDefaultActive": false,
+      "FenceUptime": 0,
+      "FenceInitialDelay": 0,
+      "FenceCooldown": 0,
+      "Pillars": [
+        false,
+        false,
+        false
+      ]
+    },
+    "AutoMatchHR": 0,
+    "BattleBGMType": 6,
+    "ClearBGMType": 0
+  },
+  "EnemyData": {
+    "SmallMonsters": {
+      "SpawnType": 0,
+      "HealthTable": 0,
+      "AttackTable": 0,
+      "PartTable": 0,
+      "OtherTable": 0,
+      "MultiTable": 0
+    },
+    "Monsters": [
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 1,
+        "HealthTable": 125,
+        "AttackTable": 139,
+        "PartTable": 144,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 85,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 1,
+        "HealthTable": 134,
+        "AttackTable": 140,
+        "PartTable": 136,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 1,
+        "HealthTable": 291,
+        "AttackTable": 138,
+        "PartTable": 141,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 1,
+        "HealthTable": 129,
+        "AttackTable": 140,
+        "PartTable": 145,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 110,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 133,
+        "AttackTable": 138,
+        "PartTable": 142,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 120,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 131,
+        "AttackTable": 123,
+        "PartTable": 143,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 132,
+        "AttackTable": 123,
+        "PartTable": 142,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      }
+    ]
+  },
+  "RampageData": null
+}

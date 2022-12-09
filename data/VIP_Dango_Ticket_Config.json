@@ -1,0 +1,10 @@
+{
+    "InfiniteDangoTickets": false,
+    "ShowAllDango": false,
+    "TicketByDefault": true,
+    "skewerLvs": [
+        4,
+        3,
+        1
+    ]
+}

@@ -10,6 +10,7 @@ singletons.village_area_manager = nil;
 singletons.gui_manager = nil;
 singletons.game_keyboard = nil;
 singletons.scene_manager = nil;
+singletons.game_manager = nil;
 
 function singletons.init()
 	singletons.init_message_manager();
@@ -22,6 +23,8 @@ function singletons.init()
 	singletons.init_gui_manager();
 	singletons.init_game_keyboard();
 	singletons.init_scene_manager();
+	singletons.init_game_manager();
+	singletons.init_servant_manager();
 end
 
 function singletons.init_message_manager()
@@ -154,6 +157,32 @@ function singletons.init_scene_manager()
 	end
 
 	return singletons.scene_manager;
+end
+
+function singletons.init_game_manager()
+	if singletons.game_manager ~= nil then
+		return;
+	end
+
+	singletons.game_manager = sdk.get_managed_singleton("snow.SnowGameManager");
+	if singletons.game_manager == nil then
+		--log.error("[MHR Overlay] No enemy manager");
+	end
+
+	return singletons.game_manager;
+end
+
+function singletons.init_servant_manager()
+	if singletons.servant_manager ~= nil then
+		return;
+	end
+
+	singletons.servant_manager = sdk.get_managed_singleton("snow.ai.ServantManager");
+	if singletons.servant_manager == nil then
+		--log.error("[MHR Overlay] No enemy manager");
+	end
+
+	return singletons.servant_manager;
 end
 
 function singletons.init_module()

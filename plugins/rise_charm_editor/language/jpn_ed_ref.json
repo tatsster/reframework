@@ -12,8 +12,6 @@
         "m_title_error": "エラー",
         "m_text_error_add_charm": "護石の追加に失敗しました。装備BOXの空きが見つかりません。",
         "m_button_sell_charm": "護石を売却",
-        "m_button_make_legal": "合法化",
-        "m_checkbox_disable_sanity_check": "健全性チェックを無効にする",
         "m_button_export_charms": "護石のエクスポート",
         "m_button_import_charms": "護石をインポート",
         "m_button_ok": "OK",
@@ -29,9 +27,7 @@
         "m_text_warning": "警告",
         "m_text_warning_hr": "ハンターランクを手動で設定することは推奨されていません。HRポイントを調整せずにハンターランクを設定した場合、そのランクに到達するために必要なHRポイントを取得するまでそのハンターランクで止まります。HRポイントのみを調整してからクエストを1つクリアすると、それに応じてハンターランクが調整されます。",
         "m_label_hunter_rank": "ハンターランク",
-        "m_label_hr_points": "HRポイント",
-        "m_label_master_rank": "マスターランク",
-        "m_label_mr_points": "MRポイント"
+        "m_label_hr_points": "HRポイント"
     },
     "Itembox Editor": {
         "m_button_add_all": "すべてのアイテムを追加",

@@ -33,8 +33,40 @@ function config.init()
 				prioritize_large_monsters = false
 			},
 
+			renderer = {
+				use_d2d_if_available = true
+			},
+
 			module_visibility = {
-				during_quest = {
+				in_training_area = {
+					large_monster_dynamic_UI = true,
+					large_monster_static_UI = true,
+					large_monster_highlighted_UI = true,
+					damage_meter_UI = true,
+					endemic_life_UI = true
+				},
+
+				cutscene = {
+					small_monster_UI = false,
+					large_monster_dynamic_UI = false,
+					large_monster_static_UI = false,
+					large_monster_highlighted_UI = false,
+					time_UI = false,
+					damage_meter_UI = false,
+					endemic_life_UI = false
+				},
+
+				loading_quest = {
+					small_monster_UI = false,
+					large_monster_dynamic_UI = false,
+					large_monster_static_UI = false,
+					large_monster_highlighted_UI = false,
+					time_UI = false,
+					damage_meter_UI = false,
+					endemic_life_UI = false
+				},
+
+				quest_start_animation = {
 					small_monster_UI = true,
 					large_monster_dynamic_UI = true,
 					large_monster_static_UI = true,
@@ -44,7 +76,57 @@ function config.init()
 					endemic_life_UI = true
 				},
 
-				quest_result_screen = {
+				playing_quest = {
+					small_monster_UI = true,
+					large_monster_dynamic_UI = true,
+					large_monster_static_UI = true,
+					large_monster_highlighted_UI = true,
+					time_UI = true,
+					damage_meter_UI = true,
+					endemic_life_UI = true
+				},
+
+				killcam = {
+					small_monster_UI = true,
+					large_monster_dynamic_UI = true,
+					large_monster_static_UI = true,
+					large_monster_highlighted_UI = true,
+					time_UI = true,
+					damage_meter_UI = true,
+					endemic_life_UI = true
+				},
+
+				quest_end_timer = {
+					small_monster_UI = true,
+					large_monster_dynamic_UI = true,
+					large_monster_static_UI = true,
+					large_monster_highlighted_UI = true,
+					time_UI = true,
+					damage_meter_UI = true,
+					endemic_life_UI = true
+				},
+
+				quest_end_animation = {
+					small_monster_UI = false,
+					large_monster_dynamic_UI = false,
+					large_monster_static_UI = false,
+					large_monster_highlighted_UI = false,
+					time_UI = false,
+					damage_meter_UI = false,
+					endemic_life_UI = false
+				},
+
+				quest_end_screen = {
+					small_monster_UI = false,
+					large_monster_dynamic_UI = false,
+					large_monster_static_UI = false,
+					large_monster_highlighted_UI = false,
+					time_UI = false,
+					damage_meter_UI = false,
+					endemic_life_UI = false
+				},
+
+				reward_screen = {
 					small_monster_UI = false,
 					large_monster_dynamic_UI = false,
 					large_monster_static_UI = true,
@@ -54,13 +136,15 @@ function config.init()
 					endemic_life_UI = false
 				},
 
-				training_area = {
-					large_monster_dynamic_UI = true,
+				summary_screen = {
+					small_monster_UI = false,
+					large_monster_dynamic_UI = false,
 					large_monster_static_UI = true,
 					large_monster_highlighted_UI = true,
+					time_UI = true,
 					damage_meter_UI = true,
-					endemic_life_UI = true
-				}
+					endemic_life_UI = false
+				},
 			},
 
 			hotkeys_with_modifiers = {
@@ -221,7 +305,7 @@ function config.init()
 					visibility = true,
 					text = "%.0f/%.0f", -- current_health/max_health
 					offset = {
-						x = 50,
+						x = 32,
 						y = 0
 					},
 					color = 0xFFCCF4E1,
@@ -4117,7 +4201,7 @@ function config.init()
 
 			spacing = {
 				x = 300,
-				y = 24
+				y = -24
 			},
 
 			settings = {
@@ -4131,12 +4215,17 @@ function config.init()
 				hide_total_if_total_damage_is_zero = false,
 				total_damage_offset_is_relative = true,
 
-				freeze_dps_on_quest_clear = true,
+				freeze_dps_on_quest_end = true,
+				
+				show_my_otomos_separately = true,
+				show_other_otomos_separately = true,
+				show_followers_separately = true,
 
 				orientation = "Vertical", -- "Vertical" or "Horizontal"
 				highlighted_bar = "Me",
 				damage_bar_relative_to = "Top Damage", -- "total damage" or "top damage"
-				my_damage_bar_location = "First", -- "normal" or "first" or "last"
+				my_damage_bar_location = "Last", -- "normal" or "first" or "last"
+				total_damage_location = "First",
 				dps_mode = "First Hit",
 
 				player_name_size_limit = 150
@@ -4144,12 +4233,12 @@ function config.init()
 
 			sorting = {
 				type = "Damage", -- "normal" or "damage" or "dps"
-				reversed_order = false
+				reversed_order = true
 			},
 
 			position = {
 				x = 525,
-				y = 225,
+				y = 120,
 				-- Possible values: "Top-Left", "Top-Right", "Bottom-Left", "Bottom-Right"
 				anchor = "Bottom-Left"
 			},
@@ -4162,18 +4251,18 @@ function config.init()
 						master_rank = true,
 						hunter_rank = true,
 						cart_count = false,
-						word_player = false,
-						player_id = false,
-						player_name = true
+						type = false,
+						id = false,
+						name = true
 					},
 
 					others = {
 						master_rank = true,
 						hunter_rank = true,
 						cart_count = false,
-						word_player = false,
-						player_id = false,
-						player_name = true
+						type = false,
+						id = false,
+						name = true
 					}
 				},
 
@@ -4229,7 +4318,7 @@ function config.init()
 			cart_count_label = {
 				visibility = false,
 
-				text = "x%d",
+				text = "%d",
 				offset = {
 					x = 315,
 					y = 0
@@ -4348,6 +4437,26 @@ function config.init()
 				text = "%.0f",
 				offset = {
 					x = 205,
+					y = 0
+				},
+				color = 0xFFFF7373,
+
+				shadow = {
+					visibility = true,
+					offset = {
+						x = 1,
+						y = 1
+					},
+					color = 0xFF000000
+				}
+			},
+
+			total_cart_count_label = {
+				visibility = true,
+
+				text = "%d/%d",
+				offset = {
+					x = 315,
 					y = 0
 				},
 				color = 0xFFFF7373,
@@ -4485,7 +4594,7 @@ function config.init_module()
 
 	config.init();
 	config.load();
-	config.current_config.version = "2.2.1";
+	config.current_config.version = "2.3.2";
 
 	language.update(
 		table_helpers.find_index(language.language_names, config.current_config.global_settings.language, false));

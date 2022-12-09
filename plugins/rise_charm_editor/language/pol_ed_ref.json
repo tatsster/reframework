@@ -12,8 +12,6 @@
         "m_title_error": "Błąd",
         "m_text_error_add_charm": "Nie udało się dodać talizmanu. Nie znaleziono wolnego miejsca w ekwipunku.",
         "m_button_sell_charm": "Sprzedaj talizman",
-        "m_button_make_legal": "Zrób legalny",
-        "m_checkbox_disable_sanity_check": "Wyłącz kontrolę sprawności",
         "m_button_export_charms": "Eksportuj talizmany",
         "m_button_import_charms": "Importuj talizmany",
         "m_button_ok": "OK",
@@ -29,9 +27,7 @@
         "m_text_warning": "Ostrzeżenie",
         "m_text_warning_hr": "Ręczne ustawianie Hunter Rank nie jest zalecane. Jeśli ustawisz swoją Rangę Łowcy bez dostosowywania Punktów Rangi Łowcy, utkniesz na tej konkretnej Randze Łowcy, dopóki nie zdobędziesz PD wymaganych do osiągnięcia tej rangi. Zamiast tego edytuj tylko punkty Hunter Rank, a następnie ukończ dowolne zadanie, a twoja Ranga Huntera zostanie odpowiednio dostosowana.",
         "m_label_hunter_rank": "Ranga Łowcy",
-        "m_label_hr_points": "PŁ",
-        "m_label_master_rank": "Mistrzowska ranga",
-        "m_label_mr_points": "Punkty MR"
+        "m_label_hr_points": "PŁ"
     },
     "Itembox Editor": {
         "m_button_add_all": "Dodaj wszystkie przedmioty",
