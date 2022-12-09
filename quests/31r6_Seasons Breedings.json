@@ -1,0 +1,342 @@
+﻿{
+  "QuestID": 511031,
+  "QuestText": {
+    "QuestInfo": [
+      {
+        "Language": "JPN",
+        "Name": "MR：我ら楽土がかぞいろは",
+        "Client": "伊神院",
+        "Description": "風神龍イブシマキヒコ…\r\n雷神龍ナルハタタヒメ…\r\nすなわち「百竜ノ淵源」が、再び\r\n龍宮砦跡にて相まみえました。\r\nしかも、この胸騒ぎ…以前よりも\r\nはるかに力を増しています…。\r\nどうか、どうかお気を付けて…！",
+        "Target": "イブシマキヒコと百竜ノ淵源ナルハタタヒメの討伐",
+        "Fail": ""
+      },
+      {
+        "Language": "ENG",
+        "Name": "Advanced: Season's Breedings!",
+        "Client": "Concerned Mezeportan",
+        "Description": "Love is in the air! ...and so is\r\nblistering pain! I overheard\r\nsomeone talk about the big\r\nbad serpents and how they're\r\ntrying to pro-create again. So...\r\nI'd recommend stopping that.",
+        "Target": "Eliminate Ibushi and Narwa",
+        "Fail": "Reward hits 0, or time expires"
+      },
+      {
+        "Language": "FRE",
+        "Name": "Avancé : Descente du paradis",
+        "Client": "Minoto la réceptionniste",
+        "Description": "L'Ibushi du vent et la Narwa du\r\ntonnerre... Cela signifie que\r\nla Mère de tous est de retour au\r\nPalais de coraux. Et au vu de\r\nl'angoisse que je ressens... Elle\r\ndoit être encore plus puissante !\r\nFais attention !",
+        "Target": "Tuer l'Ibushi du vent et Narwa la Mère de tous",
+        "Fail": ""
+      },
+      {
+        "Language": "ITA",
+        "Name": "Avanzata: Frutto del paradiso",
+        "Client": "Minoto la receptionist",
+        "Description": "L'Ibushi del vento e la Narwa\r\ndel tuono... Insomma, la\r\ncreatrice è risorta di nuovo\r\nal Palazzo corallino. E, data\r\nla paura esistenziale che provo\r\nin questo momento, è più forte\r\nche mai... Sii prudente!",
+        "Target": "Uccidi l'Ibushi del vento e Narwa la creatrice",
+        "Fail": ""
+      },
+      {
+        "Language": "GER",
+        "Name": "Kenner: Im Paradies geboren",
+        "Client": "Minoto das Stätten-Mädel",
+        "Description": "Windschlange Ibushi und Don-\r\nnerschlange Narwa... Anders\r\ngesagt: Die Allmutter ist im\r\nKorallenpalast auferstanden.\r\nUnd das Grauen, das ich spüre,\r\nsagt mir, dass sie mächtiger\r\nist als zuvor. Sei vorsichtig!",
+        "Target": "Erlege Windschlange Ibushi und Narwa die Allmutter.",
+        "Fail": ""
+      },
+      {
+        "Language": "SPA",
+        "Name": "Avanzada: Nacidos en el Paraíso",
+        "Client": "Minoto de la recepción",
+        "Description": "Ibushi de viento y Narwa de\r\ntrueno... En otras palabras, la\r\nCreadora ha retornado al Palacio\r\ncoralino. Y, a juzgar por los\r\nescalofríos que me recorren,\r\ntiene más poder que nunca...\r\n¡Ten cuidado!",
+        "Target": "Abate a Ibushi de viento y Narwa la creadora",
+        "Fail": ""
+      },
+      {
+        "Language": "RUS",
+        "Name": "Новая ступень: Рожденный в раю",
+        "Client": "Раздатчица заданий Миното",
+        "Description": "Змей ветра Ибуси и Змей грома\r\nНарва... иными словами,\r\nВсемать опять восстала во\r\nДворце кораллов. Судя по тому,\r\nкакой ужас я чувствую, она\r\nсильна, как никогда. Прошу,\r\nбереги себя!",
+        "Target": "Убить Змея ветра Ибуси и Нарву Всемать",
+        "Fail": ""
+      },
+      {
+        "Language": "POL",
+        "Name": "Zaawansowane: Zrodzone w raju",
+        "Client": "Szefowa Centrum Minoto",
+        "Description": "Wąż Wiatru Ibushi i Wąż Grzmotu\r\nNarwa... Słowem Wszechmatka znowu\r\ngrasuje w Koralowym Pałacu. I\r\nsądząc po egzystencjalnym\r\nstrachu, jaki właśnie odczuwam, ma\r\njeszcze większą moc niż zwykle...\r\nZachowaj ostrożność!",
+        "Target": "Zabij Węża Wiatru Ibushiego i Wszechmatkę Narwę",
+        "Fail": ""
+      },
+      {
+        "Language": "POR",
+        "Name": "Avançado: Nascido no Paraíso",
+        "Client": "Minoto, a dama da AdE",
+        "Description": "Serpente do Vento Ibushi e\r\nSerpente do Trovão Narwa...\r\nEntão, a Matriarca ressuscitou\r\nno Palácio Coralino. E ainda\r\nmais poderosa, a julgar por\r\nessa angústia que estou\r\nsentindo. Tenha muito cuidado!",
+        "Target": "Mate a Serpente do Vento Ibushi e Narwa, a Matriarca",
+        "Fail": ""
+      },
+      {
+        "Language": "KOR",
+        "Name": "고난이도: 낙원의 부모일지니",
+        "Client": "집회소 접수원 미노토",
+        "Description": "풍신룡 이부시마키히코…\r\n뇌신룡 나루하타타히메…\r\n「백룡 연원」이 다시 한번\r\n용궁성터에 모이고 말았습니다.\r\n게다가 이 느낌… 이전보다도\r\n힘이 강해진 모양이에요…\r\n부디 조심하세요…!",
+        "Target": "이부시마키히코 1마리와 백룡 연원 나루하타타히메 1마리 토벌",
+        "Fail": ""
+      },
+      {
+        "Language": "ZHT",
+        "Name": "贈予武者們的餞別禮",
+        "Client": "伊神院",
+        "Description": "風神龍與雷神龍……\r\n「百龍淵源」又再次於\r\n龍宮要塞遺跡相會了。\r\n從我心中的不安感來看……\r\n牠們的力量遠比以前更加強大……\r\n請您務必要多加小心……！",
+        "Target": "狩獵2頭怨虎龍",
+        "Fail": ""
+      },
+      {
+        "Language": "ARA",
+        "Name": "متقدم: مولود الجنة‎",
+        "Client": "مينوتو فتاة المركز‎",
+        "Description": "ظهر اثنان من أسوأ أعدائنا المقدَّر لنا\r\nمواجهتهم في كهوف الحمم البركانية.\r\nتشير التقارير إلى أنهما قويان؛\r\nمن الواضح أنهما أكلا جيدًا.\r\nليس لدينا خيار سوى مطاردتهما.\r\nاحمِ ظهري\r\nأيها الشرس! إلى الصيد!‎",
+        "Target": "اصطد 2 ماجنامالو‎",
+        "Fail": ""
+      }
+    ],
+    "FallbackLanguage": "ENG",
+    "DebugName": "武者共へ贈る手向け",
+    "DebugClient": "依頼主",
+    "DebugDescription": "※ステージ、登場モンスターは全て仮となります。"
+  },
+  "QuestData": {
+    "QuestType": 2,
+    "QuestLevel": 5,
+    "EnemyLevel": 3,
+    "Map": 11,
+    "BaseTime": 20,
+    "TimeVariation": 3,
+    "TimeLimit": 50,
+    "Carts": 3,
+    "QuestConditions": [
+      22,
+      0
+    ],
+    "TargetTypes": [
+      5,
+      0
+    ],
+    "TargetMonsters": [
+      0,
+      0
+    ],
+    "TargetItemIds": [
+      67108864,
+      67108864
+    ],
+    "TargetAmounts": [
+      2,
+      0
+    ],
+    "Monsters": [
+      {
+        "Id": 96,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 99,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 7,
+        "SpawnParam": 95
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 12,
+        "SpawnParam": 1
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 25
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      }
+    ],
+    "ExtraMonsterCount": 1,
+    "SwapExitRide": false,
+    "SwapFrequencies": [
+      0,
+      0
+    ],
+    "SwapConditions": [
+      0,
+      0
+    ],
+    "SwapParams": [
+      0,
+      0
+    ],
+    "SwapExitTimes": [
+      0,
+      0
+    ],
+    "SwapStopType": 0,
+    "SwapStopParam": 0,
+    "SwapExecType": 0,
+    "Reward": {
+      "Zenny": 105450,
+      "Points": 1000,
+      "HRP": 8000
+    },
+    "SupplyTable": 410051,
+    "Icons": [
+      32,
+      29,
+      999,
+      999,
+      999
+    ],
+    "Tutorial": false,
+    "FromNpc": false,
+    "ArenaParam": {
+      "FenceDefaultActive": false,
+      "FenceUptime": 0,
+      "FenceInitialDelay": 0,
+      "FenceCooldown": 0,
+      "Pillars": [
+        false,
+        false,
+        false
+      ]
+    },
+    "AutoMatchHR": 10006,
+    "BattleBGMType": 0,
+    "ClearBGMType": 0
+  },
+  "EnemyData": {
+    "SmallMonsters": {
+      "SpawnType": 0,
+      "HealthTable": 130,
+      "AttackTable": 123,
+      "PartTable": 149,
+      "OtherTable": 137,
+      "MultiTable": 0
+    },
+    "Monsters": [
+      {
+        "PathId": 10,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 122,
+        "AttackTable": 126,
+        "PartTable": 150,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 90,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 11,
+        "SetName": "メイン討伐",
+        "SubType": 1,
+        "IndividualType": 0,
+        "HealthTable": 125,
+        "AttackTable": 126,
+        "PartTable": 150,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 90,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "2",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 5,
+        "AttackTable": 119,
+        "PartTable": 168,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "9",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 5,
+        "AttackTable": 119,
+        "PartTable": 168,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "5",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 130,
+        "AttackTable": 125,
+        "PartTable": 149,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      }
+    ]
+  },
+  "RampageData": null
+}

@@ -1,0 +1,350 @@
+﻿{
+  "QuestID": 511015,
+  "QuestText": {
+    "QuestInfo": [
+      {
+        "Language": "JPN",
+        "Name": "怒りの念は消えること無く",
+        "Client": "提督ガレアス",
+        "Description": "……溶岩洞でラージャンの姿が\r\n目撃されている。報告によると、\r\nそれは特異な固体であり、極めて\r\n凶暴とのこと。\r\n騎士団の精鋭たちでも手に\r\n余ることが予想される。貴殿と\r\n私とで対処にあたりたい。",
+        "Target": "激昂したラージャン１頭の狩猟",
+        "Fail": "報酬金ゼロ\r\nタイムアップ"
+      },
+      {
+        "Language": "ENG",
+        "Name": "Spider Infestation",
+        "Client": "Incredibly Dusty Man",
+        "Description": "So get this; I was cleaning out my attic,\r\nwhen suddenly two huge spiders came\r\nflying at me! They had a bunch of babies\r\ntoo so I just decided to burn my house\r\ndown... A WHOLE LOT OF GOOD IT DID\r\nME!!! Now they've escaped and are\r\ncausing me alot of stress. Please kill them...",
+        "Target": "Hunt a Rakna-Kadaki and a Pyre Rakna-Kadaki",
+        "Fail": "Reward hits 0, or time expires"
+      },
+      {
+        "Language": "FRE",
+        "Name": "La rage immortelle",
+        "Client": "Amiral Galleus",
+        "Description": "Un Rajang a été aperçu dans\r\nles Cavernes de lave.\r\nApparemment, ce serait une\r\nespèce plus féroce... en tout\r\ncas, bien trop pour être\r\nvaincue par nos chevaliers. Je\r\ncompte sur toi, chasse-le.",
+        "Target": "Chasser un Rajang orage",
+        "Fail": "Prime à 0/Temps expiré"
+      },
+      {
+        "Language": "ITA",
+        "Name": "Rabbia inesauribile",
+        "Client": "Ammiraglio Galleus",
+        "Description": "Un Rajang è stato avvistato\r\nalle Caverne laviche. Pare sia\r\nun esemplare di singolare ira,\r\ntroppo da gestire perfino per\r\ni nostri cavalieri d'élite.\r\nSpero mi aiuterai a cacciarlo.",
+        "Target": "Caccia un Rajang furioso",
+        "Fail": "Premio a zero o tempo scaduto"
+      },
+      {
+        "Language": "GER",
+        "Name": "Unendliche Wut",
+        "Client": "Galleus",
+        "Description": "In den Lavahöhlen wurde eine\r\nRajang-Variante gesichtet. So\r\neine extrem aggressive Bestie\r\nkönnen wir nicht einfach dort\r\nlassen. Deine Befehle sind\r\nklar, also kläre die Lage!",
+        "Target": "Erjage einen Zornigen Rajang.",
+        "Fail": "Belohnung auf 0 oder Zeit\r\nläuft ab."
+      },
+      {
+        "Language": "SPA",
+        "Name": "La cólera nunca muere",
+        "Client": "Almirante Galleus",
+        "Description": "Se ha avistado una variante de\r\nRajang en las Grutas de lava.\r\nNo podemos dejar campar a una\r\nbestia tan agresiva. No tengo ni\r\nque explicarte lo peligrosa que\r\nes esta situación. Tus órdenes\r\nestán claras. Adelante.",
+        "Target": "Caza un Rajang Rabioso",
+        "Fail": "La recompensa cae a 0\r\no se acaba el tiempo"
+      },
+      {
+        "Language": "RUS",
+        "Name": "Неукротимая ярость",
+        "Client": "Адмирал Галлеус",
+        "Description": "В Лавовых пещерах замечен\r\nРаянг. В докладах говорится о\r\nкрайне разъяренной особи,\r\nс которой не справятся\r\nдаже наши элитные рыцари.\r\nНадеюсь, ты поможешь мне\r\nвыследить его.",
+        "Target": "Выследить Взбешенного раянга",
+        "Fail": "Счетчик награды доходит до 0\r\nили истекает время"
+      },
+      {
+        "Language": "POL",
+        "Name": "Złość, która nigdy nie umiera",
+        "Client": "Admirał Galleus",
+        "Description": "W Jaskiniach Lawy widziano\r\nRajanga. Ponoć to wyjątkowo\r\nwściekła odmiana tego gatunku\r\ni o wiele za silny przeciwnik,\r\nnawet dla naszych elitarnych\r\nrycerzy. Liczę na twoją\r\npomoc z polowaniem.",
+        "Target": "Upoluj Wściekłego Rajanga",
+        "Fail": "Nagroda równa 0 lub koniec czasu"
+      },
+      {
+        "Language": "POR",
+        "Name": "Ira que Nunca Morre",
+        "Client": "Almirante Galleus",
+        "Description": "Um Rajang foi avistado nas\r\nCavernas de Lava. Os relatórios\r\ndizem que é um espécime singu-\r\nlarmente agressivo da espécie,\r\ne muito difícil de lidar até\r\npara cavaleiros de elite.\r\nEspero que possa me ajudar.",
+        "Target": "Cace um Rajang Furioso",
+        "Fail": "A recompensa chega a 0\r\nou o tempo expira"
+      },
+      {
+        "Language": "KOR",
+        "Name": "분노는 사그라지지 않고",
+        "Client": "제독 갈레아스",
+        "Description": "……용암 동굴에서 라잔의\r\n모습이 목격되었다. 보고에\r\n따르면 특이 개체인 데다 극히\r\n난폭하다고 한다.\r\n기사단의 정예 대원들도 힘에\r\n부칠 터. 귀공과 내가 나서야\r\n할 것 같군.",
+        "Target": "격앙 라잔 1마리 사냥",
+        "Fail": "보수금 0\r\n시간 초과"
+      },
+      {
+        "Language": "ZHT",
+        "Name": "永不消退的憤怒之意",
+        "Client": "加雷亞斯提督",
+        "Description": "……有人在熔岩洞\r\n目擊到金獅子的身影。\r\n據報告所述，那是頭\r\n特異的個體，極其凶暴。\r\n依我的推測，即便騎士團\r\n精銳盡出也不足以對付。\r\n我想請你與我一同前去收拾牠。",
+        "Target": "狩獵1頭激昂金獅子",
+        "Fail": "報酬金0\r\n時間結束"
+      },
+      {
+        "Language": "ZHS",
+        "Name": "不灭的怨念",
+        "Client": "提督加雷亚斯",
+        "Description": "……熔岩洞里发现了金狮子的身\r\n影。报告说它是特殊个体，极为\r\n凶暴。看来连骑士团的精英们也\r\n不是它的对手。希望阁下能和我\r\n联手应敌。",
+        "Target": "狩猎1头激昂金狮子",
+        "Fail": "报酬金额为零\r\n时间耗尽"
+      },
+      {
+        "Language": "ARA",
+        "Name": "الغضب الذي لا يهدأ",
+        "Client": "الأدميرال جاليوس",
+        "Description": "شوهد راجانج في\r\nكهوف الحمم البركانية.\r\nتشير التقارير إلى أنه فصيلة غاضبة\r\nبصورة فريدة بين نوعها،\r\nوهي أصعب من أن يتعامل معها\r\nحتى فرسان النخبة.\r\nآمل أن تساعدني في صيده.",
+        "Target": "اصطد راجانج غاضبًا",
+        "Fail": "لا توجد مكافآت، أو انتهى الوقت"
+      }
+    ],
+    "FallbackLanguage": "ENG",
+    "DebugName": "怒りの念は消えること無く",
+    "DebugClient": "依頼主",
+    "DebugDescription": "※ステージ、登場モンスターは全て仮となります。"
+  },
+  "QuestData": {
+    "QuestType": 1,
+    "QuestLevel": 4,
+    "EnemyLevel": 3,
+    "Map": 5,
+    "BaseTime": 8,
+    "TimeVariation": 3,
+    "TimeLimit": 50,
+    "Carts": 3,
+    "QuestConditions": [
+      16,
+      0
+    ],
+    "TargetTypes": [
+      2,
+      2
+    ],
+    "TargetMonsters": [
+      94,
+      350
+    ],
+    "TargetItemIds": [
+      67108864,
+      67108864
+    ],
+    "TargetAmounts": [
+      1,
+      1
+    ],
+    "Monsters": [
+      {
+        "Id": 94,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 350,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 1366,
+        "SpawnCondition": 8,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      }
+    ],
+    "ExtraMonsterCount": 1,
+    "SwapExitRide": false,
+    "SwapFrequencies": [
+      0,
+      0
+    ],
+    "SwapConditions": [
+      0,
+      0
+    ],
+    "SwapParams": [
+      0,
+      0
+    ],
+    "SwapExitTimes": [
+      0,
+      0
+    ],
+    "SwapStopType": 0,
+    "SwapStopParam": 0,
+    "SwapExecType": 0,
+    "Reward": {
+      "Zenny": 41500,
+      "Points": 900,
+      "HRP": 1980
+    },
+    "SupplyTable": 310003,
+    "Icons": [
+      27,
+      55,
+      999,
+      999,
+      999
+    ],
+    "Tutorial": false,
+    "FromNpc": false,
+    "ArenaParam": {
+      "FenceDefaultActive": false,
+      "FenceUptime": 0,
+      "FenceInitialDelay": 0,
+      "FenceCooldown": 0,
+      "Pillars": [
+        false,
+        false,
+        false
+      ]
+    },
+    "AutoMatchHR": 10051,
+    "BattleBGMType": 0,
+    "ClearBGMType": 0
+  },
+  "EnemyData": {
+    "SmallMonsters": {
+      "SpawnType": 43,
+      "HealthTable": 130,
+      "AttackTable": 123,
+      "PartTable": 149,
+      "OtherTable": 137,
+      "MultiTable": 0
+    },
+    "Monsters": [
+      {
+        "PathId": 10,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 124,
+        "AttackTable": 123,
+        "PartTable": 138,
+        "OtherTable": 0,
+        "StaminaTable": 3,
+        "Size": 40,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 124,
+        "AttackTable": 123,
+        "PartTable": 138,
+        "OtherTable": 0,
+        "StaminaTable": 3,
+        "Size": 40,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 128,
+        "AttackTable": 133,
+        "PartTable": 142,
+        "OtherTable": 0,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 137,
+        "AttackTable": 92,
+        "PartTable": 178,
+        "OtherTable": 0,
+        "StaminaTable": 3,
+        "Size": 255,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      }
+    ]
+  },
+  "RampageData": null
+}
