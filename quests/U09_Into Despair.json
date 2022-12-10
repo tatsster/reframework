@@ -1,0 +1,350 @@
+﻿{
+  "QuestID": 315600,
+  "QuestText": {
+    "QuestInfo": [
+      {
+        "Language": "JPN",
+        "Name": "悪魔の再来",
+        "Client": "王国騎士フィオレーネ",
+        "Description": "バハリからの急報だ。\r\n「穴の底にて、冥淵龍を確認」\r\n…またしてもヤツめが、王国を\r\n喰らおうと現れたようだな。\r\nこの討伐を任せられるのは、\r\n貴殿をおいて他にはいない。\r\n…頼んだぞ、<PL>。",
+        "Target": "ガイアデルム１体の討伐",
+        "Fail": "報酬金ゼロ\r\nタイムアップ"
+      },
+      {
+        "Language": "ENG",
+        "Name": "<BOLD><COLOR ca0000><SHADOW><ITALIC><GLOW>RAGNAROK</SHADOW></GLOW></ITALIC></COLOR></BOLD>: Into Despair",
+        "Client": "<COLOR ca0000><GLOW><BOLD>Archdemon of the Abyss",
+        "Description": "<COLOR ca0000><GLOW><BOLD><ITALIC>GRANT ME AN AUDIENCE AND SEE\r\nYOUR FATE SEALED.",
+        "Target": "Tempt Fate",
+        "Fail": "Reward hits 0, or time expires"
+      },
+      {
+        "Language": "FRE",
+        "Name": "Réincarnation du diable",
+        "Client": "Dame Fiorayne",
+        "Description": "Un message urgent de Bahari !\r\nIl a trouvé l'Archidémon au\r\ncentre du cratère. Il veut\r\nengloutir à nouveau le\r\nRoyaume. Il n'y a que toi qui\r\nsoit capable de vaincre cette\r\ncréature infernale.",
+        "Target": "Tuer le Gaismagorm",
+        "Fail": "Prime à 0/Temps expiré"
+      },
+      {
+        "Language": "ITA",
+        "Name": "L'incarnazione del diavolo",
+        "Client": "Dama Fiorayne",
+        "Description": "Un messaggio urgente da Bahari!\r\nHa trovato l'arcidemone in\r\nfondo al fosso. Vuole divorare\r\nil regno un'altra volta. Solo\r\ntu puoi sconfiggere questa\r\ncreatura infernale.",
+        "Target": "Uccidi il Gaismagorm",
+        "Fail": "Premio a zero o tempo scaduto"
+      },
+      {
+        "Language": "GER",
+        "Name": "Reinkarnation des Teufels",
+        "Client": "Fiorayne",
+        "Description": "Eine dringende Nachricht von\r\nBahari! Er hat den Erzdämon am\r\nBoden des Kraters gefunden.\r\nDer strebt danach, uns alle zu\r\nvernichten und das das gesamte\r\nKönigreich zu verschlingen.\r\nVerhindere das, ja? Danke!",
+        "Target": "Erlege den Gaismagorm.",
+        "Fail": "Belohnung auf 0 oder Zeit\r\nläuft ab."
+      },
+      {
+        "Language": "SPA",
+        "Name": "La reencarnación del diablo",
+        "Client": "Fiorayne",
+        "Description": "¡Mensaje urgente de Bahari!\r\nHa ubicado al archidemonio en\r\nel fondo del cráter. Su objetivo\r\nes destruirnos a todos y devorar\r\nal reino entero. ¡No lo vamos\r\na permitir! ¡Ve a por él,\r\ny derrótalo! ¡Por el reino!",
+        "Target": "Abate a Gaismagorm",
+        "Fail": "La recompensa cae a 0\r\no se acaba el tiempo"
+      },
+      {
+        "Language": "RUS",
+        "Name": "Реинкарнация дьявола",
+        "Client": "Рыцарь Фиорайна",
+        "Description": "Срочное сообщение от Бахари!\r\nОн нашел Архидемона на дне\r\nямы. Монстр вновь стремится\r\nпоглотить Королевство. Охоту\r\nна это исчадие ада я могу\r\nдоверить лишь вам.",
+        "Target": "Убить Гайсмагорма",
+        "Fail": "Счетчик награды доходит до 0\r\nили истекает время"
+      },
+      {
+        "Language": "POL",
+        "Name": "Reinkarnacja diabła",
+        "Client": "Pani Fiorayne",
+        "Description": "Pilna wiadomość od Bahariego!\r\nZnalazł Arcydemona na dnie\r\ndołu. Bestia chce jeszcze raz\r\nzniszczyć Królestwo. Tylko\r\ntobie mogę powierzyć zadanie\r\nzniszczenia tej kreatury.",
+        "Target": "Zabij Gaismagorma",
+        "Fail": "Nagroda równa 0 lub\r\nkoniec czasu"
+      },
+      {
+        "Language": "POR",
+        "Name": "Reencarnação do Demônio",
+        "Client": "Dama Fiorayne",
+        "Description": "Mensagem urgente de Bahari!\r\nEle achou o Arquidemônio no\r\nfundo do poço. Parece pronto\r\npara devorar o Reino de novo.\r\nNão há ninguém mais que poderia\r\nabater essa criatura infernal\r\nalém de você.",
+        "Target": "Mate o Gaismagorm",
+        "Fail": "A recompensa chega a 0\r\nou o tempo expira"
+      },
+      {
+        "Language": "KOR",
+        "Name": "악마 재림",
+        "Client": "왕국 기사 피오레네",
+        "Description": "바하리가 보낸 긴급 연락이다.\r\n「동굴 속에서 명연룡을 확인」\r\n…녀석이 또 왕국을 집어삼키기\r\n위해 나타난 모양이군.\r\n이 토벌 임무를 맡을 수 있는 건\r\n귀공뿐이야.\r\n…부탁한다, <PL>.",
+        "Target": "가이아델름 1마리 토벌",
+        "Fail": "보수금 0\r\n시간 초과"
+      },
+      {
+        "Language": "ZHT",
+        "Name": "惡魔再臨",
+        "Client": "王國騎士菲歐莉尼",
+        "Description": "巴赫里傳來了緊急通知：\r\n「在洞穴底部發現冥淵龍。」\r\n……那傢伙似乎又打算\r\n前來吞噬王國。\r\n能夠順利討伐牠的人，\r\n除你之外已別無人選……\r\n<PL>，拜託你了。",
+        "Target": "討伐1頭冥淵龍",
+        "Fail": "報酬金0\r\n時間結束"
+      },
+      {
+        "Language": "ZHS",
+        "Name": "恶魔再临",
+        "Client": "王国骑士菲奥莱娜",
+        "Description": "巴哈里发来急报说，“洞底发现冥\r\n渊龙”……又是那家伙，是想出来\r\n吞噬王国的吧。能讨伐它的人就只\r\n有你了。看你的了，<PL>。",
+        "Target": "讨伐1头冥渊龙",
+        "Fail": "报酬金额为零\r\n时间耗尽"
+      },
+      {
+        "Language": "ARA",
+        "Name": "تناسخ الشيطان",
+        "Client": "السيدة فيوراين",
+        "Description": "رسالة عاجلة من بهاري!\r\nلقد وجد أرشديمون في\r\nقاع الحفرة.\r\nإنه يسعى إلى التهام المملكة\r\nمرةً أخرى. لا يوجد أي شخص آخر\r\nيمكنني الوثوق به للقضاء على\r\nهذا المخلوق الجهنمي سواك.",
+        "Target": "اقتل جيزماجورم",
+        "Fail": "0 ضربات المكافأة، أو ينفد الوقت"
+      }
+    ],
+    "FallbackLanguage": "ENG",
+    "DebugName": "悪魔の再来",
+    "DebugClient": "依頼主",
+    "DebugDescription": "※ステージ、登場モンスターは全て仮となります。"
+  },
+  "QuestData": {
+    "QuestType": 128,
+    "QuestLevel": 5,
+    "EnemyLevel": 3,
+    "Map": 15,
+    "BaseTime": 20,
+    "TimeVariation": 3,
+    "TimeLimit": 50,
+    "Carts": 5,
+    "QuestConditions": [
+      21,
+      0
+    ],
+    "TargetTypes": [
+      10,
+      0
+    ],
+    "TargetMonsters": [
+      135,
+      0
+    ],
+    "TargetItemIds": [
+      67108864,
+      67108864
+    ],
+    "TargetAmounts": [
+      1,
+      0
+    ],
+    "Monsters": [
+      {
+        "Id": 135,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      }
+    ],
+    "ExtraMonsterCount": 1,
+    "SwapExitRide": false,
+    "SwapFrequencies": [
+      0,
+      0
+    ],
+    "SwapConditions": [
+      0,
+      0
+    ],
+    "SwapParams": [
+      0,
+      0
+    ],
+    "SwapExitTimes": [
+      0,
+      0
+    ],
+    "SwapStopType": 0,
+    "SwapStopParam": 0,
+    "SwapExecType": 0,
+    "Reward": {
+      "Zenny": 32760,
+      "Points": 660,
+      "HRP": 1540
+    },
+    "SupplyTable": 0,
+    "Icons": [
+      61,
+      999,
+      999,
+      999,
+      999
+    ],
+    "Tutorial": false,
+    "FromNpc": false,
+    "ArenaParam": {
+      "FenceDefaultActive": false,
+      "FenceUptime": 0,
+      "FenceInitialDelay": 0,
+      "FenceCooldown": 0,
+      "Pillars": [
+        false,
+        false,
+        false
+      ]
+    },
+    "AutoMatchHR": 10006,
+    "BattleBGMType": 0,
+    "ClearBGMType": 0
+  },
+  "EnemyData": {
+    "SmallMonsters": {
+      "SpawnType": 0,
+      "HealthTable": 0,
+      "AttackTable": 0,
+      "PartTable": 0,
+      "OtherTable": 0,
+      "MultiTable": 0
+    },
+    "Monsters": [
+      {
+        "PathId": 10,
+        "SetName": "デフォルト",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 156,
+        "AttackTable": 128,
+        "PartTable": 149,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 150,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "9",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      },
+      {
+        "PathId": 0,
+        "SetName": "0",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 0,
+        "AttackTable": 0,
+        "PartTable": 0,
+        "OtherTable": 0,
+        "StaminaTable": 0,
+        "Size": 100,
+        "SizeTable": 0,
+        "Difficulty": 0,
+        "MultiTable": 0
+      }
+    ]
+  },
+  "RampageData": null
+}
