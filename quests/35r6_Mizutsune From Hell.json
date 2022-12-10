@@ -1,5 +1,5 @@
 ﻿{
-  "QuestID": 511040,
+  "QuestID": 511041,
   "QuestText": {
     "QuestInfo": [
       {
@@ -12,7 +12,7 @@
       },
       {
         "Language": "ENG",
-        "Name": "Advanced: Little Nightmare!?",
+        "Name": "Advanced: Hot Hot Hot Hot",
         "Client": "Nhan",
         "Description": "I-I know there weren't any g-ghosts\r\nthere last time, b-but do you think\r\nthat maybe you could go and check\r\nfor me...? It's not because im s-scared\r\nor anything! I'm just in pain pain again...\r\nUgh, the captain's gonna kill me...",
         "Target": "Slay all target monsters",
@@ -153,17 +153,17 @@
         "SpawnParam": 30
       },
       {
-        "Id": 1366,
+        "Id": 0,
         "SpawnCondition": 8,
         "SpawnParam": 30
       },
       {
-        "Id": 2075,
+        "Id": 0,
         "SpawnCondition": 9,
         "SpawnParam": 30
       },
       {
-        "Id": 1398,
+        "Id": 0,
         "SpawnCondition": 10,
         "SpawnParam": 30
       },
@@ -208,9 +208,9 @@
     "Icons": [
       51,
       52,
-      21,
-      8,
-      57
+      999,
+      999,
+      999
     ],
     "Tutorial": false,
     "FromNpc": false,
