@@ -1,0 +1,350 @@
+﻿{
+  "QuestID": 511039,
+  "QuestText": {
+    "QuestInfo": [
+      {
+        "Language": "JPN",
+        "Name": "傀異調査：ルナガロン",
+        "Client": "研究員バハリ",
+        "Description": "傀異化したモンスターについて\r\n新たな情報が入って来たよ。\r\nどうやら…今までとは比べものに\r\nならないほど強い個体のようだ。\r\n困難な狩りになるだろうけど、\r\nキミの実力なら成し遂げられる！\r\nさあ、調査にあたってくれ。",
+        "Target": "ルナガロン（傀異化）１頭の討伐",
+        "Fail": "報酬金ゼロ\r\nタイムアップ"
+      },
+      {
+        "Language": "ENG",
+        "Name": "Advanced: Hot Spring Trip!?",
+        "Client": "Clueless Tourist",
+        "Description": "I-I know there weren't any g-ghosts\r\nthere last time, b-but do you think\r\nthat maybe you could go and check\r\nfor me...? It's not because im s-scared\r\nor anything! I'm just in pain pain again...\r\nUgh, the captain's gonna kill me...",
+        "Target": "Slay all target monsters",
+        "Fail": "Reward hits 0, or time expires"
+      },
+      {
+        "Language": "FRE",
+        "Name": "Recherche Anomalie : Lunagaron",
+        "Client": "Bahari le scientifique",
+        "Description": "Nous avons repéré un monstre affligé !\r\nEt il paraît que celui-ci est encore\r\nplus coriace que les précédents !\r\nÇa va pas être de la tarte, mais à\r\ncœur vaillant rien d'impossible !\r\nJ'ai besoin de données !",
+        "Target": "Tuer un Lunagaron affligé",
+        "Fail": "Prime à 0/Temps expiré"
+      },
+      {
+        "Language": "ITA",
+        "Name": "Ricerca anomalia: Lunagaron",
+        "Client": "Bahari lo scienziato",
+        "Description": "È il tuo giorno fortunato!\r\nSono stati avvistati dei Qurio\r\ncon un mostro infetto. Sai che\r\nsignifica, vero? Una spedizione\r\ndi ricerca! Io mi occupo dei\r\nmiei studi e tu ti procuri dei\r\nmateriali molto speciali.",
+        "Target": "Uccidi un Lunagaron infetto",
+        "Fail": "Premio a zero o tempo scaduto"
+      },
+      {
+        "Language": "GER",
+        "Name": "Anomalieforschung: Lunagaron",
+        "Client": "Bahari",
+        "Description": "Gute Nachrichten! Wir haben gerade\r\nerfahren, dass ein befallenes Monster\r\ngesichtet wurde! Noch bessere Neuig-\r\nkeiten: Es ist viel mächtiger als die,\r\ndie du kennst! Du weisst, was das\r\nbedeutet, oder? Mmmhmm! Mehr\r\nDaten! Zeit zum Nachforschen!",
+        "Target": "Erlege einen befallenen Lunagaron.",
+        "Fail": "Belohnung auf 0 oder Zeit\r\nläuft ab."
+      },
+      {
+        "Language": "SPA",
+        "Name": "Estudio Anomalía: Lunagaron",
+        "Client": "Bahari, el científico",
+        "Description": "¡Buenas noticias! Nos dicen que se\r\nacaba de avistar a un monstruo afligido,\r\n¡y te alegrará saber que este es\r\naún más fuerte que los anteriores!\r\nYa sabes qué significa eso, ¿no?\r\n¡Ajá! ¡Más datos! ¡Venga, a investigar!",
+        "Target": "Abate un Lunagaron afligido",
+        "Fail": "La recompensa cae a 0\r\no se acaba el tiempo"
+      },
+      {
+        "Language": "RUS",
+        "Name": "Аномалия: Лунагарон",
+        "Client": "Ученый Бахари",
+        "Description": "Нам сообщили, что рядом видели\r\nизмененного монстра! И похоже,\r\nчто он еще сильнее тех,\r\nс которыми ты <LSNR {бился} {билась}>.\r\nОхота будет непростой, но если\r\nкто и справится, так это ты!\r\nЗа работу!",
+        "Target": "Убить измененного Лунагарона",
+        "Fail": "Счетчик награды доходит до 0\r\nили истекает время"
+      },
+      {
+        "Language": "POL",
+        "Name": "Badania Anomalii: Lunagaron",
+        "Client": "Naukowiec Bahari",
+        "Description": "Mamy wieści o nowym zarażonym\r\npotworze! Zdaje się, że jest\r\njeszcze silniejszy niż\r\npoprzednie, które udało ci się\r\npokonać. Wiesz, co to oznacza,\r\nprawda? Dokładnie, więcej\r\ndanych! Czas na badania!",
+        "Target": "Zabij zarażonego Lunagarona",
+        "Fail": "Nagroda równa 0 lub\r\nkoniec czasu"
+      },
+      {
+        "Language": "POR",
+        "Name": "Pesquisa de Anomalia: Lunagaron",
+        "Client": "Bahari, o Cientista",
+        "Description": "Recebemos notícias de um\r\nmonstro afligido! Parece que esse\r\né ainda mais forte que os \r\noutros que você já enfrentou.\r\nNão vai ser fácil, mas você é\r\na melhor opção!\r\nHora de investigar!",
+        "Target": "Mate um Lunagaron afligido",
+        "Fail": "A recompensa chega a 0\r\nou o tempo expira"
+      },
+      {
+        "Language": "KOR",
+        "Name": "괴이 조사: 루나가론",
+        "Client": "연구원 바하리",
+        "Description": "괴이화한 몬스터의\r\n새로운 정보가 들어왔어.\r\n아무래도…지금까지와는 비교도\r\n되지 않을 만큼 강력한 개체인 듯해.\r\n까다로운 사냥이 되겠지만 \r\n네 실력이라면 문제없을 거야!\r\n자, 그럼 조사를 부탁할게!",
+        "Target": "루나가론(괴이화) 1마리 토벌",
+        "Fail": "보수금 0\r\n시간 초과"
+      },
+      {
+        "Language": "ZHT",
+        "Name": "傀異調查：冰狼龍",
+        "Client": "巴赫里研究員",
+        "Description": "傀異化魔物的新情報來了。看來……\r\n這次出現的魔物比以前出現的都要\r\n強得多，應該會是艱難的狩獵，\r\n不過以你的實力來說沒有問題啦！\r\n那就拜託你去調查啦。",
+        "Target": "討伐1頭冰狼龍（傀異化）",
+        "Fail": "報酬金0\r\n時間結束"
+      },
+      {
+        "Language": "ZHS",
+        "Name": "怪异调查：冰狼龙",
+        "Client": "研究员巴哈里",
+        "Description": "收到了怪异化怪物的最新消息。\r\n好像……这次的个体非常强大，\r\n与之前的那些怪物有天壤之别。\r\n这估计是一场硬仗，但凭你的\r\n实力应该能成功！去吧，前去\r\n调查一下吧！",
+        "Target": "讨伐1头冰狼龙（怪异化）",
+        "Fail": "报酬金额为零\r\n时间耗尽"
+      },
+      {
+        "Language": "ARA",
+        "Name": "بحث غير عادي: لوناجارون",
+        "Client": "بهاري العالِم",
+        "Description": "وردتنا للتوِّ بعض الأخبار بظهور وحش مصاب!\r\nويبدو أن هذا الوحش أقوى من الوحوش الأخرى\r\nالتي تصديت لها. لن يكون صيده سهلًا،\r\nلكنك <LSNR {الوحيد القادر} {الوحيدة القادرة}>\r\nعلى التغلب عليه! حان وقت البدء بالتحقيق!",
+        "Target": "اقتل لوناجارون مصاب",
+        "Fail": "0 ضربات المكافأة، أو ينفد الوقت"
+      }
+    ],
+    "FallbackLanguage": "ENG",
+    "DebugName": "傀異調査：ルナガロン",
+    "DebugClient": "依頼主",
+    "DebugDescription": "※ステージ、登場モンスターは全て仮となります。"
+  },
+  "QuestData": {
+    "QuestType": 2,
+    "QuestLevel": 5,
+    "EnemyLevel": 3,
+    "Map": 9,
+    "BaseTime": 21,
+    "TimeVariation": 3,
+    "TimeLimit": 50,
+    "Carts": 3,
+    "QuestConditions": [
+      22,
+      0
+    ],
+    "TargetTypes": [
+      5,
+      0
+    ],
+    "TargetMonsters": [
+      0,
+      0
+    ],
+    "TargetItemIds": [
+      67108864,
+      67108864
+    ],
+    "TargetAmounts": [
+      1,
+      0
+    ],
+    "Monsters": [
+      {
+        "Id": 594,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 1,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 7,
+        "SpawnParam": 30
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 8,
+        "SpawnParam": 30
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 5,
+        "SpawnParam": 1500
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      },
+      {
+        "Id": 0,
+        "SpawnCondition": 0,
+        "SpawnParam": 0
+      }
+    ],
+    "ExtraMonsterCount": 2,
+    "SwapExitRide": false,
+    "SwapFrequencies": [
+      70,
+      30
+    ],
+    "SwapConditions": [
+      1,
+      1
+    ],
+    "SwapParams": [
+      20,
+      22
+    ],
+    "SwapExitTimes": [
+      0,
+      0
+    ],
+    "SwapStopType": 1,
+    "SwapStopParam": 20,
+    "SwapExecType": 1,
+    "Reward": {
+      "Zenny": 150000,
+      "Points": 1500,
+      "HRP": 2020
+    },
+    "SupplyTable": 310001,
+    "Icons": [
+      51,
+      999,
+      999,
+      999,
+      999
+    ],
+    "Tutorial": false,
+    "FromNpc": false,
+    "ArenaParam": {
+      "FenceDefaultActive": false,
+      "FenceUptime": 0,
+      "FenceInitialDelay": 0,
+      "FenceCooldown": 0,
+      "Pillars": [
+        false,
+        false,
+        false
+      ]
+    },
+    "AutoMatchHR": 21081,
+    "BattleBGMType": 0,
+    "ClearBGMType": 0
+  },
+  "EnemyData": {
+    "SmallMonsters": {
+      "SpawnType": 34,
+      "HealthTable": 130,
+      "AttackTable": 123,
+      "PartTable": 149,
+      "OtherTable": 137,
+      "MultiTable": 0
+    },
+    "Monsters": [
+      {
+        "PathId": 10,
+        "SetName": "",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 173,
+        "AttackTable": 127,
+        "PartTable": 182,
+        "OtherTable": 154,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 6,
+        "Difficulty": 1,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "2",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 170,
+        "AttackTable": 124,
+        "PartTable": 157,
+        "OtherTable": 154,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 6,
+        "Difficulty": 1,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "3",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 170,
+        "AttackTable": 140,
+        "PartTable": 157,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 1,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "4",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 170,
+        "AttackTable": 140,
+        "PartTable": 157,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 1,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "5",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 170,
+        "AttackTable": 140,
+        "PartTable": 157,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 1,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "メイン",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 133,
+        "AttackTable": 123,
+        "PartTable": 149,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 10,
+        "Difficulty": 0,
+        "MultiTable": 16
+      },
+      {
+        "PathId": 10,
+        "SetName": "メイン",
+        "SubType": 0,
+        "IndividualType": 0,
+        "HealthTable": 133,
+        "AttackTable": 123,
+        "PartTable": 149,
+        "OtherTable": 137,
+        "StaminaTable": 3,
+        "Size": 100,
+        "SizeTable": 3,
+        "Difficulty": 0,
+        "MultiTable": 16
+      }
+    ]
+  },
+  "RampageData": null
+}

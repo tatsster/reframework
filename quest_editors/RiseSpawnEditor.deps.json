@@ -1,0 +1,57 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "RiseSpawnEditor/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1",
+          "WPFCustomMessageBox": "1.0.7"
+        },
+        "runtime": {
+          "RiseSpawnEditor.dll": {}
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      },
+      "WPFCustomMessageBox/1.0.7": {
+        "runtime": {
+          "lib/WPFCustomMessageBox.dll": {
+            "assemblyVersion": "1.0.7.39267",
+            "fileVersion": "1.0.7.39267"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RiseSpawnEditor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    },
+    "WPFCustomMessageBox/1.0.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H4q2aESgv74yQR47a+mbctY2YhpSVF4WhHdQNDzQ76j5q6RBbVfVDRMc/OR+amslzuVxI/p6YmkhmA/racAbhg==",
+      "path": "wpfcustommessagebox/1.0.7",
+      "hashPath": "wpfcustommessagebox.1.0.7.nupkg.sha512"
+    }
+  }
+}
