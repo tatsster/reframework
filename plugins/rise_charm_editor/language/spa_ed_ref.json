@@ -12,6 +12,8 @@
         "m_title_error": "Error",
         "m_text_error_add_charm": "No se Pudo Agregar Talisman. No se Encontró Espacio de Inventario Libre.",
         "m_button_sell_charm": "Vender Talisman",
+        "m_button_make_legal": "Hacer válido",
+        "m_checkbox_disable_sanity_check": "Deshabilitar la verificación de cordura",
         "m_button_export_charms": "Exportar talismanes",
         "m_button_import_charms": "Importar talismanes",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "Advertencia",
         "m_text_warning_hr": "No se recomienda configurar el rango de cazador manualmente. Si establece su rango de cazador sin ajustar sus puntos de rango de cazador, se quedará atrapado en ese rango de cazador específico hasta que adquiera legítimamente la XP requerida para llegar a ese rango. En su lugar, edite solo los puntos de rango de cazador, luego complete cualquier misión y su rango de cazador se ajustará en consecuencia.",
         "m_label_hunter_rank": "Rango de Cazador",
-        "m_label_hr_points": "Puntos de Rango"
+        "m_label_hr_points": "Puntos de Rango",
+        "m_label_master_rank": "Rango Maestro",
+        "m_label_mr_points": "Puntos MR"
     },
     "Itembox Editor": {
         "m_button_add_all": "Agregar todos los Objectos",
