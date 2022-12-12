@@ -12,6 +12,8 @@
         "m_title_error": "Error",
         "m_text_error_add_charm": "Talisman Hinzufügen fehlgeschlagen. Kein freier Platz verfügbar.",
         "m_button_sell_charm": "Talisman verkaufen",
+        "m_button_make_legal": "Legal machen",
+        "m_checkbox_disable_sanity_check": "Plausibilitätsprüfung deaktivieren",
         "m_button_export_charms": "Talismane Exportieren",
         "m_button_import_charms": "Talismane Importieren",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "Warnung",
         "m_text_warning_hr": "Falls du dein Jägerrang änderst ohne JR-Punkte hinzuzufügen, bleibst du so lange auf deinem jetzigen Rang bis du legitim die benötigten JR Punkte erfarmt hast. Stattdessen bearbeite nur die Jägerrang Punkte und schließe eine Quest ab, damit dein Jägerrank entsprechend aufsteigt.",
         "m_label_hunter_rank": "Jägerrang",
-        "m_label_hr_points": "JR Punkte"
+        "m_label_hr_points": "JR Punkte",
+        "m_label_master_rank": "Meisterrang",
+        "m_label_mr_points": "MR Punkte"
     },
     "Itembox Editor": {
         "m_button_add_all": "Alle Objekte Hinzufügen",

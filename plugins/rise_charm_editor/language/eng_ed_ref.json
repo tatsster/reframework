@@ -12,6 +12,8 @@
         "m_title_error": "Error",
         "m_text_error_add_charm": "Failed to add charm. No free inventory space found.",
         "m_button_sell_charm": "Sell Charm",
+        "m_button_make_legal": "Make Legal",
+        "m_checkbox_disable_sanity_check": "Bypass Sanity Check",
         "m_button_export_charms": "Export Charms",
         "m_button_import_charms": "Import Charms",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "Warning",
         "m_text_warning_hr": "Setting Hunter Rank manually is not recommended. If you set your Hunter Rank without adjusting your Hunter Rank Points, you will be stuck at that specific Hunter Rank until you legitimately acquire the XP required to get to that rank. Instead, edit only Hunter Rank Points, then complete any quest and your Hunter Rank will adjust accordingly.",
         "m_label_hunter_rank": "Hunter Rank",
-        "m_label_hr_points": "HR Points"
+        "m_label_hr_points": "HR Points",
+        "m_label_master_rank": "Master Rank",
+        "m_label_mr_points": "MR Points"
     },
     "Itembox Editor": {
         "m_button_add_all": "Add All Items",

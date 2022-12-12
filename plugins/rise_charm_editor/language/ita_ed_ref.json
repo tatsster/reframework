@@ -12,6 +12,8 @@
         "m_title_error": "Errore",
         "m_text_error_add_charm": "Impossibile aggiungere il talismano. Nessuno spazio libero trovato nell'inventario.",
         "m_button_sell_charm": "Vendere il Talismano",
+        "m_button_make_legal": "Rendi legale",
+        "m_checkbox_disable_sanity_check": "Disabilita il controllo di integrità",
         "m_button_export_charms": "Esporta talismani",
         "m_button_import_charms": "Importa talismani",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "Attenzione",
         "m_text_warning_hr": "L'impostazione manuale del grado cacciatore non è consigliata. Se imposti il tuo grado cacciatore senza modificare i tuoi punti grado cacciatore, rimarrai bloccato a quel grado cacciatore finchè non avrai acquisito legittimamente l'esperienza richiesta per arrivare a quel grado cacciatore. Al contrario, modificare i punti GC, dopodichè completare qualsiasi quest e il tuo Grado Cacciatore verrà modificato di conseguenza.",
         "m_label_hunter_rank": "Grado Cacciatore",
-        "m_label_hr_points": "Punti GC"
+        "m_label_hr_points": "Punti GC",
+        "m_label_master_rank": "Grado di maestro",
+        "m_label_mr_points": "Punti MR"
     },
     "Itembox Editor": {
         "m_button_add_all": "Aggiungi tutti gli oggetti",

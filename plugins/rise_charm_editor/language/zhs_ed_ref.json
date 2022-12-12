@@ -12,6 +12,8 @@
         "m_title_error": "错误",
         "m_text_error_add_charm": "添加护石失败，装备箱已满",
         "m_button_sell_charm": "出售护石",
+        "m_button_make_legal": "使合法",
+        "m_checkbox_disable_sanity_check": "禁用健全性检查",
         "m_button_export_charms": "出口护身符",
         "m_button_import_charms": "进口护身符",
         "m_button_ok": "好",
@@ -27,7 +29,9 @@
         "m_text_warning": "警告",
         "m_text_warning_hr": "不建议手动设置猎人等级。如果你设置了猎人等级而没有调整猎人等级点数，你将被卡在那个特定的猎人等级，直到你合法地获得达到该等级所需的经验点数。相反，只编辑猎人等级经验点数，然后完成任何任务，你的猎人等级就会相应调整。",
         "m_label_hunter_rank": "猎人等级",
-        "m_label_hr_points": "HR 点数"
+        "m_label_hr_points": "HR 点数",
+        "m_label_master_rank": "大师等级",
+        "m_label_mr_points": "MR 点数"
     },
     "Itembox Editor": {
         "m_button_add_all": "添加全部道具",

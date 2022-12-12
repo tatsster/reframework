@@ -12,6 +12,8 @@
         "m_title_error": "오류",
         "m_text_error_add_charm": "매력을 추가하지 못했습니다. 사용 가능한 인벤토리 공간이 없습니다.",
         "m_button_sell_charm": "부적 판매",
+        "m_button_make_legal": "합법화",
+        "m_checkbox_disable_sanity_check": "온전성 검사 비활성화",
         "m_button_export_charms": "수출 부적",
         "m_button_import_charms": "부적 가져오기",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "경고",
         "m_text_warning_hr": "헌터 랭크를 수동으로 설정하는 것은 권장하지 않습니다. 헌터 랭크 포인트를 조정하지 않고 헌터 랭크를 설정하면 해당 랭크에 도달하는 데 필요한 XP를 합법적으로 획득할 때까지 특정 헌터 랭크에 고정됩니다. 대신 헌터 랭크 포인트만 편집한 다음 퀘스트를 완료하면 헌터 랭크가 그에 따라 조정됩니다.",
         "m_label_hunter_rank": "헌터 랭크",
-        "m_label_hr_points": "인사 포인트"
+        "m_label_hr_points": "인사 포인트",
+        "m_label_master_rank": "마스터 랭크",
+        "m_label_mr_points": "미스터 포인트"
     },
     "Itembox Editor": {
         "m_button_add_all": "모든 항목 추가",

@@ -12,6 +12,8 @@
         "m_title_error": "Erro",
         "m_text_error_add_charm": "Falha ao adicionar talismã. Nenhum espaço de inventário gratuito encontrado.",
         "m_button_sell_charm": "Vender talismã",
+        "m_button_make_legal": "Tornar legal",
+        "m_checkbox_disable_sanity_check": "Desabilitar verificação de integridade",
         "m_button_export_charms": "Exportar talismãs",
         "m_button_import_charms": "Importar talismãs",
         "m_button_ok": "OK",
@@ -27,7 +29,9 @@
         "m_text_warning": "Aviso",
         "m_text_warning_hr": "Não é recomendado configurar a Classificação de caçador manualmente. Se você definir sua Classificação de Caçador sem ajustar seus Pontos de Classificação de Caçador, ficará preso a essa Classificação de Caçador específica até adquirir legitimamente o XP necessário para chegar a essa classificação. Em vez disso, edite apenas os Pontos de Classificação de Caçador, depois complete qualquer missão e sua Classificação de Caçador se ajustará de acordo.",
         "m_label_hunter_rank": "Classificação de caçador",
-        "m_label_hr_points": "RC Pontos"
+        "m_label_hr_points": "RC Pontos",
+        "m_label_master_rank": "Classificação Mestre",
+        "m_label_mr_points": "MC Pontos"
     },
     "Itembox Editor": {
         "m_button_add_all": "Adicionar todos os itens",

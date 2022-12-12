@@ -12,6 +12,8 @@
         "m_title_error": "خطأ",
         "m_text_error_add_charm": "فشل في إضافة تعويذة. لا توجد مساحة جرد خالية.",
         "m_button_sell_charm": "بيع تعويذة",
+        "m_button_make_legal": "اجعلها صالحة",
+        "m_checkbox_disable_sanity_check": "تعطيل فحص الصحة",
         "m_button_export_charms": "تصدير التعويذات",
         "m_button_import_charms": "استيراد التعويذات",
         "m_button_ok": "نعم",
@@ -27,7 +29,9 @@
         "m_text_warning": "تحذير",
         "m_text_warning_hr": "لا ينصح بتحديد رتبة الصياد يدويًا. إذا قمت بتعيين رتبة الصياد الخاصة بك دون تعديل نقاط تصنيف الصياد الـ لخاصة بك ، فستظل عالقًا في رتبة الصياد المحددة هذه حتى تحصل بشكل شرعي على XP المطلوبة للوصول إلى هذا التصنيف. بدلاً من ذلك ، قم بتحرير نقاط Hunter Rank Points فقط ، ثم أكمل أي مهمة وسيتم تعديل رتبة Hunter Rank الخاصة بك وفقًا لذلك.",
         "m_label_hunter_rank": "رتبة الصياد",
-        "m_label_hr_points": "نقاط الموارد البشرية"
+        "m_label_hr_points": "نقاط الموارد البشرية",
+        "m_label_master_rank": "رتبة المتميز",
+        "m_label_mr_points": "نقاط MR"
     },
     "Itembox Editor": {
         "m_button_add_all": "أضف كافة العناصر",
