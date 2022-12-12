@@ -1,6 +1,6 @@
 {
     "InfiniteDangoTickets": false,
-    "ShowAllDango": false,
+    "ShowAllDango": true,
     "TicketByDefault": true,
     "skewerLvs": [
         4,
