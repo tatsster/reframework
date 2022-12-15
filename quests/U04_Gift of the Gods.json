@@ -119,7 +119,7 @@
     "Map": 14,
     "BaseTime": 8,
     "TimeVariation": 3,
-    "TimeLimit": 40,
+    "TimeLimit": 50,
     "Carts": 3,
     "QuestConditions": [
       22,
@@ -148,8 +148,8 @@
         "SpawnParam": 0
       },
       {
-        "Id": 72,
-        "SpawnCondition": 1,
+        "Id": 392,
+        "SpawnCondition": 2,
         "SpawnParam": 0
       },
       {
@@ -207,7 +207,7 @@
     "SupplyTable": 0,
     "Icons": [
       51,
-      48,
+      63,
       999,
       999,
       999
@@ -244,9 +244,9 @@
         "SetName": "0",
         "SubType": 0,
         "IndividualType": 0,
-        "HealthTable": 127,
-        "AttackTable": 114,
-        "PartTable": 146,
+        "HealthTable": 164,
+        "AttackTable": 135,
+        "PartTable": 186,
         "OtherTable": 0,
         "StaminaTable": 3,
         "Size": 110,
@@ -259,9 +259,9 @@
         "SetName": "0",
         "SubType": 0,
         "IndividualType": 0,
-        "HealthTable": 132,
-        "AttackTable": 118,
-        "PartTable": 143,
+        "HealthTable": 164,
+        "AttackTable": 135,
+        "PartTable": 162,
         "OtherTable": 0,
         "StaminaTable": 3,
         "Size": 120,
