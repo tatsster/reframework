@@ -153,8 +153,8 @@
         "SpawnParam": 0
       },
       {
-        "Id": 0,
-        "SpawnCondition": 0,
+        "Id": 1369,
+        "SpawnCondition": 8,
         "SpawnParam": 0
       },
       {
@@ -208,7 +208,7 @@
     "Icons": [
       51,
       63,
-      999,
+      52,
       999,
       999
     ],
@@ -274,9 +274,9 @@
         "SetName": "0",
         "SubType": 0,
         "IndividualType": 0,
-        "HealthTable": 131,
-        "AttackTable": 128,
-        "PartTable": 142,
+        "HealthTable": 164,
+        "AttackTable": 135,
+        "PartTable": 162,
         "OtherTable": 0,
         "StaminaTable": 3,
         "Size": 120,
