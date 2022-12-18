@@ -143,7 +143,7 @@
     ],
     "Monsters": [
       {
-        "Id": 594,
+        "Id": 513,
         "SpawnCondition": 1,
         "SpawnParam": 0
       },
@@ -163,7 +163,7 @@
         "SpawnParam": 0
       },
       {
-        "Id": 513,
+        "Id": 594,
         "SpawnCondition": 10,
         "SpawnParam": 0
       },
@@ -206,11 +206,11 @@
     },
     "SupplyTable": 0,
     "Icons": [
-      51,
+      41,
       63,
       21,
       8,
-      41
+      51
     ],
     "Tutorial": false,
     "FromNpc": false,
