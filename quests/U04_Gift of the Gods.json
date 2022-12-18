@@ -158,8 +158,8 @@
         "SpawnParam": 0
       },
       {
-        "Id": 0,
-        "SpawnCondition": 0,
+        "Id": 2075,
+        "SpawnCondition": 9,
         "SpawnParam": 0
       },
       {
@@ -209,7 +209,7 @@
       51,
       63,
       21,
-      999,
+      8,
       999
     ],
     "Tutorial": false,
@@ -288,13 +288,13 @@
         "PathId": 0,
         "SetName": "0",
         "SubType": 0,
-        "IndividualType": 0,
-        "HealthTable": 137,
-        "AttackTable": 92,
-        "PartTable": 178,
+        "IndividualType": 2,
+        "HealthTable": 164,
+        "AttackTable": 135,
+        "PartTable": 186,
         "OtherTable": 0,
         "StaminaTable": 3,
-        "Size": 255,
+        "Size": 120,
         "SizeTable": 0,
         "Difficulty": 0,
         "MultiTable": 16
