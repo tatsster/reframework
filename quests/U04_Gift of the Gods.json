@@ -153,7 +153,7 @@
         "SpawnParam": 0
       },
       {
-        "Id": 1369,
+        "Id": 0,
         "SpawnCondition": 8,
         "SpawnParam": 0
       },
@@ -208,7 +208,7 @@
     "Icons": [
       51,
       63,
-      52,
+      999,
       999,
       999
     ],
