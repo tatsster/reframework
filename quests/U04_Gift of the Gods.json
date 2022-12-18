@@ -163,8 +163,8 @@
         "SpawnParam": 0
       },
       {
-        "Id": 0,
-        "SpawnCondition": 0,
+        "Id": 513,
+        "SpawnCondition": 10,
         "SpawnParam": 0
       },
       {
@@ -210,7 +210,7 @@
       63,
       21,
       8,
-      999
+      41
     ],
     "Tutorial": false,
     "FromNpc": false,
@@ -304,15 +304,15 @@
         "SetName": "0",
         "SubType": 0,
         "IndividualType": 0,
-        "HealthTable": 0,
-        "AttackTable": 0,
-        "PartTable": 0,
+        "HealthTable": 164,
+        "AttackTable": 135,
+        "PartTable": 186,
         "OtherTable": 0,
-        "StaminaTable": 0,
-        "Size": 100,
+        "StaminaTable": 3,
+        "Size": 120,
         "SizeTable": 0,
         "Difficulty": 0,
-        "MultiTable": 0
+        "MultiTable": 16
       },
       {
         "PathId": 0,
