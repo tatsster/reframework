@@ -12,10 +12,10 @@
       },
       {
         "Language": "ENG",
-        "Name": "<COLOR ca0000><SHADOW><ITALIC>RAGNAROK</SHADOW></ITALIC></COLOR>: Gift of the Gods",
+        "Name": "Time to Suffer: Again",
         "Client": "Violet Eyed Wyverian(?)",
-        "Description": "I saw a monster who seemed almost\r\ndivine rise into the sky. For a moment\r\nit felt like I was watching an angel, and\r\nit reminded me of that day... But I know\r\nthis is nothing more than a monster set\r\non causing pain, so please, put it to rest.\r\nI'll take care of some others in the meantime.",
-        "Target": "Hunt a Violet Mizutsune and slay a Shagaru Magala",
+        "Description": "It could've been worse...",
+        "Target": "Kill them all...",
         "Fail": "Reward hits 0, or time expires"
       },
       {
@@ -116,7 +116,7 @@
     "QuestType": 1,
     "QuestLevel": 5,
     "EnemyLevel": 3,
-    "Map": 14,
+    "Map": 9,
     "BaseTime": 8,
     "TimeVariation": 3,
     "TimeLimit": 50,
