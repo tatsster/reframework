@@ -116,7 +116,7 @@
     "QuestType": 1,
     "QuestLevel": 5,
     "EnemyLevel": 3,
-    "Map": 9,
+    "Map": 14,
     "BaseTime": 8,
     "TimeVariation": 3,
     "TimeLimit": 50,
