@@ -143,27 +143,27 @@
     ],
     "Monsters": [
       {
-        "Id": 513,
+        "Id": 594,
         "SpawnCondition": 1,
         "SpawnParam": 0
       },
       {
-        "Id": 392,
+        "Id": 1366,
         "SpawnCondition": 7,
         "SpawnParam": 0
       },
       {
-        "Id": 1366,
+        "Id": 27,
         "SpawnCondition": 8,
         "SpawnParam": 0
       },
       {
-        "Id": 2075,
+        "Id": 392,
         "SpawnCondition": 9,
         "SpawnParam": 0
       },
       {
-        "Id": 594,
+        "Id": 513,
         "SpawnCondition": 10,
         "SpawnParam": 0
       },
@@ -206,11 +206,11 @@
     },
     "SupplyTable": 0,
     "Icons": [
-      41,
-      63,
+      51,
       21,
       8,
-      51
+      63,
+      41
     ],
     "Tutorial": false,
     "FromNpc": false,
@@ -273,7 +273,7 @@
         "PathId": 0,
         "SetName": "0",
         "SubType": 0,
-        "IndividualType": 0,
+        "IndividualType": 2,
         "HealthTable": 146,
         "AttackTable": 133,
         "PartTable": 157,
@@ -288,7 +288,7 @@
         "PathId": 0,
         "SetName": "0",
         "SubType": 0,
-        "IndividualType": 2,
+        "IndividualType": 0,
         "HealthTable": 146,
         "AttackTable": 133,
         "PartTable": 157,
