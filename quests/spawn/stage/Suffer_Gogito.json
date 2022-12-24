@@ -1,0 +1,56 @@
+﻿{
+  "QuestID": -1,
+  "Map": 14,
+  "Setters": [
+    {
+      "SetName": "Main Default",
+      "Spawns": [
+        {
+          "Chance": 100,
+          "Area": 1,
+          "SubSpawn": 0,
+          "Coordinates": {
+            "X": -8.608107,
+            "Y": -0.907317,
+            "Z": -138.579895
+          }
+        },
+        {
+          "Chance": 0,
+          "Area": 0,
+          "SubSpawn": 0,
+          "Coordinates": null
+        },
+        {
+          "Chance": 0,
+          "Area": 0,
+          "SubSpawn": 0,
+          "Coordinates": null
+        }
+      ]
+    },
+    {
+      "SetName": "",
+      "Spawns": [
+        {
+          "Chance": 0,
+          "Area": 0,
+          "SubSpawn": 0,
+          "Coordinates": null
+        },
+        {
+          "Chance": 0,
+          "Area": 0,
+          "SubSpawn": 0,
+          "Coordinates": null
+        },
+        {
+          "Chance": 0,
+          "Area": 0,
+          "SubSpawn": 0,
+          "Coordinates": null
+        }
+      ]
+    }
+  ]
+}
