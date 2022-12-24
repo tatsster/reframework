@@ -148,12 +148,12 @@
         "SpawnParam": 0
       },
       {
-        "Id": 594,
+        "Id": 2075,
         "SpawnCondition": 7,
         "SpawnParam": 0
       },
       {
-        "Id": 2075,
+        "Id": 594,
         "SpawnCondition": 8,
         "SpawnParam": 0
       },
@@ -207,8 +207,8 @@
     "SupplyTable": 310003,
     "Icons": [
       52,
-      51,
       8,
+      51,
       46,
       6
     ],
@@ -258,7 +258,7 @@
         "PathId": 10,
         "SetName": "Main Default",
         "SubType": 0,
-        "IndividualType": 0,
+        "IndividualType": 2,
         "HealthTable": 146,
         "AttackTable": 133,
         "PartTable": 157,
@@ -273,7 +273,7 @@
         "PathId": 0,
         "SetName": "0",
         "SubType": 0,
-        "IndividualType": 2,
+        "IndividualType": 0,
         "HealthTable": 146,
         "AttackTable": 133,
         "PartTable": 157,
