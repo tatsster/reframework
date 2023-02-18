@@ -160,6 +160,11 @@ augmentCombo[50] = "B-Tier Skill"
 augmentCombo[51] = "A-Tier Skill"
 augmentCombo[52] = "S-Tier Skill"
 augmentCombo[53] = "Skill Removal"
+augmentCombo[54] = "Fire Res -7"
+augmentCombo[55] = "Water Res -7"
+augmentCombo[56] = "Thunder Res -7"
+augmentCombo[57] = "Ice Res -7"
+augmentCombo[58] = "Dragon Res -7"
 
 local sortedAugmentCombo = {}
 sortedAugmentCombo["None"] =                {"000_0", 1}
@@ -184,26 +189,31 @@ sortedAugmentCombo["Defense +26"] =         {"076_2", 19}
 sortedAugmentCombo["Fire Res -1"] =         {"089_0", 20}
 sortedAugmentCombo["Fire Res -2"] =         {"089_1", 21}
 sortedAugmentCombo["Fire Res -3"] =         {"090_0", 22}
+sortedAugmentCombo["Fire Res -7"] =         {"091_0", 54}
 sortedAugmentCombo["Fire Res +1"] =         {"094_0", 23}
 sortedAugmentCombo["Fire Res +2"] =         {"094_1", 24}
 sortedAugmentCombo["Water Res -1"] =        {"099_0", 25}
 sortedAugmentCombo["Water Res -2"] =        {"099_1", 26}
 sortedAugmentCombo["Water Res -3"] =        {"100_0", 27}
+sortedAugmentCombo["Water Res -7"] =        {"101_0", 55}
 sortedAugmentCombo["Water Res +1"] =        {"104_0", 28}
 sortedAugmentCombo["Water Res +2"] =        {"104_1", 29}
 sortedAugmentCombo["Thunder Res -1"] =      {"109_0", 30}
 sortedAugmentCombo["Thunder Res -2"] =      {"109_1", 31}
 sortedAugmentCombo["Thunder Res -3"] =      {"110_0", 32}
+sortedAugmentCombo["Thunder Res -7"] =      {"111_0", 56}
 sortedAugmentCombo["Thunder Res +1"] =      {"114_0", 33}
 sortedAugmentCombo["Thunder Res +2"] =      {"114_1", 34}
 sortedAugmentCombo["Ice Res -1"] =          {"119_0", 35}
 sortedAugmentCombo["Ice Res -2"] =          {"119_1", 36}
 sortedAugmentCombo["Ice Res -3"] =          {"120_0", 37}
+sortedAugmentCombo["Ice Res -7"] =          {"121_0", 57}
 sortedAugmentCombo["Ice Res +1"] =          {"124_0", 38}
 sortedAugmentCombo["Ice Res +2"] =          {"124_1", 39}
 sortedAugmentCombo["Dragon Res -1"] =       {"129_0", 40}
 sortedAugmentCombo["Dragon Res -2"] =       {"129_1", 41}
 sortedAugmentCombo["Dragon Res -3"] =       {"130_0", 42}
+sortedAugmentCombo["Dragon Res -7"] =       {"131_0", 58}
 sortedAugmentCombo["Dragon Res +1"] =       {"134_0", 43}
 sortedAugmentCombo["Dragon Res +2"] =       {"134_1", 44}
 sortedAugmentCombo["Slot +1"] =             {"139_0", 45}
@@ -217,21 +227,49 @@ sortedAugmentCombo["S-Tier Skill"] =        {"148_0", 52}
 sortedAugmentCombo["Skill Removal"] =       {"149_0", 53}
 
 local skill = {}
-skill[144] = {
-    93, 42, 13, 14, 15, 16, 17, 43, 44, 56, 57, 58, 59, 62, 72, 73, 74, 75, 76, 77, 78, 85, 88, 89, 90, 92, 96, 97, 98, 99, 123, 129,
-}
-skill[145] = {
-    46, 35, 36, 18, 19, 20, 21, 32, 33, 34, 39, 40, 41, 47, 54, 60, 63, 64, 65, 66, 81, 105, 106, 118, 52, 53, 100, 101, 102
-}
-skill[146] = {
-    25, 87, 26, 11, 27, 38, 30, 31, 37, 61, 91, 108, 104, 124, 125, 127, 128, 122, 130, 120, 114, 134,
-}
-skill[147] = {
-    22, 2, 3, 4, 5, 116, 9, 10, 84, 131, 126, 107, 45, 136, 119, 112, 117
-}
-skill[148] = {
-    6, 7, 8, 12, 23, 24, 48, 49, 50, 51, 55, 1, 132
-}
+
+local skillInitTranslation = {}
+skillInitTranslation[3] = 144
+skillInitTranslation[6] = 145
+skillInitTranslation[9] = 146
+skillInitTranslation[12] = 147
+skillInitTranslation[15] = 148
+local function initSkills()
+    local customBuildupModule = sdk.get_managed_singleton("snow.data.CustomBuildupModule")
+    if not customBuildupModule then return false end
+
+    skill = {}
+
+    for i = 1,255 do
+        local skillType = customBuildupModule:getBuilduptSkillCost(i)
+        if skillType ~= 0 then
+            if not skill[skillInitTranslation[skillType]] then
+                skill[skillInitTranslation[skillType]] = {}
+            end
+            table.insert(skill[skillInitTranslation[skillType]], i)
+        end
+    end
+
+    for i,v in pairs(skill) do
+        log.debug(i .. ": " .. table.concat(v, ", "))
+    end
+
+    log.debug("Qurious Cheating initialized")
+
+    return true
+end
+
+local initializing = true
+local initStep = 0
+re.on_frame(function()
+    if initializing then
+        initStep = initStep + 1
+        if initStep > 60 then
+            initStep = 0
+            initializing = not initSkills()
+        end
+    end
+end)
 
 local getName = sdk.find_type_definition("snow.data.DataShortcut"):get_method("getName(snow.data.DataDef.PlEquipSkillId)")
 
