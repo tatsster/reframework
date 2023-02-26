@@ -74,19 +74,18 @@ writeBytes(symbolName, bt)
 }
 [ENABLE]
 
-define(player_zenni,MonsterHunterRise.exe+F3EF618)
-define(current_player,MonsterHunterRise.exe+F3F23D8)
-define(item_capacity,MonsterHunterRise.exe+F4B08A0)
-define(bonusSet_Res,MonsterHunterRise.exe+F4B54A0)
-define(quest_session,MonsterHunterRise.exe+F3EF780)
-define(skill_data,MonsterHunterRise.exe+F4B38E8)
+define(player_zenni,MonsterHunterRise.exe+F6EA408)
+define(item_capacity,MonsterHunterRise.exe+F6D97D0)
+define(current_player,MonsterHunterRise.exe+F6E8F88)
+define(bonusSet_Res,MonsterHunterRise.exe+F6DD9E0)
+define(quest_session,MonsterHunterRise.exe+F61E8E8)
+define(skill_data,MonsterHunterRise.exe+F6EBE10)
 define(skill_params,MonsterHunterRise.exe+C0E7180)
-define(char_voucher,MonsterHunterRise.exe+C0A7898)
-define(hunter_rank,MonsterHunterRise.exe+F4B0BE0)
-define(guild_card,MonsterHunterRise.exe+F4B97E8)
-define(skills_current,MonsterHunterRise.exe+F4B81B8)
-define(save_data,MonsterHunterRise.exe+F4AAF60)
-define(voucher_used,MonsterHunterRise.exe+F4AB130)
+define(hunter_rank,MonsterHunterRise.exe+F6ED000)
+define(guild_card,MonsterHunterRise.exe+F6F0370)
+define(skills_current,MonsterHunterRise.exe+F6F4970)
+define(save_data,MonsterHunterRise.exe+F6E2210)
+define(voucher_used,MonsterHunterRise.exe+F6E24C0)
 
 registersymbol(player_zenni)
 registersymbol(current_player)
@@ -95,7 +94,6 @@ registersymbol(bonusSet_Res)
 registersymbol(quest_session)
 registersymbol(skill_data)
 registersymbol(skill_params)
-registersymbol(char_voucher)
 registersymbol(hunter_rank)
 registersymbol(guild_card)
 registersymbol(skills_current)
@@ -110,7 +108,6 @@ unregistersymbol(bonusSet_Res)
 unregistersymbol(quest_session)
 unregistersymbol(skill_data)
 unregistersymbol(skill_params)
-unregistersymbol(char_voucher)
 unregistersymbol(hunter_rank)
 unregistersymbol(skills_current)
 unregistersymbol(save_data)
@@ -222,21 +219,21 @@ unregistersymbol(voucher_used)
                       <Description>"Damage Limit Cap"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+7337B94</Address>
+                      <Address>MonsterHunterRise.exe+73EDF14</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095725</ID>
                       <Description>"Defense Limit Cap"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+7337B98</Address>
+                      <Address>MonsterHunterRise.exe+73EDF18</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095728</ID>
                       <Description>"Wirebug+ Duration"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Double</VariableType>
-                      <Address>MonsterHunterRise.exe+7330378</Address>
+                      <Address>MonsterHunterRise.exe+73E6F40</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095730</ID>
@@ -251,70 +248,70 @@ unregistersymbol(voucher_used)
                       <Description>"Timer (Hunt Complete)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F3F0EE0</Address>
+                      <Address>MonsterHunterRise.exe+F620690</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095732</ID>
                       <Description>"Timer (Capture)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F3F0EE4</Address>
+                      <Address>MonsterHunterRise.exe+F620694</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095734</ID>
                       <Description>"Base Max Health"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF60</Address>
+                      <Address>MonsterHunterRise.exe+F6D98D0</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095735</ID>
                       <Description>"Base Health"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF64</Address>
+                      <Address>MonsterHunterRise.exe+F6D98D4</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095736</ID>
                       <Description>"???"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF68</Address>
+                      <Address>MonsterHunterRise.exe+F6D98D8</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095737</ID>
                       <Description>"Max Stamina"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF6C</Address>
+                      <Address>MonsterHunterRise.exe+F6D98DC</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095738</ID>
                       <Description>"Starting Stamina"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF70</Address>
+                      <Address>MonsterHunterRise.exe+F6D98E0</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095739</ID>
                       <Description>"Stamina Hunger Reduction"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF74</Address>
+                      <Address>MonsterHunterRise.exe+F6D98E4</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095740</ID>
                       <Description>"Dash Juice (Stamina)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF78</Address>
+                      <Address>MonsterHunterRise.exe+F6D98E8</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095741</ID>
                       <Description>"???"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F4BEF7C</Address>
+                      <Address>MonsterHunterRise.exe+F6D98EC</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -558,7 +555,7 @@ unregistersymbol(voucher_used)
                       <VariableType>4 Bytes</VariableType>
                       <Address>guild_card</Address>
                       <Offsets>
-                        <Offset>D4</Offset>
+                        <Offset>DC</Offset>
                         <Offset>70</Offset>
                       </Offsets>
                     </CheatEntry>
@@ -569,7 +566,7 @@ unregistersymbol(voucher_used)
                       <VariableType>4 Bytes</VariableType>
                       <Address>guild_card</Address>
                       <Offsets>
-                        <Offset>D8</Offset>
+                        <Offset>E0</Offset>
                         <Offset>70</Offset>
                       </Offsets>
                     </CheatEntry>
@@ -8812,7 +8809,7 @@ unregistersymbol(gPetalace)
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
-aobscanmodule(getCharm,MonsterHunterRise.exe,49 8B 56 10 48 8B 82 C0 00 00 00) // should be unique
+aobscanmodule(getCharm,MonsterHunterRise.exe,49 8B 98 80 00 00 00 4D) // should be unique
 alloc(newmem,$128,getCharm)
 
 label(code)
@@ -8823,9 +8820,8 @@ registersymbol(gCharm)
 newmem:
 
 code:
-  mov rdx,[r14+10]
-  mov rax,[rdx+000000C0]
-  mov [gCharm],rdx
+  mov rbx,[r8+00000080]
+  mov [gCharm],r8
   jmp return
 
 gCharm:
@@ -8833,14 +8829,14 @@ gCharm:
 
 getCharm:
   jmp newmem
-  nop 6
+  nop 2
 return:
 registersymbol(getCharm)
 
 [DISABLE]
 
 getCharm:
-  db 49 8B 56 10 48 8B 82 C0 00 00 00
+  db 49 8B 98 80 00 00 00
 
 unregistersymbol(getCharm)
 dealloc(newmem)
@@ -9050,6 +9046,265 @@ MonsterHunterRise.exe+1165231: E8 DA DF 61 00        - call MonsterHunterRise.ex
                   <CheatEntries>
                     <CheatEntry>
                       <ID>1337096386</ID>
+                      <Description>"Level"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>gCharm</Address>
+                      <Offsets>
+                        <Offset>2C</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+              </CheatEntries>
+            </CheatEntry>
+            <CheatEntry>
+              <ID>1337096416</ID>
+              <Description>"Charm Editor"</Description>
+              <Options moHideChildren="1"/>
+              <Color>0000FF</Color>
+              <VariableType>Auto Assembler Script</VariableType>
+              <AssemblerScript>[ENABLE]
+
+aobscanmodule(getCharm,MonsterHunterRise.exe,49 8B 56 10 48 8B 82 C0 00 00 00) // should be unique
+alloc(newmem,$128,getCharm)
+
+label(code)
+label(return)
+
+label(gCharm)
+registersymbol(gCharm)
+newmem:
+
+code:
+  mov rdx,[r14+10]
+  mov rax,[rdx+000000C0]
+  mov [gCharm],rdx
+  jmp return
+
+gCharm:
+  dq 0
+
+getCharm:
+  jmp newmem
+  nop 6
+return:
+registersymbol(getCharm)
+
+[DISABLE]
+
+getCharm:
+  db 49 8B 56 10 48 8B 82 C0 00 00 00
+
+unregistersymbol(getCharm)
+dealloc(newmem)
+unregistersymbol(gCharm)
+{
+// ORIGINAL CODE - INJECTION POINT: MonsterHunterRise.exe+1165204
+
+MonsterHunterRise.exe+11651E0: 44 89 60 10           - mov [rax+10],r12d
+MonsterHunterRise.exe+11651E4: 44 89 60 18           - mov [rax+18],r12d
+MonsterHunterRise.exe+11651E8: 49 8B 57 30           - mov rdx,[r15+30]
+MonsterHunterRise.exe+11651EC: 48 8B 14 13           - mov rdx,[rbx+rdx]
+MonsterHunterRise.exe+11651F0: E8 7B A5 F8 00        - call MonsterHunterRise.exe+20EF770
+MonsterHunterRise.exe+11651F5: 49 8B 47 30           - mov rax,[r15+30]
+MonsterHunterRise.exe+11651F9: FF C7                 - inc edi
+MonsterHunterRise.exe+11651FB: 48 83 C3 08           - add rbx,08
+MonsterHunterRise.exe+11651FF: 3B 78 1C              - cmp edi,[rax+1C]
+MonsterHunterRise.exe+1165202: 7C CC                 - jl MonsterHunterRise.exe+11651D0
+// ---------- INJECTING HERE ----------
+MonsterHunterRise.exe+1165204: 49 8B 5F 10           - mov rbx,[r15+10]
+// ---------- DONE INJECTING  ----------
+MonsterHunterRise.exe+1165208: 41 B8 02 00 00 00     - mov r8d,00000002
+MonsterHunterRise.exe+116520E: 48 8B CD              - mov rcx,rbp
+MonsterHunterRise.exe+1165211: 48 8B 93 90 00 00 00  - mov rdx,[rbx+00000090]
+MonsterHunterRise.exe+1165218: E8 F3 DF 61 00        - call MonsterHunterRise.exe+1783210
+MonsterHunterRise.exe+116521D: 84 C0                 - test al,al
+MonsterHunterRise.exe+116521F: 75 1F                 - jne MonsterHunterRise.exe+1165240
+MonsterHunterRise.exe+1165221: 48 8B 93 90 00 00 00  - mov rdx,[rbx+00000090]
+MonsterHunterRise.exe+1165228: 41 B8 03 00 00 00     - mov r8d,00000003
+MonsterHunterRise.exe+116522E: 48 8B CD              - mov rcx,rbp
+MonsterHunterRise.exe+1165231: E8 DA DF 61 00        - call MonsterHunterRise.exe+1783210
+}
+</AssemblerScript>
+              <CheatEntries>
+                <CheatEntry>
+                  <ID>1337096417</ID>
+                  <Description>"??"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096418</ID>
+                  <Description>"Illegal Flag"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                    <Offset>10</Offset>
+                    <Offset>C0</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096419</ID>
+                  <Description>"Rarity"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>34</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096420</ID>
+                  <Description>"Level 1 Slots"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>24</Offset>
+                    <Offset>78</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096421</ID>
+                  <Description>"Level 2 Slots"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>28</Offset>
+                    <Offset>78</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096422</ID>
+                  <Description>"Level 3 Slots"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>2C</Offset>
+                    <Offset>78</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096423</ID>
+                  <Description>"Level 4 Slots"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>30</Offset>
+                    <Offset>78</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096424</ID>
+                  <Description>"Skills"</Description>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>4 Bytes</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>1C</Offset>
+                    <Offset>80</Offset>
+                  </Offsets>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096425</ID>
+                  <Description>"Skill 1"</Description>
+                  <DropDownListLink>listSkills</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>20</Offset>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337096426</ID>
+                      <Description>"Level"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>gCharm</Address>
+                      <Offsets>
+                        <Offset>20</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096427</ID>
+                  <Description>"Skill 2"</Description>
+                  <DropDownListLink>listSkills</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>21</Offset>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337096428</ID>
+                      <Description>"Level"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>gCharm</Address>
+                      <Offsets>
+                        <Offset>24</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096429</ID>
+                  <Description>"Skill 3"</Description>
+                  <DropDownListLink>listSkills</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>22</Offset>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337096430</ID>
+                      <Description>"Level"</Description>
+                      <ShowAsSigned>0</ShowAsSigned>
+                      <VariableType>4 Bytes</VariableType>
+                      <Address>gCharm</Address>
+                      <Offsets>
+                        <Offset>28</Offset>
+                        <Offset>88</Offset>
+                      </Offsets>
+                    </CheatEntry>
+                  </CheatEntries>
+                </CheatEntry>
+                <CheatEntry>
+                  <ID>1337096431</ID>
+                  <Description>"Skill 4"</Description>
+                  <DropDownListLink>listSkills</DropDownListLink>
+                  <ShowAsSigned>0</ShowAsSigned>
+                  <VariableType>Byte</VariableType>
+                  <Address>gCharm</Address>
+                  <Offsets>
+                    <Offset>23</Offset>
+                    <Offset>80</Offset>
+                  </Offsets>
+                  <CheatEntries>
+                    <CheatEntry>
+                      <ID>1337096432</ID>
                       <Description>"Level"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
@@ -10443,6 +10698,7 @@ MonsterHunterRise.exe+347A910: 41 B0 01                 - mov r8l,01
             <CheatEntry>
               <ID>1337095377</ID>
               <Description>"Bypass Illegal Charm"</Description>
+              <Color>0000FF</Color>
               <VariableType>Auto Assembler Script</VariableType>
               <AssemblerScript>[ENABLE]
 
@@ -12288,7 +12544,7 @@ if syntaxcheck then return end
   "48 8B 05 ?? ?? ?? ?? 41 83 78 5C 00 48 8B 90 18 01 00 00 40 0F 9F C6 48 85 D2",
   "48 8B 05 ?? ?? ?? ?? 80 78 62 00 75 ?? B0 01 EB ??",
   "48 8B 05 ?? ?? ?? ?? 48 8B 48 68 8B 46 20 39 41 18 7C 1B 8B 46 24 39 41 20",
-  "48 8B 0D ?? ?? ?? ?? 48 8D 1C B5 20 00 00 00 48 8B 51 70 48 8B",
+  "48 8B 05 ?? ?? ?? ?? 48 8B 48 70 48 8B 81 30 01 00 00 83 B8 E8 01 00 00 00",
   "48 8B 05 ?? ?? ?? ?? 48 8B D6 F3 0F 10 05 ?? ?? ?? ?? 0F 5A C0 48 8B 48 70 F3 0F 10 49 60 8B 59 5C",
   "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 07 48 83 79 10 00 75 02 B0 01 0F B6 C0 85 C0 75 12 38 81 A0 00 00 00",
   "48 8B 05 ?? ?? ?? ?? 48 8B 88 D0 00 00 00 FF 41 40"
@@ -12995,15 +13251,15 @@ MonsterHunterRise.exe+1656CCE: 89 8C 24 98 00 00 00     - mov [rsp+00000098],ecx
       <Address>66630000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
-  <Comments>v1.3.3
+  <Comments>v1.3.4
 AOB Hardcore V1
 FA 00 00 00 64 00 00 00 19 00 00 00 00 60 EA 45 00 80 3B 45 00 80 3B 44 00 80 BB 44 1E 00 00 00
 TIMER
 00 00 70 42 00 00 A0 41 00 00 00 00 00 00 00 00
 Damage Cap / Defense Cap
-00 80 22 45 00 A0 8C 45 00 00 00 00 00 00 00 A0
+00 80 3B 45 00 A0 8C 45
 Wire Bug / Item Buff
-F2 0F 59 05 ?? ?? ?? ?? 66 0F 5A C0 F3 0F 11 83 F8 03 00 00 48 8B 93 28 01 00 00
+00 00 00 00 00 80 56 40 9A 99 59 40 00 00 00 00 00 00 00 40 33 B3 59 40
 Voucher Used
 FF ?? ?? 48 8B 05 ???????? 4C 8B B0 ???????? 41 39 5E ?? 0F95 C3
 74 ?? 48 8B 05 ?? ?? ?? ?? 48 8B 88 D0 00 00 00 FF 41 40
