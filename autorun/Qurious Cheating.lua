@@ -242,7 +242,7 @@ local function initSkills()
 
     for i = 1,255 do
         local skillType = customBuildupModule:getBuilduptSkillCost(i)
-        if skillType ~= 0 then
+        if skillInitTranslation[skillType] ~= nil then
             if not skill[skillInitTranslation[skillType]] then
                 skill[skillInitTranslation[skillType]] = {}
             end

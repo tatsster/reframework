@@ -1,0 +1,13 @@
+Silver Solhelm,0,0,0,0,0,0,0,1,0,Stamina Surge,1,Bloodlust,1,Divine Blessing,2,Windproof,-2
+Silver Solhelm,0,0,0,0,0,0,0,0,0,Attack Boost,1,Maximum Might,2,Windproof,-3,,
+Risen Kushala Glare,0,0,-1,0,-3,0,0,0,0,Buildup Boost,1,Divine Blessing,1,,,,
+Risen Kushala Iram,0,0,0,0,0,0,0,0,0,Critical Boost,1,Evade Extender,2,Spiribird's Call,1,Spare Shot,-2
+Risen Kaiser Mail,0,0,0,0,0,0,0,0,0,Attack Boost,1,Fortify,1,Powder Mantle,-1,,
+Risen Kaiser Mail,0,-3,0,-1,0,0,0,0,0,Buildup Boost,1,Divine Blessing,1,,,,
+Risen Kushala Grande,0,0,0,0,0,0,0,0,0,Evade Extender,1,Fortify,1,,,,
+Valstrax Braces - Epoch,-6,0,0,0,0,-1,0,0,0,Buildup Boost,1,Divine Blessing,1,,,,
+Chaotic Faulds,0,0,-3,0,-1,0,0,0,0,Bloodlust,1,Divine Blessing,1,,,,
+Sinister Grudge Tassets,0,-1,0,0,0,0,0,0,0,Bloodlust,1,,,,,,
+Flaming Espinas Heel,0,0,0,0,0,0,0,0,1,Weakness Exploit,1,Wirebug Whisperer,1,Intrepid Heart,-1,Burst,-1
+Flaming Espinas Heel,0,-3,0,0,-1,0,0,0,0,Weakness Exploit,1,,,,,,
+Valstrax Greaves - Epoch,0,0,0,0,0,0,0,0,0,Mail of Hellfire,1,,,,,,
