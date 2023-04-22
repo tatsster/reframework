@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CheatTable CheatEngineTableVersion="42">
+<CheatTable CheatEngineTableVersion="45">
   <CheatEntries>
     <CheatEntry>
       <ID>19021</ID>
@@ -74,18 +74,18 @@ writeBytes(symbolName, bt)
 }
 [ENABLE]
 
-define(player_zenni,MonsterHunterRise.exe+F6EA408)
-define(item_capacity,MonsterHunterRise.exe+F6D97D0)
-define(current_player,MonsterHunterRise.exe+F6E8F88)
-define(bonusSet_Res,MonsterHunterRise.exe+F6DD9E0)
-define(quest_session,MonsterHunterRise.exe+F61E8E8)
-define(skill_data,MonsterHunterRise.exe+F6EBE10)
+define(player_zenni,MonsterHunterRise.exe+FAB4820)
+define(item_capacity,MonsterHunterRise.exe+F9E8B30)
+define(current_player,MonsterHunterRise.exe+FAB2FF8)
+define(bonusSet_Res,MonsterHunterRise.exe+FAA7A90)
+define(quest_session,MonsterHunterRise.exe+FAA8D70)
+define(skill_data,MonsterHunterRise.exe+FAAB768)
 define(skill_params,MonsterHunterRise.exe+C0E7180)
-define(hunter_rank,MonsterHunterRise.exe+F6ED000)
-define(guild_card,MonsterHunterRise.exe+F6F0370)
-define(skills_current,MonsterHunterRise.exe+F6F4970)
-define(save_data,MonsterHunterRise.exe+F6E2210)
-define(voucher_used,MonsterHunterRise.exe+F6E24C0)
+define(hunter_rank,MonsterHunterRise.exe+F9E7878)
+define(guild_card,MonsterHunterRise.exe+F9E6060)
+define(skills_current,MonsterHunterRise.exe+FAAB620)
+define(save_data,MonsterHunterRise.exe+FAB4720)
+define(voucher_used,MonsterHunterRise.exe+FAB48D0)
 
 registersymbol(player_zenni)
 registersymbol(current_player)
@@ -219,21 +219,21 @@ unregistersymbol(voucher_used)
                       <Description>"Damage Limit Cap"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+73EDF14</Address>
+                      <Address>MonsterHunterRise.exe+75F65F0</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095725</ID>
                       <Description>"Defense Limit Cap"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+73EDF18</Address>
+                      <Address>MonsterHunterRise.exe+75F65F8</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095728</ID>
                       <Description>"Wirebug+ Duration"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Double</VariableType>
-                      <Address>MonsterHunterRise.exe+73E6F40</Address>
+                      <Address>MonsterHunterRise.exe+75EBDD0</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095730</ID>
@@ -248,70 +248,70 @@ unregistersymbol(voucher_used)
                       <Description>"Timer (Hunt Complete)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F620690</Address>
+                      <Address>MonsterHunterRise.exe+FAAA1B0</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095732</ID>
                       <Description>"Timer (Capture)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F620694</Address>
+                      <Address>MonsterHunterRise.exe+FAAA1B4</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095734</ID>
                       <Description>"Base Max Health"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98D0</Address>
+                      <Address>MonsterHunterRise.exe+FAB1780</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095735</ID>
                       <Description>"Base Health"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98D4</Address>
+                      <Address>MonsterHunterRise.exe+FAB1784</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095736</ID>
                       <Description>"???"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98D8</Address>
+                      <Address>MonsterHunterRise.exe+FAB1788</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095737</ID>
                       <Description>"Max Stamina"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98DC</Address>
+                      <Address>MonsterHunterRise.exe+FAB178C</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095738</ID>
                       <Description>"Starting Stamina"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98E0</Address>
+                      <Address>MonsterHunterRise.exe+FAB1790</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095739</ID>
                       <Description>"Stamina Hunger Reduction"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98E4</Address>
+                      <Address>MonsterHunterRise.exe+FAB1794</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095740</ID>
                       <Description>"Dash Juice (Stamina)"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>Float</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98E8</Address>
+                      <Address>MonsterHunterRise.exe+FAB1798</Address>
                     </CheatEntry>
                     <CheatEntry>
                       <ID>1337095741</ID>
                       <Description>"???"</Description>
                       <ShowAsSigned>0</ShowAsSigned>
                       <VariableType>4 Bytes</VariableType>
-                      <Address>MonsterHunterRise.exe+F6D98EC</Address>
+                      <Address>MonsterHunterRise.exe+FAB179C</Address>
                     </CheatEntry>
                   </CheatEntries>
                 </CheatEntry>
@@ -766,7 +766,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B4</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -778,7 +778,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B4</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -790,7 +790,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B4</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -810,7 +810,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>64</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -822,7 +822,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>64</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -834,7 +834,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>64</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -854,7 +854,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C8</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -866,7 +866,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C8</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -878,7 +878,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C8</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -898,7 +898,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>70</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -910,7 +910,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>70</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -922,7 +922,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>70</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -942,7 +942,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>74</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -954,7 +954,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>74</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -966,7 +966,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>74</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -986,7 +986,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>7C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -998,7 +998,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>7C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1010,7 +1010,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>7C</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1030,7 +1030,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>80</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1042,7 +1042,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>80</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1054,7 +1054,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>80</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1074,7 +1074,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>98</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1086,7 +1086,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>98</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1098,7 +1098,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>98</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1118,7 +1118,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>60</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1130,7 +1130,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>60</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1142,7 +1142,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>60</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1162,7 +1162,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>5C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1174,7 +1174,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>5C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1186,7 +1186,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>5C</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1206,7 +1206,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>158</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1218,7 +1218,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>158</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1230,7 +1230,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>158</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1250,7 +1250,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>30</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1262,7 +1262,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>30</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1274,7 +1274,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>30</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1294,7 +1294,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>9C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1306,7 +1306,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>9C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1318,7 +1318,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>9C</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1338,7 +1338,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>94</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1350,7 +1350,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>94</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1362,7 +1362,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>94</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1382,7 +1382,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>180</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1394,7 +1394,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>180</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1406,7 +1406,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>180</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1426,7 +1426,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C4</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1438,7 +1438,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C4</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1450,7 +1450,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C4</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1470,7 +1470,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>CC</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1482,7 +1482,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>CC</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1494,7 +1494,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>CC</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1514,7 +1514,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>34</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1526,7 +1526,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>34</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1538,7 +1538,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>34</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1558,7 +1558,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A0</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1570,7 +1570,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A0</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1582,7 +1582,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A0</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1602,7 +1602,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>184</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1614,7 +1614,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>184</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1626,7 +1626,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>184</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1646,7 +1646,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>20</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1658,7 +1658,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>20</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1670,7 +1670,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>20</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1690,7 +1690,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>58</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1702,7 +1702,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>58</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1714,7 +1714,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>58</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1734,7 +1734,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>D0</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1746,7 +1746,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>D0</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1758,7 +1758,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>D0</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1778,7 +1778,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>90</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1790,7 +1790,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>90</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1802,7 +1802,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>90</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1822,7 +1822,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>17C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1834,7 +1834,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>17C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1854,7 +1854,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C0</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1866,7 +1866,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C0</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1878,7 +1878,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>C0</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1898,7 +1898,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>54</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1910,7 +1910,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>54</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1922,7 +1922,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>54</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1942,7 +1942,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>84</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1954,7 +1954,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>84</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1974,7 +1974,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B0</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1986,7 +1986,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B0</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -1998,7 +1998,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B0</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2018,7 +2018,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>19C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2030,7 +2030,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>19C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2042,7 +2042,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>19C</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2062,7 +2062,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>15C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2074,7 +2074,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>15C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2086,7 +2086,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>15C</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2106,7 +2106,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>28</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2118,7 +2118,19 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>28</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
+                                <Offset>70</Offset>
+                              </Offsets>
+                            </CheatEntry>
+                            <CheatEntry>
+                              <ID>1337096433</ID>
+                              <Description>"Anomaly Hunts"</Description>
+                              <ShowAsSigned>0</ShowAsSigned>
+                              <VariableType>4 Bytes</VariableType>
+                              <Address>guild_card</Address>
+                              <Offsets>
+                                <Offset>15C</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2138,7 +2150,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A8</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2150,7 +2162,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A8</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2162,7 +2174,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A8</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2182,7 +2194,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>18C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2194,7 +2206,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>18C</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2214,7 +2226,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>68</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2226,7 +2238,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>68</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2246,7 +2258,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>198</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2258,7 +2270,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>198</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2278,7 +2290,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>174</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2290,7 +2302,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>174</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2310,7 +2322,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>1A4</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2322,7 +2334,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>1A4</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2342,7 +2354,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>168</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2354,7 +2366,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>168</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2374,7 +2386,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>170</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2386,7 +2398,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>170</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2406,7 +2418,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>50</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2418,7 +2430,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>50</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2438,7 +2450,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>38</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2450,7 +2462,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>38</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2470,7 +2482,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A4</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2482,7 +2494,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A4</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2494,7 +2506,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>A4</Offset>
-                                <Offset>138</Offset>
+                                <Offset>140</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2514,7 +2526,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>188</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2526,7 +2538,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>188</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2546,7 +2558,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>44</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2566,7 +2578,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>48</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2586,7 +2598,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>4C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2606,7 +2618,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>194</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2626,7 +2638,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>16C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2646,7 +2658,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>40</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2658,7 +2670,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>40</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2678,7 +2690,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>160</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2690,7 +2702,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>160</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2710,7 +2722,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>D4</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2722,7 +2734,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>D4</Offset>
-                                <Offset>148</Offset>
+                                <Offset>150</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2742,7 +2754,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>AC</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2762,7 +2774,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>B8</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2782,7 +2794,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>BC</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2802,7 +2814,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>8C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2822,7 +2834,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>1A0</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2842,7 +2854,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>78</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2862,7 +2874,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>24</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2882,7 +2894,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>88</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2902,7 +2914,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>2C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2922,7 +2934,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>3C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2942,7 +2954,7 @@ unregistersymbol(voucher_used)
                               <Address>guild_card</Address>
                               <Offsets>
                                 <Offset>6C</Offset>
-                                <Offset>130</Offset>
+                                <Offset>138</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2974,7 +2986,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -2990,7 +3002,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3006,7 +3018,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3022,7 +3034,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3038,7 +3050,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3054,7 +3066,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3070,7 +3082,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3086,7 +3098,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>20</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3102,7 +3114,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3118,7 +3130,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3134,7 +3146,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3150,7 +3162,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3166,7 +3178,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3182,7 +3194,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3198,7 +3210,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3214,7 +3226,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>21</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3230,7 +3242,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3246,7 +3258,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3262,7 +3274,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3278,7 +3290,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3294,7 +3306,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3310,7 +3322,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3326,7 +3338,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3342,7 +3354,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>22</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3358,7 +3370,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3374,7 +3386,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3390,7 +3402,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3406,7 +3418,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3422,7 +3434,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3438,7 +3450,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3454,7 +3466,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3470,7 +3482,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>23</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3486,7 +3498,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3502,7 +3514,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3518,7 +3530,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3534,7 +3546,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3550,7 +3562,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3566,7 +3578,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3582,7 +3594,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3598,7 +3610,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>24</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3614,7 +3626,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3630,7 +3642,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3646,7 +3658,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3662,7 +3674,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3678,7 +3690,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3694,7 +3706,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3710,7 +3722,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3726,7 +3738,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>25</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3742,7 +3754,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3758,7 +3770,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3782,7 +3794,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3798,7 +3810,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3814,7 +3826,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3830,7 +3842,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3846,7 +3858,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3862,7 +3874,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>26</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3878,7 +3890,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3894,7 +3906,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3910,7 +3922,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3926,7 +3938,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3942,7 +3954,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3958,7 +3970,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3974,7 +3986,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -3990,7 +4002,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>27</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4006,7 +4018,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4022,7 +4034,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4038,7 +4050,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4054,7 +4066,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4070,7 +4082,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4086,7 +4098,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4102,7 +4114,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4118,7 +4130,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>28</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4134,7 +4146,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4150,7 +4162,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4166,7 +4178,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4182,7 +4194,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4198,7 +4210,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4214,7 +4226,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4230,7 +4242,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4246,7 +4258,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>29</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4262,7 +4274,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4278,7 +4290,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4294,7 +4306,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4310,7 +4322,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4326,7 +4338,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4342,7 +4354,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4358,7 +4370,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4374,7 +4386,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2A</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4390,7 +4402,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2B</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4406,7 +4418,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2B</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4422,7 +4434,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2B</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4438,7 +4450,7 @@ unregistersymbol(voucher_used)
                               <Offsets>
                                 <Offset>2B</Offset>
                                 <Offset>10</Offset>
-                                <Offset>1E8</Offset>
+                                <Offset>1F8</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4470,7 +4482,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>20</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4486,7 +4498,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>20</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4502,7 +4514,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>20</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4518,7 +4530,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>20</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4534,7 +4546,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>20</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4558,7 +4570,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>28</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4574,7 +4586,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>28</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4590,7 +4602,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>28</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4606,7 +4618,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>28</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4622,7 +4634,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>28</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4646,7 +4658,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>30</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4662,7 +4674,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>30</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4678,7 +4690,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>30</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4694,7 +4706,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>30</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4710,7 +4722,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>30</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4734,7 +4746,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>38</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4750,7 +4762,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>38</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4766,7 +4778,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>38</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4782,7 +4794,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>38</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4798,7 +4810,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>38</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4822,7 +4834,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4838,7 +4850,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4854,7 +4866,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4870,7 +4882,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4886,7 +4898,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4910,7 +4922,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4926,7 +4938,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4942,7 +4954,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4958,7 +4970,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4974,7 +4986,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -4998,7 +5010,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5014,7 +5026,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>50</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5030,7 +5042,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5046,7 +5058,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5062,7 +5074,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>40</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5086,7 +5098,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>58</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5102,7 +5114,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>58</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5118,7 +5130,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>58</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5134,7 +5146,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>58</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5150,7 +5162,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>58</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5174,7 +5186,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>60</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5190,7 +5202,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>60</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5206,7 +5218,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>60</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5222,7 +5234,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>60</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5238,7 +5250,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>60</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5262,7 +5274,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>68</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5278,7 +5290,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>68</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5294,7 +5306,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>68</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5310,7 +5322,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>68</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5326,7 +5338,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>68</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5350,7 +5362,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>70</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5366,7 +5378,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>70</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5382,7 +5394,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>70</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5398,7 +5410,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>70</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5414,7 +5426,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>70</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5438,7 +5450,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>78</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5454,7 +5466,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>78</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5470,7 +5482,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>78</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5486,7 +5498,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>78</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -5502,7 +5514,7 @@ unregistersymbol(voucher_used)
                                 <Offset>10</Offset>
                                 <Offset>10</Offset>
                                 <Offset>78</Offset>
-                                <Offset>178</Offset>
+                                <Offset>180</Offset>
                                 <Offset>70</Offset>
                               </Offsets>
                             </CheatEntry>
@@ -6968,7 +6980,7 @@ unregistersymbol(voucher_used)
                       <VariableType>4 Bytes</VariableType>
                       <Address>current_player</Address>
                       <Offsets>
-                        <Offset>2EC</Offset>
+                        <Offset>2DC</Offset>
                         <Offset>E0</Offset>
                       </Offsets>
                     </CheatEntry>
@@ -6979,7 +6991,7 @@ unregistersymbol(voucher_used)
                       <VariableType>Float</VariableType>
                       <Address>current_player</Address>
                       <Offsets>
-                        <Offset>408</Offset>
+                        <Offset>418</Offset>
                         <Offset>E0</Offset>
                       </Offsets>
                     </CheatEntry>
@@ -8899,7 +8911,7 @@ MonsterHunterRise.exe+1165231: E8 DA DF 61 00        - call MonsterHunterRise.ex
                   <VariableType>Byte</VariableType>
                   <Address>gCharm</Address>
                   <Offsets>
-                    <Offset>34</Offset>
+                    <Offset>30</Offset>
                   </Offsets>
                 </CheatEntry>
                 <CheatEntry>
@@ -9773,16 +9785,6 @@ MonsterHunterRiseDemo.exe+1E5B760: 33 C0              - xor eax,eax
                   <Address>gSelectedItem</Address>
                   <Offsets>
                     <Offset>14</Offset>
-                    <Offset>20</Offset>
-                  </Offsets>
-                </CheatEntry>
-                <CheatEntry>
-                  <ID>1337095607</ID>
-                  <Description>"Amount"</Description>
-                  <ShowAsSigned>0</ShowAsSigned>
-                  <VariableType>4 Bytes</VariableType>
-                  <Address>gSelectedItem</Address>
-                  <Offsets>
                     <Offset>20</Offset>
                   </Offsets>
                 </CheatEntry>
@@ -12544,7 +12546,7 @@ if syntaxcheck then return end
   "48 8B 05 ?? ?? ?? ?? 41 83 78 5C 00 48 8B 90 18 01 00 00 40 0F 9F C6 48 85 D2",
   "48 8B 05 ?? ?? ?? ?? 80 78 62 00 75 ?? B0 01 EB ??",
   "48 8B 05 ?? ?? ?? ?? 48 8B 48 68 8B 46 20 39 41 18 7C 1B 8B 46 24 39 41 20",
-  "48 8B 05 ?? ?? ?? ?? 48 8B 48 70 48 8B 81 30 01 00 00 83 B8 E8 01 00 00 00",
+  "48 8B 05 ?? ?? ?? ?? 48 8B 50 70 74 22 48 8B 82 40 01 00 00 83 3C 03 00",
   "48 8B 05 ?? ?? ?? ?? 48 8B D6 F3 0F 10 05 ?? ?? ?? ?? 0F 5A C0 48 8B 48 70 F3 0F 10 49 60 8B 59 5C",
   "48 8B 0D ?? ?? ?? ?? 48 85 C9 74 07 48 83 79 10 00 75 02 B0 01 0F B6 C0 85 C0 75 12 38 81 A0 00 00 00",
   "48 8B 05 ?? ?? ?? ?? 48 8B 88 D0 00 00 00 FF 41 40"
@@ -13045,6 +13047,13 @@ MonsterHunterRise.exe+1656CCE: 89 8C 24 98 00 00 00     - mov [rsp+00000098],ecx
         </CheatEntry>
       </CheatEntries>
     </CheatEntry>
+    <CheatEntry>
+      <ID>1337096434</ID>
+      <Description>"No description"</Description>
+      <ShowAsSigned>0</ShowAsSigned>
+      <VariableType>4 Bytes</VariableType>
+      <Address>gCharm</Address>
+    </CheatEntry>
   </CheatEntries>
   <CheatCodes>
     <CodeEntry>
@@ -13251,7 +13260,7 @@ MonsterHunterRise.exe+1656CCE: 89 8C 24 98 00 00 00     - mov [rsp+00000098],ecx
       <Address>66630000</Address>
     </SymbolEntry>
   </UserdefinedSymbols>
-  <Comments>v1.3.4
+  <Comments>v1.3.6
 AOB Hardcore V1
 FA 00 00 00 64 00 00 00 19 00 00 00 00 60 EA 45 00 80 3B 45 00 80 3B 44 00 80 BB 44 1E 00 00 00
 TIMER
@@ -13259,7 +13268,7 @@ TIMER
 Damage Cap / Defense Cap
 00 80 3B 45 00 A0 8C 45
 Wire Bug / Item Buff
-00 00 00 00 00 80 56 40 9A 99 59 40 00 00 00 00 00 00 00 40 33 B3 59 40
+00 00 00 00 00 00 00 00 00 80 56 40 00 00 00 00 00 80 66 40
 Voucher Used
 FF ?? ?? 48 8B 05 ???????? 4C 8B B0 ???????? 41 39 5E ?? 0F95 C3
 74 ?? 48 8B 05 ?? ?? ?? ?? 48 8B 88 D0 00 00 00 FF 41 40
