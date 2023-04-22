@@ -1,20 +1,52 @@
-local small_monster_UI = {};
+local this = {};
+
 local singletons;
 local config;
 local small_monster;
 local customization_menu;
 local screen;
-local player;
+local players;
 local drawing;
-local table_helpers;
 local health_UI_entity;
 local stamina_UI_entity;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 local enemy_manager_type_def = sdk.find_type_definition("snow.enemy.EnemyManager");
 local get_zako_enemy_count_method = enemy_manager_type_def:get_method("getZakoEnemyCount");
 local get_zako_enemy_method = enemy_manager_type_def:get_method("getZakoEnemy");
 
-function small_monster_UI.draw()
+function this.draw()
 	if singletons.enemy_manager == nil then
 		return;
 	end
@@ -53,7 +85,7 @@ function small_monster_UI.draw()
 	if cached_config.dynamic_positioning.enabled
 		or (not cached_config.dynamic_positioning.enabled and cached_config.static_sorting.type == "Distance") then
 		for _, monster in ipairs(displayed_monsters) do
-			monster.distance = (player.myself_position - monster.position):length();
+			monster.distance = (players.myself_position - monster.position):length();
 		end
 	end
 
@@ -154,17 +186,16 @@ function small_monster_UI.draw()
 	end
 end
 
-function small_monster_UI.init_module()
+function this.init_module()
 	singletons = require("MHR_Overlay.Game_Handler.singletons");
 	config = require("MHR_Overlay.Misc.config");
 	customization_menu = require("MHR_Overlay.UI.customization_menu");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	drawing = require("MHR_Overlay.UI.drawing");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 	health_UI_entity = require("MHR_Overlay.UI.UI_Entities.health_UI_entity");
 	stamina_UI_entity = require("MHR_Overlay.UI.UI_Entities.stamina_UI_entity");
 end
 
-return small_monster_UI;
+return this;

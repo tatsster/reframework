@@ -1,18 +1,55 @@
-local damage_hook = {};
+local this = {};
+
 local quest_status;
-local player;
+local players;
 local small_monster;
 local large_monster;
 local ailments;
-local table_helpers;
 local singletons;
 local non_players;
+local utils;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
+local wall_hit_damage_queue = {};
 
 local enemy_character_base_type_def = sdk.find_type_definition("snow.enemy.EnemyCharacterBase");
 local enemy_character_base_after_calc_damage_damage_side_method = enemy_character_base_type_def:get_method("afterCalcDamage_DamageSide");
 
 local is_boss_enemy_method = enemy_character_base_type_def:get_method("get_isBossEnemy");
 local check_die_method = enemy_character_base_type_def:get_method("checkDie");
+
+local stock_direct_marionette_finish_shoot_hit_parts_damage_method = enemy_character_base_type_def:get_method("stockDirectMarionetteFinishShootHitPartsDamage");
 
 local enemy_calc_damage_info_type_def = sdk.find_type_definition("snow.hit.EnemyCalcDamageInfo.AfterCalcInfo_DamageSide");
 local get_attacker_id_method = enemy_calc_damage_info_type_def:get_method("get_AttackerID");
@@ -42,11 +79,10 @@ local packet_quest_forfeit_type_def = sdk.find_type_definition("snow.QuestManage
 local dead_player_id_field = packet_quest_forfeit_type_def:get_field("_DeadPlIndex");
 local is_from_host_field = packet_quest_forfeit_type_def:get_field("_IsFromQuestHostPacket");
 
-function damage_hook.get_damage_source_type(damage_source_type_id, is_marionette_attack)
+function this.get_damage_source_type(damage_source_type_id, is_marionette_attack)
 	if is_marionette_attack then
 		return "wyvern riding";
-	elseif damage_source_type_id == 0 or damage_source_type_id == 7 or damage_source_type_id == 11 or
-		damage_source_type_id == 13 then
+	elseif damage_source_type_id == 0 or damage_source_type_id == 7 or damage_source_type_id == 11 or damage_source_type_id == 13 then
 		return "player";
 	elseif damage_source_type_id == 1 or damage_source_type_id == 8 then
 		return "bomb";
@@ -58,15 +94,13 @@ function damage_hook.get_damage_source_type(damage_source_type_id, is_marionette
 		return "otomo";
 	elseif damage_source_type_id >= 25 and damage_source_type_id <= 32 then
 		return "endemic life";
-	elseif damage_source_type_id == 34 then
-		return "other";
 	end
 
-	return tostring(damage_source_type_id);
+	return "other";
 end
 
 -- snow.hit.EnemyCalcDamageInfo.AfterCalcInfo_DamageSide
-function damage_hook.update_damage(enemy, enemy_calc_damage_info)
+function this.update_damage(enemy, enemy_calc_damage_info)
 	local is_large_monster = is_boss_enemy_method:call(enemy);
 
 	if is_large_monster == nil then
@@ -83,20 +117,18 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 	end
 
 	local attacker_id = get_attacker_id_method:call(enemy_calc_damage_info);
+	local otomo_id = attacker_id;
 	local attacker_type = get_damage_attacker_type_method:call(enemy_calc_damage_info);
 	local is_marionette_attack = is_marionette_attack_method:call(enemy_calc_damage_info)
 
-	-- 4 is virtual player in singleplayer that "owns" 2nd otomo
-	if not quest_status.is_online and attacker_id == 4 then
-		--attacker_id = player.myself.id;
-	end
+	local is_otomo_attack = attacker_type >= 21 and attacker_type <= 23;
 
 	if is_marionette_attack then
 		large_monster.update_all_riders();
 		for enemy, monster in pairs(large_monster.list) do
 			if monster.unique_id == attacker_id then
-				--attacker_id = monster.rider_id;
-				break
+				attacker_id = monster.rider_id;
+				break;
 			end
 		end
 	end
@@ -152,25 +184,7 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 	-- 31 - EcSwampLeech
 	-- 32 - EcPenetrateFish
 
-	local damage_source_type = damage_hook.get_damage_source_type(attacker_type, is_marionette_attack);
-
-	local attacking_player = non_players.get_servant(attacker_id);
-	if attacking_player == nil then
-		attacking_player = player.get_player(attacker_id);
-	end
-
-	--[[xy = xy .. "\nPlayer: " .. tostring(attacker_id) ..
-	" " .. tostring(attacking_player.name) ..
-	" Damage: " .. tostring(damage_object.total_damage) ..
-	" Type: ("	.. tostring(attacker_type) ..
-	") " ..
-	" Condition Damage: " .. tostring(condition_damage) ..
-	" Condition Type: ("	.. tostring(attacker_type) ..
-	") " .. tostring(condition_type);
-
-	if string.len(xy) > 2300 then
-		xy = "";
-	end--]]
+	local damage_source_type = this.get_damage_source_type(attacker_type, is_marionette_attack);
 
 	local monster;
 	if is_large_monster then
@@ -179,69 +193,153 @@ function damage_hook.update_damage(enemy, enemy_calc_damage_info)
 		monster = small_monster.get_monster(enemy);
 	end
 
-	local stun_damage = stun_damage_field:get_data(enemy_calc_damage_info);
-	if attacking_player ~= nil then
-		ailments.apply_ailment_buildup(monster, attacker_id, ailments.stun_id, stun_damage);
+	local player = nil;
+	local otomo = nil;
 
-		ailments.apply_ailment_buildup(monster, attacker_id, condition_type, condition_damage);
-		ailments.apply_ailment_buildup(monster, attacker_id, condition_type2, condition_damage2);
-		ailments.apply_ailment_buildup(monster, attacker_id, condition_type3, condition_damage3);
+	if not is_otomo_attack then
+		player = players.get_player(attacker_id);
+
+		if player == nil then
+			player = non_players.get_servant(attacker_id);
+		end
+	else
+		if attacker_id < 4 then
+			player = players.get_player(attacker_id);
+			otomo = non_players.get_otomo(attacker_id);
+		elseif attacker_id == 4 then
+			player = players.myself;
+			otomo = non_players.get_otomo(non_players.my_second_otomo_id);
+		else 
+			player = non_players.get_servant(attacker_id - 1);
+			otomo = non_players.get_otomo(attacker_id - 1);
+		end
+
+		players.update_damage(otomo, damage_source_type, is_large_monster, damage_object);
 	end
 
-	player.update_damage(player.total, damage_source_type, is_large_monster, damage_object);
-	player.update_damage(attacking_player, damage_source_type, is_large_monster, damage_object);
+	local stun_damage = stun_damage_field:get_data(enemy_calc_damage_info);
+	ailments.apply_ailment_buildup(monster, player, otomo, ailments.stun_id, stun_damage);
+
+	ailments.apply_ailment_buildup(monster, player, otomo, condition_type, condition_damage);
+	ailments.apply_ailment_buildup(monster, player, otomo, condition_type2, condition_damage2);
+	ailments.apply_ailment_buildup(monster, player, otomo, condition_type3, condition_damage3);
+
+	players.update_damage(players.total, damage_source_type, is_large_monster, damage_object);
+	players.update_damage(player, damage_source_type, is_large_monster, damage_object);
 end
 
 --function damage_hook.on_mystery_core_break(enemy)
 
 --end
 
--- Coavins code
-function damage_hook.cart(dead_player_id, flag_cat_skill_insurance)
+function this.cart(dead_player_id, flag_cat_skill_insurance)
 	-- flag_cat_skill_insurance = 0
 	-- flag_cat_skill_insurance = 1
-	local player_ = player.list[dead_player_id];
-	if player_ == nil then
+	local player = players.list[dead_player_id];
+	if player == nil then
 		return;
 	end
 
-	player_.cart_count = player_.cart_count + 1;
+	player.cart_count = player.cart_count + 1;
 
 	quest_status.get_cart_count();
 end
 
---function damage_hook.on_get_finish_shoot_wall_hit_damage_rate(enemy, rate, is_part_damage)
+function this.on_stock_direct_marionette_finish_shoot_hit_parts_damage(enemy, damage_rate, is_endure, is_ignore_multi_rate, category, no)
+	local monster = large_monster.get_monster(enemy);
 
---xy = string.format("enemy: %s\nrate: %s\nis_part_damage: %s", tostring(enemy), tostring(rate), tostring(is_part_damage));
---end
+	local damage = utils.math.round(monster.max_health * damage_rate);
 
+	large_monster.update_all_riders();
+	local attacker_id = monster.rider_id;
+	
+	table.insert(wall_hit_damage_queue,
+		{
+			damage = damage, 
+			is_large = monster.is_large
+		}
+	);
+	
+	if attacker_id == -1 then
+		return;
+	end
 
-local get_finish_shoot_wall_hit_damage_rate_method = enemy_character_base_type_def:get_method("stockFinishShootHitDamage");
+	local player = players.get_player(attacker_id);
+	if player == nil then
+		player = non_players.get_servant(attacker_id);
+	end
 
-function damage_hook.init_module()
+	if player == nil then
+		return;
+	end
+
+	local damage_source_type = this.get_damage_source_type(0, true);
+	local is_large_monster = monster.is_large;
+
+	local large_monster_damage_object = {};
+	large_monster_damage_object.total_damage = 0;
+	large_monster_damage_object.physical_damage = 0;
+	large_monster_damage_object.elemental_damage = 0;
+	large_monster_damage_object.ailment_damage = 0;
+
+	local small_monster_damage_object = {};
+	small_monster_damage_object.total_damage = 0;
+	small_monster_damage_object.physical_damage = 0;
+	small_monster_damage_object.elemental_damage = 0;
+	small_monster_damage_object.ailment_damage = 0;
+
+	for _, damage_info in ipairs(wall_hit_damage_queue) do
+		if damage_info.is_large then
+
+			large_monster_damage_object.total_damage = large_monster_damage_object.total_damage + damage_info.damage;
+			large_monster_damage_object.physical_damage = large_monster_damage_object.physical_damage + damage_info.damage;
+		else
+			small_monster_damage_object.total_damage = small_monster_damage_object.total_damage + damage_info.damage;
+			small_monster_damage_object.physical_damage = small_monster_damage_object.physical_damage + damage_info.damage;
+		end
+		
+	end
+
+	wall_hit_damage_queue = {};
+	
+	players.update_damage(players.total, damage_source_type, false, small_monster_damage_object);
+	players.update_damage(player, damage_source_type, false, small_monster_damage_object);
+
+	players.update_damage(players.total, damage_source_type, true, large_monster_damage_object);
+	players.update_damage(player, damage_source_type, true, large_monster_damage_object);
+end
+
+function this.init_module()
 	quest_status = require("MHR_Overlay.Game_Handler.quest_status");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	ailments = require("MHR_Overlay.Monsters.ailments");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 	singletons = require("MHR_Overlay.Game_Handler.singletons");
 	non_players = require("MHR_Overlay.Damage_Meter.non_players");
+	utils = require("MHR_Overlay.Misc.utils");
 
-	--sdk.hook(get_finish_shoot_wall_hit_damage_rate_method, function(args)
-	--	pcall(damage_hook.on_get_finish_shoot_wall_hit_damage_rate, sdk.to_managed_object(args[2]), sdk.to_float(args[3]), sdk.to_int64(args--[4]));
-	--end, function(retval)
-	--	return retval;
-	--end);
+	sdk.hook(stock_direct_marionette_finish_shoot_hit_parts_damage_method, function(args)
+		local enemy = sdk.to_managed_object(args[2]);
+		local damage_rate = sdk.to_float(args[3]);
+		local is_endure = (sdk.to_int64(args[4]) & 1) == 1;
+		local is_ignore_multi_rate = (sdk.to_int64(args[5]) & 1) == 1;
+		local category = sdk.to_int64(args[6]); --snow.enemy.EnemyDef.VitalCategory
+		local no = sdk.to_int64(args[7]);
+
+		this.on_stock_direct_marionette_finish_shoot_hit_parts_damage(enemy, damage_rate, is_endure, is_ignore_multi_rate, category, no);
+	end, function(retval)
+		return retval;
+	end);
 
 	sdk.hook(enemy_character_base_after_calc_damage_damage_side_method, function(args)
-		pcall(damage_hook.update_damage, sdk.to_managed_object(args[2]), sdk.to_managed_object(args[3]));
+		pcall(this.update_damage, sdk.to_managed_object(args[2]), sdk.to_managed_object(args[3]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(quest_forfeit_method, function(args)
-		pcall(damage_hook.cart, sdk.to_int64(args[3]), (sdk.to_int64(args[4]) & 0xFFFFFFFF));
+		pcall(this.cart, sdk.to_int64(args[3]), (sdk.to_int64(args[4]) & 0xFFFFFFFF));
 	end, function(retval)
 		return retval;
 	end);
@@ -253,4 +351,4 @@ function damage_hook.init_module()
 	--end);
 end
 
-return damage_hook;
+return this;

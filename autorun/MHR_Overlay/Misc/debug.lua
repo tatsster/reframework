@@ -1,5 +1,5 @@
-local debug = {};
+local this = {};
 
-debug.enabled = false;
+this.enabled = false;
 
-return debug;
+return this;

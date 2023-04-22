@@ -1,11 +1,43 @@
-local part_names = {};
+local this = {};
+
 local language;
-local table_helpers;
 
-part_names.list = {};
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
-function part_names.init()
-	part_names.list = {
+this.list = {};
+
+function this.init()
+	this.list = {
 		[98] = -- Great Izuchi 98
 		{
 			language.current_language.parts.head,
@@ -819,12 +851,79 @@ function part_names.init()
 			language.current_language.parts.hind_legs,
 			language.current_language.parts.wings,
 			language.current_language.parts.tail
-		}
+		},
+
+
+
+
+
+		--SUNBREAK TITLE UPDATE 4
+
+
+
+
+
+		[124] = -- Velkhana 124
+		{
+			language.current_language.parts.head,
+			language.current_language.parts.body,
+			language.current_language.parts.forelegs,
+			language.current_language.parts.hind_legs,
+			language.current_language.parts.wings,
+			language.current_language.parts.tail
+		},
+
+		[2134] = -- Risen Crimson Glow Valstrax 2134
+		{
+			language.current_language.parts.head,
+			language.current_language.parts.body,
+			language.current_language.parts.left_wing,
+			language.current_language.parts.right_wing,
+			language.current_language.parts.left_foreleg,
+			language.current_language.parts.right_foreleg,
+			language.current_language.parts.tail,
+			language.current_language.parts.hind_legs,
+			language.current_language.parts.chest
+		},
+		
+
+
+
+
+		--SUNBREAK TITLE UPDATE 5
+
+
+
+
+
+		[2120] = -- Risen Shagaru Magala 2120
+		{
+			language.current_language.parts.head,
+			language.current_language.parts.torso,
+			language.current_language.parts.wings,
+			language.current_language.parts.wingclaws,
+			language.current_language.parts.forelegs,
+			language.current_language.parts.hind_legs,
+			language.current_language.parts.tail
+		},
+
+		[58] = -- Amatsu 58
+		{
+			language.current_language.parts.head,
+			language.current_language.parts.left_arm,
+			language.current_language.parts.right_arm,
+			language.current_language.parts.abdomen,
+			language.current_language.parts.tail,
+			language.current_language.parts.back,
+			language.current_language.parts.amatsu_unknown,
+			language.current_language.parts.left_leg,
+			language.current_language.parts.right_leg
+		},
 	};
 end
 
-function part_names.get_part_name(monster_id, part_id)
-	local monster_parts = part_names.list[monster_id];
+function this.get_part_name(monster_id, part_id)
+	local monster_parts = this.list[monster_id];
 	if monster_parts == nil then
 		return "?";
 	end
@@ -833,11 +932,10 @@ function part_names.get_part_name(monster_id, part_id)
 	return part_name;
 end
 
-function part_names.init_module()
+function this.init_module()
 	language = require("MHR_Overlay.Misc.language");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 
-	part_names.init();
+	this.init();
 end
 
-return part_names;
+return this;

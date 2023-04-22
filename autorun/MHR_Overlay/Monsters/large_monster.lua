@@ -1,9 +1,10 @@
-local large_monster = {};
+local this = {};
+
 local singletons;
 local customization_menu;
 local config;
 local language;
-local table_helpers;
+local utils;
 local health_UI_entity;
 local stamina_UI_entity;
 local rage_UI_entity;
@@ -14,15 +15,46 @@ local body_part_UI_entity;
 local screen;
 local drawing;
 local ailments;
-local player;
+local players;
 local time;
-
 local body_part;
 local part_names;
 
-large_monster.list = {};
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
-function large_monster.new(enemy)
+this.list = {};
+
+function this.new(enemy)
 	local monster = {};
 	monster.enemy = enemy;
 	monster.is_large = true;
@@ -92,35 +124,35 @@ function large_monster.new(enemy)
 	monster.static_UI = {};
 	monster.highlighted_UI = {};
 
-	large_monster.init(monster, enemy);
-	large_monster.init_UI(monster, monster.dynamic_UI, config.current_config.large_monster_UI.dynamic);
-	large_monster.init_UI(monster, monster.static_UI, config.current_config.large_monster_UI.static);
-	large_monster.init_UI(monster, monster.highlighted_UI, config.current_config.large_monster_UI.highlighted);
+	this.init(monster, enemy);
+	this.init_UI(monster, monster.dynamic_UI, config.current_config.large_monster_UI.dynamic);
+	this.init_UI(monster, monster.static_UI, config.current_config.large_monster_UI.static);
+	this.init_UI(monster, monster.highlighted_UI, config.current_config.large_monster_UI.highlighted);
 
-	large_monster.update_position(enemy, monster);
+	this.update_position(enemy, monster);
 	
-	local physical_param = large_monster.update_health(enemy, monster);
+	local physical_param = this.update_health(enemy, monster);
 
-	large_monster.update_stamina(enemy, monster, nil);
-	large_monster.update_stamina_timer(enemy, monster, nil);
+	this.update_stamina(enemy, monster, nil);
+	this.update_stamina_timer(enemy, monster, nil);
 
-	large_monster.update_rage(enemy, monster, nil);
-	large_monster.update_rage_timer(enemy, monster, nil);
+	this.update_rage(enemy, monster, nil);
+	this.update_rage_timer(enemy, monster, nil);
 
-	large_monster.update(enemy, monster);
-	pcall(large_monster.update_parts, enemy, monster, physical_param);
+	this.update(enemy, monster);
+	pcall(this.update_parts, enemy, monster, physical_param);
 
-	if large_monster.list[enemy] == nil then
-		large_monster.list[enemy] = monster;
+	if this.list[enemy] == nil then
+		this.list[enemy] = monster;
 	end
 
 	return monster;
 end
 
-function large_monster.get_monster(enemy)
-	local monster = large_monster.list[enemy];
+function this.get_monster(enemy)
+	local monster = this.list[enemy];
 	if monster == nil then
-		monster = large_monster.new(enemy);
+		monster = this.new(enemy);
 	end
 	return monster;
 end
@@ -146,7 +178,7 @@ local get_set_info_method = enemy_character_base_type_def:get_method("get_SetInf
 local set_info_type = get_set_info_method:get_return_type();
 local get_unique_id_method = set_info_type:get_method("get_UniqueId");
 
-function large_monster.init(monster, enemy)
+function this.init(monster, enemy)
 	local enemy_type = enemy_type_field:get_data(enemy);
 	if enemy_type == nil then
 		customization_menu.status = "No enemy type";
@@ -225,10 +257,10 @@ function large_monster.init(monster, enemy)
 	monster.is_capturable = is_capture_enable and not is_anomaly;
 end
 
-function large_monster.init_UI(monster, monster_UI, cached_config)
+function this.init_UI(monster, monster_UI, cached_config)
 	local global_scale_modifier = config.current_config.global_settings.modifiers.global_scale_modifier;
 
-	monster_UI.monster_name_label = table_helpers.deep_copy(cached_config.monster_name_label);
+	monster_UI.monster_name_label = utils.table.deep_copy(cached_config.monster_name_label);
 
 	monster_UI.health_UI = health_UI_entity.new(
 		cached_config.health.visibility,
@@ -303,6 +335,8 @@ function large_monster.init_UI(monster, monster_UI, cached_config)
 		cached_config.ailment_buildups.total_buildup_label,
 		cached_config.ailment_buildups.total_buildup_value_label
 	);
+
+	ailments.init_ailment_names(monster.ailments);
 end
 
 local physical_param_field = enemy_character_base_type_def:get_field("<PhysicalParam>k__BackingField");
@@ -349,7 +383,7 @@ local system_array_type_def = sdk.find_type_definition("System.Array");
 local length_method = system_array_type_def:get_method("get_Length");
 local get_value_method = system_array_type_def:get_method("GetValue(System.Int32)");
 
-function large_monster.update_position(enemy, monster)
+function this.update_position(enemy, monster)
 	if not config.current_config.large_monster_UI.dynamic.enabled and
 		config.current_config.large_monster_UI.static.sorting.type ~= "Distance" then
 		return;
@@ -362,24 +396,33 @@ function large_monster.update_position(enemy, monster)
 end
 
 -- Code by coavins
-function large_monster.update_all_riders()
-	for enemy, monster in pairs(large_monster.list) do
+function this.update_all_riders()
+	for enemy, monster in pairs(this.list) do
 		-- get marionette rider
 		local mario_param = enemy:get_field("<MarioParam>k__BackingField");
 		if mario_param ~= nil then
 			local is_marionette = get_is_marionette_method:call(mario_param);
+
+			if is_marionette == nil then
+				goto continue;
+			end
+
 			if is_marionette then
 				local player_id = get_mario_player_index_method:call(mario_param);
-				if monster.rider_id ~= player_id then
+				if player_id ~= nil then
 					monster.rider_id = player_id;
 				end
+			else
+				monster.rider_id = -1;
 			end
 		end
+
+		::continue::
 	end
 
 end
 
-function large_monster.update(enemy, monster)
+function this.update(enemy, monster)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -428,7 +471,7 @@ function large_monster.update(enemy, monster)
 	pcall(ailments.update_ailments, enemy, monster);
 end
 
-function large_monster.update_health(enemy, monster)
+function this.update_health(enemy, monster)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -443,7 +486,7 @@ function large_monster.update_health(enemy, monster)
 		return nil;
 	end
 
-	local physical_param = physical_param_field:get_data(enemy)
+	local physical_param = physical_param_field:get_data(enemy);
 	if physical_param == nil then
 		customization_menu.status = "No physical param";
 		return nil;
@@ -468,7 +511,7 @@ function large_monster.update_health(enemy, monster)
 	return physical_param;
 end
 
-function large_monster.update_stamina(enemy, monster, stamina_param)
+function this.update_stamina(enemy, monster, stamina_param)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -505,7 +548,7 @@ function large_monster.update_stamina(enemy, monster, stamina_param)
 	end
 end
 
-function large_monster.update_stamina_timer(enemy, monster, stamina_param)
+function this.update_stamina_timer(enemy, monster, stamina_param)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -552,7 +595,7 @@ function large_monster.update_stamina_timer(enemy, monster, stamina_param)
 	end
 end
 
-function large_monster.update_rage(enemy, monster, anger_param)
+function this.update_rage(enemy, monster, anger_param)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -584,7 +627,7 @@ function large_monster.update_rage(enemy, monster, anger_param)
 	end
 end
 
-function large_monster.update_rage_timer(enemy, monster, anger_param)
+function this.update_rage_timer(enemy, monster, anger_param)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -630,7 +673,7 @@ function large_monster.update_rage_timer(enemy, monster, anger_param)
 	end
 end
 
-function large_monster.update_parts(enemy, monster, physical_param)
+function this.update_parts(enemy, monster, physical_param)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled
@@ -764,7 +807,7 @@ function large_monster.update_parts(enemy, monster, physical_param)
 	end
 end
 
-function large_monster.draw(monster, type, cached_config, position_on_screen, opacity_scale)
+function this.draw(monster, type, cached_config, position_on_screen, opacity_scale)
 	local monster_UI;
 
 	if type == "dynamic" then	
@@ -861,16 +904,16 @@ function large_monster.draw(monster, type, cached_config, position_on_screen, op
 	drawing.draw_label(monster_UI.monster_name_label, position_on_screen, opacity_scale, monster_name_text);
 end
 
-function large_monster.init_list()
-	large_monster.list = {};
+function this.init_list()
+	this.list = {};
 end
 
-function large_monster.init_module()
+function this.init_module()
 	singletons = require("MHR_Overlay.Game_Handler.singletons");
 	customization_menu = require("MHR_Overlay.UI.customization_menu");
 	language = require("MHR_Overlay.Misc.language");
 	config = require("MHR_Overlay.Misc.config");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
+	utils = require("MHR_Overlay.Misc.utils");
 	body_part = require("MHR_Overlay.Monsters.body_part");
 	health_UI_entity = require("MHR_Overlay.UI.UI_Entities.health_UI_entity");
 	stamina_UI_entity = require("MHR_Overlay.UI.UI_Entities.stamina_UI_entity");
@@ -883,9 +926,9 @@ function large_monster.init_module()
 	drawing = require("MHR_Overlay.UI.drawing");
 	part_names = require("MHR_Overlay.Misc.part_names");
 	ailments = require("MHR_Overlay.Monsters.ailments");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	time = require("MHR_Overlay.Game_Handler.time");
 	ailment_buildup = require("MHR_Overlay.Monsters.ailment_buildup");
 end
 
-return large_monster;
+return this;

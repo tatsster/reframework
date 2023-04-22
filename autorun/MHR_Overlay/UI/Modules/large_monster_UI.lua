@@ -1,15 +1,47 @@
-local large_monster_UI = {};
+local this = {};
+
 local singletons;
 local config;
 local customization_menu;
 local large_monster;
 local screen;
-local player;
+local players;
 local drawing;
-local table_helpers;
 local health_UI_entity;
 local stamina_UI_entity;
 local rage_UI_entity;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 local enemy_manager_type_def = sdk.find_type_definition("snow.enemy.EnemyManager");
 local get_boss_enemy_count_method = enemy_manager_type_def:get_method("getBossEnemyCount");
@@ -21,7 +53,7 @@ local get_tg_camera_method = gui_manager_type_def:get_method("get_refGuiHud_TgCa
 local tg_camera_type_def = get_tg_camera_method:get_return_type();
 local get_targeting_enemy_index_field = tg_camera_type_def:get_field("OldTargetingEmIndex");
 
-function large_monster_UI.draw(dynamic_enabled, static_enabled, highlighted_enabled)
+function this.draw(dynamic_enabled, static_enabled, highlighted_enabled)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if singletons.enemy_manager == nil then
@@ -70,7 +102,7 @@ function large_monster_UI.draw(dynamic_enabled, static_enabled, highlighted_enab
 		end
 
 		if update_distance then
-			monster.distance = (player.myself_position - monster.position):length();
+			monster.distance = (players.myself_position - monster.position):length();
 		end
 
 		if cached_config.highlighted.auto_highlight.enabled then
@@ -121,19 +153,27 @@ function large_monster_UI.draw(dynamic_enabled, static_enabled, highlighted_enab
 	end
 
 	if dynamic_enabled then
-		large_monster_UI.draw_dynamic(displayed_monsters, highlighted_monster, cached_config);
+		local success = pcall(this.draw_dynamic, displayed_monsters, highlighted_monster, cached_config);
+		if not success then
+			customization_menu.status = string.format("[%s] Dynamic Large Monster drawing function threw an exception");
+		end
 	end
 
 	if highlighted_enabled then
-		large_monster_UI.draw_highlighted(highlighted_monster, cached_config);
+		local success = pcall(this.draw_highlighted, highlighted_monster, cached_config);
+		if not success then
+			customization_menu.status = string.format("[%s] Highlighted Large Monster drawing function threw an exception");
+		end
 	end
-
 	if static_enabled then
-		large_monster_UI.draw_static(displayed_monsters, highlighted_monster, cached_config);
+		local success = pcall(this.draw_static, displayed_monsters, highlighted_monster, cached_config);
+		if not success then
+			customization_menu.status = string.format("[%s] Static Large Monster drawing function threw an exception");
+		end
 	end
 end
 
-function large_monster_UI.draw_dynamic(displayed_monsters, highlighted_monster, cached_config)
+function this.draw_dynamic(displayed_monsters, highlighted_monster, cached_config)
 	cached_config = cached_config.dynamic;
 	local global_scale_modifier = config.current_config.global_settings.modifiers.global_scale_modifier;
 
@@ -163,8 +203,7 @@ function large_monster_UI.draw_dynamic(displayed_monsters, highlighted_monster, 
 
 		local position_on_screen = {};
 
-		local world_offset = Vector3f.new(cached_config.world_offset.x, cached_config.world_offset.y,
-			cached_config.world_offset.z);
+		local world_offset = Vector3f.new(cached_config.world_offset.x, cached_config.world_offset.y, cached_config.world_offset.z);
 
 		position_on_screen = draw.world_to_screen(monster.position + world_offset);
 
@@ -191,7 +230,7 @@ function large_monster_UI.draw_dynamic(displayed_monsters, highlighted_monster, 
 	end
 end
 
-function large_monster_UI.draw_static(displayed_monsters, highlighted_monster, cached_config)
+function this.draw_static(displayed_monsters, highlighted_monster, cached_config)
 	cached_config = cached_config.static;
 	local global_scale_modifier = config.current_config.global_settings.modifiers.global_scale_modifier;
 
@@ -272,7 +311,7 @@ function large_monster_UI.draw_static(displayed_monsters, highlighted_monster, c
 	end
 end
 
-function large_monster_UI.draw_highlighted(monster, cached_config)
+function this.draw_highlighted(monster, cached_config)
 	cached_config = cached_config.highlighted;
 
 	if monster == nil then
@@ -281,25 +320,24 @@ function large_monster_UI.draw_highlighted(monster, cached_config)
 
 	local position_on_screen = screen.calculate_absolute_coordinates(cached_config.position);
 
-	if monster.dead_or_captured and cached_config.settings.hide_dead_or_captured then
+	if monster.dead_or_captured then
 		return;
 	end
 
 	large_monster.draw(monster, "highlighted", cached_config, position_on_screen, 1);
 end
 
-function large_monster_UI.init_module()
+function this.init_module()
 	singletons = require("MHR_Overlay.Game_Handler.singletons");
 	config = require("MHR_Overlay.Misc.config");
 	customization_menu = require("MHR_Overlay.UI.customization_menu");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	drawing = require("MHR_Overlay.UI.drawing");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 	health_UI_entity = require("MHR_Overlay.UI.UI_Entities.health_UI_entity");
 	stamina_UI_entity = require("MHR_Overlay.UI.UI_Entities.stamina_UI_entity");
 	rage_UI_entity = require("MHR_Overlay.UI.UI_Entities.rage_UI_entity");
 end
 
-return large_monster_UI;
+return this;

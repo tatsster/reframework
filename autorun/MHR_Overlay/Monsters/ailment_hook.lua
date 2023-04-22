@@ -1,9 +1,41 @@
-local ailment_hook = {};
+local this = {};
+
 local small_monster;
 local large_monster;
 local config;
 local ailments;
-local table_helpers;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 local enemy_poison_damage_param_type_def = sdk.find_type_definition("snow.enemy.EnemyPoisonDamageParam");
 local on_poison_activate_proc_method = enemy_poison_damage_param_type_def:get_method("onActivateProc");
@@ -28,7 +60,7 @@ local blast_param_type = blast_param_field:get_type();
 local blast_damage_method = blast_param_type:get_method("get_BlastDamage");
 local blast_adjust_rate_method = blast_param_type:get_method("get_BlastDamageAdjustRateByEnemyLv");
 
-function ailment_hook.poison_proc(poison_param)
+function this.poison_proc(poison_param)
 	if poison_param == nil then
 		return;
 	end
@@ -50,12 +82,13 @@ function ailment_hook.poison_proc(poison_param)
 		monster = small_monster.get_monster(enemy);
 	end
 
-	monster.ailments[ailments.poison_id].cached_buildup_share = table_helpers.deep_copy(monster.ailments[ailments
-		.poison_id].buildup_share);
+	monster.ailments[ailments.poison_id].cached_buildup_share = monster.ailments[ailments.poison_id].buildup_share;
+	monster.ailments[ailments.poison_id].cached_otomo_buildup_share = monster.ailments[ailments.poison_id].otomo_buildup_share;
+
 	ailments.clear_ailment_contribution(monster, ailments.poison_id);
 end
 
-function ailment_hook.blast_proc(blast_param)
+function this.blast_proc(blast_param)
 	if blast_param == nil then
 		return;
 	end
@@ -85,7 +118,7 @@ function ailment_hook.blast_proc(blast_param)
 	ailments.clear_ailment_contribution(monster, ailments.blast_id);
 end
 
-function ailment_hook.stock_damage()
+function this.stock_damage()
 	for enemy, monster in pairs(large_monster.list) do
 		local damage_param = damage_param_field:get_data(enemy);
 		if damage_param == nil then
@@ -111,30 +144,29 @@ function ailment_hook.stock_damage()
 	end
 end
 
-function ailment_hook.init_module()
+function this.init_module()
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	config = require("MHR_Overlay.Misc.config");
 	ailments = require("MHR_Overlay.Monsters.ailments");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 
 	sdk.hook(stock_damage_method, function(args)
-		pcall(ailment_hook.stock_damage, sdk.to_managed_object(args[2]));
+		pcall(this.stock_damage, sdk.to_managed_object(args[2]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(on_poison_activate_proc_method, function(args)
-		pcall(ailment_hook.poison_proc, sdk.to_managed_object(args[2]));
+		pcall(this.poison_proc, sdk.to_managed_object(args[2]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(on_blast_activate_proc_method, function(args)
-		pcall(ailment_hook.blast_proc, sdk.to_managed_object(args[2]));
+		pcall(this.blast_proc, sdk.to_managed_object(args[2]));
 	end, function(retval)
 		return retval;
 	end);
 end
 
-return ailment_hook;
+return this;

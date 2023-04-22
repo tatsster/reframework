@@ -1,9 +1,9 @@
-local ailment_buildups_customization = {};
+local this = {};
 
-local table_helpers;
+local utils;
 local config;
 local screen;
-local player;
+local players;
 local large_monster;
 local small_monster;
 local env_creature;
@@ -15,9 +15,42 @@ local customization_menu;
 local label_customization;
 local bar_customization;
 
-function ailment_buildups_customization.draw(cached_config)
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
+function this.draw(cached_config)
 	local changed = false;
 	local config_changed = false;
+	local index = 1;
 
 	if imgui.tree_node(language.current_language.customization_menu.ailment_buildups) then
 		changed, cached_config.visibility = imgui.checkbox(
@@ -70,7 +103,7 @@ function ailment_buildups_customization.draw(cached_config)
 		if imgui.tree_node(language.current_language.customization_menu.settings) then
 			changed, index = imgui.combo(
 				language.current_language.customization_menu.highlighted_bar,
-				table_helpers.find_index(customization_menu.highlighted_buildup_bar_types, cached_config.settings.highlighted_bar),
+				utils.table.find_index(customization_menu.highlighted_buildup_bar_types, cached_config.settings.highlighted_bar),
 				customization_menu.displayed_highlighted_buildup_bar_types);
 
 			config_changed = config_changed or changed;
@@ -81,7 +114,7 @@ function ailment_buildups_customization.draw(cached_config)
 
 			changed, index = imgui.combo(
 				language.current_language.customization_menu.buildup_bars_are_relative_to,
-				table_helpers.find_index(customization_menu.displayed_buildup_bar_relative_types, cached_config.settings.buildup_bar_relative_to),
+				utils.table.find_index(customization_menu.displayed_buildup_bar_relative_types, cached_config.settings.buildup_bar_relative_to),
 				customization_menu.displayed_buildup_bar_relative_types);
 
 			config_changed = config_changed or changed;
@@ -101,7 +134,7 @@ function ailment_buildups_customization.draw(cached_config)
 		if imgui.tree_node(language.current_language.customization_menu.sorting) then
 			changed, index = imgui.combo(
 				language.current_language.customization_menu.type,
-				table_helpers.find_index(customization_menu.ailment_buildups_sorting_types, cached_config.sorting.type),
+				utils.table.find_index(customization_menu.ailment_buildups_sorting_types, cached_config.sorting.type),
 				customization_menu.displayed_ailment_buildups_sorting_types);
 			
 			config_changed = config_changed or changed;
@@ -137,90 +170,8 @@ function ailment_buildups_customization.draw(cached_config)
 			imgui.tree_pop();
 		end
 
-		if imgui.tree_node(language.current_language.customization_menu.ailment_name_label) then
-			changed, cached_config.ailment_name_label.visibility =
-				imgui.checkbox(language.current_language.customization_menu.visible,
-					cached_config.ailment_name_label.visibility);
-
-			config_changed = config_changed or changed;
-
-			if imgui.tree_node(language.current_language.customization_menu.include) then
-				changed, cached_config.ailment_name_label.include.ailment_name = imgui.checkbox(
-					language.current_language.customization_menu.ailment_name,
-					cached_config.ailment_name_label.include.ailment_name);
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.ailment_name_label.include.activation_count = imgui.checkbox(
-					language.current_language.customization_menu.activation_count,
-					cached_config.ailment_name_label.include.activation_count);
-
-				config_changed = config_changed or changed;
-
-				imgui.tree_pop();
-			end
-
-			if imgui.tree_node(language.current_language.customization_menu.offset) then
-				changed, cached_config.ailment_name_label.offset.x = imgui.drag_float(
-					language.current_language.customization_menu.x, cached_config.ailment_name_label.offset.x, 
-					0.1, -screen.width, screen.width, "%.1f");
-
-				config_changed = config_changed or changed;
-
-				changed, cached_config.ailment_name_label.offset.y = imgui.drag_float(
-					language.current_language.customization_menu.y, cached_config.ailment_name_label.offset.y, 
-					0.1, -screen.height, screen.height, "%.1f");
-
-				config_changed = config_changed or changed;
-
-				imgui.tree_pop();
-			end
-
-			if imgui.tree_node(language.current_language.customization_menu.color) then
-				changed, cached_config.ailment_name_label.color = imgui.color_picker_argb(
-					"", cached_config.ailment_name_label.color, customization_menu.color_picker_flags);
-				
-				config_changed = config_changed or changed;
-
-				imgui.tree_pop();
-			end
-
-			if imgui.tree_node(language.current_language.customization_menu.shadow) then
-				changed, cached_config.ailment_name_label.shadow.visibility = imgui.checkbox(
-					language.current_language.customization_menu.visible, cached_config.ailment_name_label.shadow.visibility);
-
-				config_changed = config_changed or changed;
-
-				if imgui.tree_node(language.current_language.customization_menu.offset) then
-					changed, cached_config.ailment_name_label.shadow.offset.x = imgui.drag_float(
-						language.current_language.customization_menu.x, cached_config.ailment_name_label.shadow.offset.x, 
-						0.1, -screen.width, screen.width, "%.1f");
-
-					config_changed = config_changed or changed;
-
-					changed, cached_config.ailment_name_label.shadow.offset.y = imgui.drag_float(
-						language.current_language.customization_menu.y, cached_config.ailment_name_label.shadow.offset.y, 
-						0.1, -screen.height, screen.height, "%.1f");
-
-					config_changed = config_changed or changed;
-
-					imgui.tree_pop();
-				end
-
-				if imgui.tree_node(language.current_language.customization_menu.color) then
-					changed, cached_config.ailment_name_label.shadow.color = imgui.color_picker_argb(
-						"", cached_config.ailment_name_label.shadow.color, customization_menu.color_picker_flags);
-
-					config_changed = config_changed or changed;
-
-					imgui.tree_pop();
-				end
-
-				imgui.tree_pop();
-			end
-
-			imgui.tree_pop();
-		end
+		changed = label_customization.draw(language.current_language.customization_menu.ailment_name_label, cached_config.ailment_name_label);
+		config_changed = config_changed or changed;
 
 		changed = label_customization.draw(language.current_language.customization_menu.player_name_label, cached_config.player_name_label);
 		config_changed = config_changed or changed;
@@ -249,12 +200,12 @@ function ailment_buildups_customization.draw(cached_config)
 	return config_changed;
 end
 
-function ailment_buildups_customization.init_module()
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
+function this.init_module()
+	utils = require("MHR_Overlay.Misc.utils");
 	language = require("MHR_Overlay.Misc.language");
 	config = require("MHR_Overlay.Misc.config");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	env_creature = require("MHR_Overlay.Endemic_Life.env_creature");
@@ -267,4 +218,4 @@ function ailment_buildups_customization.init_module()
 	bar_customization = require("MHR_Overlay.UI.Customizations.bar_customization");
 end
 
-return ailment_buildups_customization;
+return this;

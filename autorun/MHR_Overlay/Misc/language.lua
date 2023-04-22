@@ -1,9 +1,45 @@
-local language = {};
-local table_helpers;
+local this = {};
 
-language.language_folder = "MHR Overlay\\languages\\";
+local utils;
 
-language.default_language = {
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
+this.language_folder = "MHR Overlay\\languages\\";
+
+this.current_language = {};
+
+
+this.default_language = {
 	font_name = "NotoSansKR-Bold.otf",
 	parts = {
 		head = "Head",
@@ -88,7 +124,9 @@ language.default_language = {
 		chest = "Chest",
 		shell = "Shell",
 
-		thundersacs = "Thundersacs"
+		thundersacs = "Thundersacs",
+
+		amatsu_unknown = "?"
 	},
 
 	ailments = {
@@ -235,7 +273,7 @@ language.default_language = {
 
 		dynamically_positioned = "Dynamically Positioned",
 		statically_positioned = "Statically Positioned",
-		highlighted = "Highlighted (targeted)",
+		highlighted_targeted = "Highlighted (targeted)",
 
 		include = "Include",
 		monster_name = "Monster Name",
@@ -317,9 +355,9 @@ language.default_language = {
 		id = "ID",
 		name = "Name",
 
-		show_my_otomos_separately = "Show my Buddies separately",
-		show_other_otomos_separately = "Show other Buddies separately",
-		show_followers_separately = "Show Followers separately",
+		show_my_otomos_separately = "Show My Buddies separately",
+		show_other_player_otomos_separately = "Show Other Player Buddies separately",
+		show_servant_otomos_separately = "Show Follower Buddies separately",
 
 		dps_mode = "DPS Mode",
 		dps = "DPS",
@@ -394,6 +432,7 @@ language.default_language = {
 
 		hide_myself = "Hide Myself",
 		hide_other_players = "Hide Other Players",
+		hide_servants = "Hide Followers",
 		hide_total_damage = "Hide Total Damage",
 
 		player_name_size_limit = "Player Name Size Limit",
@@ -433,15 +472,47 @@ language.default_language = {
 		highest_health_percentage = "Highest Health Percentage",
 
 		reframework_outdated = "Installed REFramework version is outdated. Please, update. Otherwise, MHR Overlay won't work correctly.",
+
+		servants = "Followers",
+		my_otomos = "My Buddies",
+		other_player_otomos = "Other Player Buddies",
+		servant_otomos = "Servant Buddies",
+		level = "Level",
+
+		name_label = "Name Label",
+		myself = "Myself",
+		total = "Total",
+
+		level_label = "Level Label",
+
+		config = "Config",
+		rename = "Rename",
+		duplicate = "Duplicate",
+		delete = "Delete",
+		new = "New",
+		reset = "Reset",
+
+		highlighted = "Highlighted",
+
+		buff_UI = "Buff UI",
+		timer = "Timer",
+		duration = "Duration",
+		hide_bar_for_infinite_buffs = "Hide Bar for infinite Buffs",
+		hide_timer_for_infinite_buffs = "Hide Timer for infinite Buffs",
+
+		current_value = "Current Value",
+		max_value = "Max Value",
+
+		filter_mode = "Filter Mode",
+		current_state = "Current State",
+		default_state = "Default State"
 	}
 };
 
-language.current_language = {};
+this.language_names = { "default"};
+this.languages = { this.default_language };
 
-language.language_names = { "default" };
-language.languages = { language.default_language };
-
-function language.load()
+function this.load()
 	local language_files = fs.glob([[MHR Overlay\\languages\\.*json]]);
 
 	if language_files == nil then
@@ -449,48 +520,49 @@ function language.load()
 	end
 
 	for i, language_file_name in ipairs(language_files) do
-		local language_name = language_file_name:gsub(language.language_folder, ""):gsub(".json"
-			,
-			"");
+		local language_name = language_file_name:gsub(this.language_folder, ""):gsub(".json","");
 
 		local loaded_language = json.load_file(language_file_name);
 		if loaded_language ~= nil then
-			log.info("[MHR Overlay] " .. language_name .. ".json loaded successfully");
-			table.insert(language.language_names, language_name);
 
-			local merged_language = table_helpers.merge(language.default_language, loaded_language);
-			table.insert(language.languages, merged_language);
+			log.info("[MHR Overlay] " .. language_file_name .. ".json loaded successfully");
+			table.insert(this.language_names, language_name);
 
-			language.save(language_file_name, merged_language);
+			local merged_language = utils.table.merge(this.default_language, loaded_language);
+			table.insert(this.languages, merged_language);
+
+			this.save(language_file_name, merged_language);
+
 
 		else
-			log.error("[MHR Overlay] Failed to load " .. language_name .. ".json");
+			log.error("[MHR Overlay] Failed to load " .. language_file_name .. ".json");
 		end
 	end
 end
 
-function language.save(file_name, language_table)
+function this.save(file_name, language_table)
 	local success = json.dump_file(file_name, language_table);
 	if success then
-		log.info("[MHR Overlay] en-us.json saved successfully");
+		log.info("[MHR Overlay] " .. file_name .. " saved successfully");
 	else
-		log.error("[MHR Overlay] Failed to save en-us.json");
+		log.error("[MHR Overlay] Failed to save " .. file_name);
 	end
 end
 
-function language.save_default()
-	language.save(language.language_folder .. "en-us.json", language.default_language)
+function this.save_default()
+	this.save(this.language_folder .. "en-us.json", this.default_language);
 end
 
-function language.update(index)
-	language.current_language = table_helpers.deep_copy(language.languages[index]);
+function this.update(index)
+	this.current_language = this.languages[index];
 end
 
-function language.init_module()
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
-	language.save_default();
-	language.load();
-	language.current_language = table_helpers.deep_copy(language.default_language);
+function this.init_module()
+	utils = require("MHR_Overlay.Misc.utils");
+	
+	this.save_default();
+	this.load();
+	this.current_language = this.default_language;
 end
 
-return language;
+return this;

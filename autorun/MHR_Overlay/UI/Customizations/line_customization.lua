@@ -1,9 +1,8 @@
-local line_customization = {};
+local this = {};
 
-local table_helpers;
 local config;
 local screen;
-local player;
+local players;
 local large_monster;
 local small_monster;
 local env_creature;
@@ -13,7 +12,39 @@ local time_UI;
 local keyboard;
 local customization_menu;
 
-function line_customization.draw(line_name, line)
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
+function this.draw(line_name, line)
 	if line == nil then
 		return;
 	end
@@ -64,12 +95,11 @@ function line_customization.draw(line_name, line)
 	return line_changed;
 end
 
-function line_customization.init_module()
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
+function this.init_module()
 	language = require("MHR_Overlay.Misc.language");
 	config = require("MHR_Overlay.Misc.config");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	env_creature = require("MHR_Overlay.Endemic_Life.env_creature");
@@ -79,4 +109,4 @@ function line_customization.init_module()
 	customization_menu = require("MHR_Overlay.UI.customization_menu");
 end
 
-return line_customization;
+return this;

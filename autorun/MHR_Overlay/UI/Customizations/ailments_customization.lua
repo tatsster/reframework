@@ -1,9 +1,9 @@
-local ailments_customization = {};
+local this = {};
 
-local table_helpers;
+local utils;
 local config;
 local screen;
-local player;
+local players;
 local large_monster;
 local small_monster;
 local env_creature;
@@ -15,9 +15,42 @@ local customization_menu;
 local label_customization;
 local bar_customization;
 
-function ailments_customization.draw(cached_config)
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
+function this.draw(cached_config)
 	local changed = false;
 	local config_changed = false;
+	local index = 0;
 
 	if imgui.tree_node(language.current_language.customization_menu.ailments) then
 		changed, cached_config.visibility = imgui.checkbox(
@@ -110,7 +143,7 @@ function ailments_customization.draw(cached_config)
 		if imgui.tree_node(language.current_language.customization_menu.sorting) then
 			changed, index = imgui.combo(
 				language.current_language.customization_menu.type, 
-				table_helpers.find_index(customization_menu.ailments_sorting_types, cached_config.sorting.type),
+				utils.table.find_index(customization_menu.ailments_sorting_types, cached_config.sorting.type),
 				customization_menu.displayed_ailments_sorting_types);
 
 			config_changed = config_changed or changed;
@@ -332,12 +365,12 @@ function ailments_customization.draw(cached_config)
 	return config_changed;
 end
 
-function ailments_customization.init_module()
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
+function this.init_module()
+	utils = require("MHR_Overlay.Misc.utils");
 	language = require("MHR_Overlay.Misc.language");
 	config = require("MHR_Overlay.Misc.config");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	env_creature = require("MHR_Overlay.Endemic_Life.env_creature");
@@ -349,4 +382,4 @@ function ailments_customization.init_module()
 	bar_customization = require("MHR_Overlay.UI.Customizations.bar_customization");
 end
 
-return ailments_customization;
+return this;

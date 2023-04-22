@@ -1,5 +1,6 @@
-local ailments = {};
-local player;
+local this = {};
+
+local players;
 local language;
 local config;
 local ailment_UI_entity;
@@ -7,7 +8,39 @@ local ailment_buildup_UI_entity;
 local time;
 local small_monster;
 local large_monster;
-local table_helpers;
+local non_players;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 --0 Paralyze
 --1 Sleep
@@ -27,129 +60,188 @@ local table_helpers;
 --15 Koyashi
 --16 SteelFang
 
-ailments.paralyze_id = 0;
-ailments.sleep_id = 1;
-ailments.stun_id = 2;
-ailments.flash_id = 3;
-ailments.poison_id = 4;
-ailments.blast_id = 5;
-ailments.exhaust_id = 6;
-ailments.ride_id = 7;
-ailments.water_id = 8;
-ailments.fire_id = 9;
-ailments.ice_id = 10;
-ailments.thunder_id = 11;
-ailments.fall_trap_id = 12;
-ailments.shock_trap_id = 13;
-ailments.capture_id = 14 --tranq bomb
-ailments.koyashi_id = 15;  --dung bomb
-ailments.steel_fang_id = 16;
+this.paralyze_id = 0;
+this.sleep_id = 1;
+this.stun_id = 2;
+this.flash_id = 3;
+this.poison_id = 4;
+this.blast_id = 5;
+this.exhaust_id = 6;
+this.ride_id = 7;
+this.water_id = 8;
+this.fire_id = 9;
+this.ice_id = 10;
+this.thunder_id = 11;
+this.fall_trap_id = 12;
+this.shock_trap_id = 13;
+this.capture_id = 14 --tranq bomb
+this.koyashi_id = 15;  --dung bomb
+this.steel_fang_id = 16;
 
-ailments.fall_quick_sand_id = 17;
-ailments.fall_otomo_trap_id = 18;
-ailments.shock_otomo_trap_id = 19;
+this.fall_quick_sand_id = 17;
+this.fall_otomo_trap_id = 18;
+this.shock_otomo_trap_id = 19;
 
-function ailments.new(_ailments, ailment_id)
-	_ailments[ailment_id] = {};
+function this.new(_ailments, ailment_id)
+	local new_ailment = {}
+	new_ailment = {};
 
-	_ailments[ailment_id].is_enable = true;
-	_ailments[ailment_id].id = ailment_id;
+	new_ailment.is_enable = true;
+	new_ailment.id = ailment_id;
 
-	_ailments[ailment_id].total_buildup = 0;
-	_ailments[ailment_id].buildup_limit = 0;
-	_ailments[ailment_id].buildup_percentage = 0;
+	new_ailment.total_buildup = 0;
+	new_ailment.buildup_limit = 0;
+	new_ailment.buildup_percentage = 0;
 
-	_ailments[ailment_id].timer = 0;
-	_ailments[ailment_id].duration = 100000;
-	_ailments[ailment_id].timer_percentage = 0;
+	new_ailment.timer = 0;
+	new_ailment.duration = 100000;
+	new_ailment.timer_percentage = 0;
 
-	_ailments[ailment_id].minutes_left = 0;
-	_ailments[ailment_id].seconds_left = 0;
+	new_ailment.minutes_left = 0;
+	new_ailment.seconds_left = 0;
 
-	_ailments[ailment_id].is_active = false;
-	_ailments[ailment_id].activate_count = 0;
+	new_ailment.is_active = false;
+	new_ailment.activate_count = 0;
 
-	_ailments[ailment_id].last_change_time = time.total_elapsed_script_seconds;
+	new_ailment.last_change_time = time.total_elapsed_script_seconds;
 
-	if ailment_id == ailments.paralyze_id then
-		_ailments[ailment_id].name = language.current_language.ailments.paralysis;
-	elseif ailment_id == ailments.sleep_id then
-		_ailments[ailment_id].name = language.current_language.ailments.sleep;
-	elseif ailment_id == ailments.stun_id then
-		_ailments[ailment_id].name = language.current_language.ailments.stun;
-	elseif ailment_id == ailments.flash_id then
-		_ailments[ailment_id].name = language.current_language.ailments.flash;
-	elseif ailment_id == ailments.poison_id then
-		_ailments[ailment_id].name = language.current_language.ailments.poison;
-	elseif ailment_id == ailments.blast_id then
-		_ailments[ailment_id].name = language.current_language.ailments.blast;
-	elseif ailment_id == ailments.exhaust_id then
-		_ailments[ailment_id].name = language.current_language.ailments.exhaust;
-	elseif ailment_id == ailments.ride_id then
-		_ailments[ailment_id].name = language.current_language.ailments.ride;
-	elseif ailment_id == ailments.water_id then
-		_ailments[ailment_id].name = language.current_language.ailments.waterblight;
-	elseif ailment_id == ailments.fire_id then
-		_ailments[ailment_id].name = language.current_language.ailments.fireblight;
-	elseif ailment_id == ailments.ice_id then
-		_ailments[ailment_id].name = language.current_language.ailments.iceblight;
-	elseif ailment_id == ailments.thunder_id then
-		_ailments[ailment_id].name = language.current_language.ailments.thunderblight;
-	elseif ailment_id == ailments.fall_trap_id then
-		_ailments[ailment_id].name = language.current_language.ailments.fall_trap;
-	elseif ailment_id == ailments.shock_trap_id then
-		_ailments[ailment_id].name = language.current_language.ailments.shock_trap;
-	elseif ailment_id == ailments.capture_id then
-		_ailments[ailment_id].name = language.current_language.ailments.tranq_bomb;
-	elseif ailment_id == ailments.koyashi_id then
-		_ailments[ailment_id].name = language.current_language.ailments.dung_bomb;
-	elseif ailment_id == ailments.steel_fang_id then
-		_ailments[ailment_id].name = language.current_language.ailments.steel_fang;
-	elseif ailment_id == ailments.fall_quick_sand_id then
-		_ailments[ailment_id].name = language.current_language.ailments.quick_sand;
-	elseif ailment_id == ailments.fall_otomo_trap_id then
-		_ailments[ailment_id].name = language.current_language.ailments.fall_otomo_trap;
-	elseif ailment_id == ailments.shock_otomo_trap_id then
-		_ailments[ailment_id].name = language.current_language.ailments.shock_otomo_trap;
+	if ailment_id == this.paralyze_id then
+		new_ailment.name = language.current_language.ailments.paralysis;
+	elseif ailment_id == this.sleep_id then
+		new_ailment.name = language.current_language.ailments.sleep;
+	elseif ailment_id == this.stun_id then
+		new_ailment.name = language.current_language.ailments.stun;
+	elseif ailment_id == this.flash_id then
+		new_ailment.name = language.current_language.ailments.flash;
+	elseif ailment_id == this.poison_id then
+		new_ailment.name = language.current_language.ailments.poison;
+	elseif ailment_id == this.blast_id then
+		new_ailment.name = language.current_language.ailments.blast;
+	elseif ailment_id == this.exhaust_id then
+		new_ailment.name = language.current_language.ailments.exhaust;
+	elseif ailment_id == this.ride_id then
+		new_ailment.name = language.current_language.ailments.ride;
+	elseif ailment_id == this.water_id then
+		new_ailment.name = language.current_language.ailments.waterblight;
+	elseif ailment_id == this.fire_id then
+		new_ailment.name = language.current_language.ailments.fireblight;
+	elseif ailment_id == this.ice_id then
+		new_ailment.name = language.current_language.ailments.iceblight;
+	elseif ailment_id == this.thunder_id then
+		new_ailment.name = language.current_language.ailments.thunderblight;
+	elseif ailment_id == this.fall_trap_id then
+		new_ailment.name = language.current_language.ailments.fall_trap;
+	elseif ailment_id == this.shock_trap_id then
+		new_ailment.name = language.current_language.ailments.shock_trap;
+	elseif ailment_id == this.capture_id then
+		new_ailment.name = language.current_language.ailments.tranq_bomb;
+	elseif ailment_id == this.koyashi_id then
+		new_ailment.name = language.current_language.ailments.dung_bomb;
+	elseif ailment_id == this.steel_fang_id then
+		new_ailment.name = language.current_language.ailments.steel_fang;
+	elseif ailment_id == this.fall_quick_sand_id then
+		new_ailment.name = language.current_language.ailments.quick_sand;
+	elseif ailment_id == this.fall_otomo_trap_id then
+		new_ailment.name = language.current_language.ailments.fall_otomo_trap;
+	elseif ailment_id == this.shock_otomo_trap_id then
+		new_ailment.name = language.current_language.ailments.shock_otomo_trap;
 	end
+
+	_ailments[ailment_id] = new_ailment;
 end
 
-function ailments.init_ailments()
+function this.init_ailments()
 	local _ailments = {};
 
-	ailments.new(_ailments, ailments.paralyze_id);
-	ailments.new(_ailments, ailments.sleep_id);
-	ailments.new(_ailments, ailments.stun_id);
-	ailments.new(_ailments, ailments.flash_id);
-	ailments.new(_ailments, ailments.poison_id);
-	ailments.new(_ailments, ailments.blast_id);
-	ailments.new(_ailments, ailments.exhaust_id);
-	ailments.new(_ailments, ailments.ride_id);
-	ailments.new(_ailments, ailments.water_id);
-	ailments.new(_ailments, ailments.fire_id);
-	ailments.new(_ailments, ailments.ice_id);
-	ailments.new(_ailments, ailments.thunder_id);
+	this.new(_ailments, this.paralyze_id);
+	this.new(_ailments, this.sleep_id);
+	this.new(_ailments, this.stun_id);
+	this.new(_ailments, this.flash_id);
+	this.new(_ailments, this.poison_id);
+	this.new(_ailments, this.blast_id);
+	this.new(_ailments, this.exhaust_id);
+	this.new(_ailments, this.ride_id);
+	this.new(_ailments, this.water_id);
+	this.new(_ailments, this.fire_id);
+	this.new(_ailments, this.ice_id);
+	this.new(_ailments, this.thunder_id);
 
-	ailments.new(_ailments, ailments.fall_trap_id);
-	ailments.new(_ailments, ailments.shock_trap_id);
-	ailments.new(_ailments, ailments.capture_id); --tranq bomb
-	ailments.new(_ailments, ailments.koyashi_id); --dung bomb
-	ailments.new(_ailments, ailments.steel_fang_id);
+	this.new(_ailments, this.fall_trap_id);
+	this.new(_ailments, this.shock_trap_id);
+	this.new(_ailments, this.capture_id); --tranq bomb
+	this.new(_ailments, this.koyashi_id); --dung bomb
+	this.new(_ailments, this.steel_fang_id);
 	--ailments.new(_ailments, ailments.fall_quick_sand_id);
 	--ailments.new(_ailments, ailments.fall_otomo_trap_id);
 	--ailments.new(_ailments, ailments.shock_otomo_trap_id);
 
-	_ailments[ailments.poison_id].buildup = {};
-	_ailments[ailments.poison_id].buildup_share = {};
-	_ailments[ailments.poison_id].cached_buildup_share = {};
+	_ailments[this.poison_id].buildup = {};
+	_ailments[this.poison_id].buildup_share = {};
+	_ailments[this.poison_id].cached_buildup_share = {};
 
-	_ailments[ailments.blast_id].buildup = {};
-	_ailments[ailments.blast_id].buildup_share = {};
+	_ailments[this.blast_id].buildup = {};
+	_ailments[this.blast_id].buildup_share = {};
 
-	_ailments[ailments.stun_id].buildup = {};
-	_ailments[ailments.stun_id].buildup_share = {};
+	_ailments[this.stun_id].buildup = {};
+	_ailments[this.stun_id].buildup_share = {};
+
+	_ailments[this.poison_id].otomo_buildup = {};
+	_ailments[this.poison_id].otomo_buildup_share = {};
+	_ailments[this.poison_id].cached_otomo_buildup_share = {};
+
+	_ailments[this.blast_id].otomo_buildup = {};
+	_ailments[this.blast_id].otomo_buildup_share = {};
+
+	_ailments[this.stun_id].otomo_buildup = {};
+	_ailments[this.stun_id].otomo_buildup_share = {};
 
 	return _ailments;
+end
+
+function this.init_ailment_names(_ailments)
+	for ailment_id, ailment in pairs(_ailments) do
+		if ailment_id == this.paralyze_id then
+			ailment.name = language.current_language.ailments.paralysis;
+		elseif ailment_id == this.sleep_id then
+			ailment.name = language.current_language.ailments.sleep;
+		elseif ailment_id == this.stun_id then
+			ailment.name = language.current_language.ailments.stun;
+		elseif ailment_id == this.flash_id then
+			ailment.name = language.current_language.ailments.flash;
+		elseif ailment_id == this.poison_id then
+			ailment.name = language.current_language.ailments.poison;
+		elseif ailment_id == this.blast_id then
+			ailment.name = language.current_language.ailments.blast;
+		elseif ailment_id == this.exhaust_id then
+			ailment.name = language.current_language.ailments.exhaust;
+		elseif ailment_id == this.ride_id then
+			ailment.name = language.current_language.ailments.ride;
+		elseif ailment_id == this.water_id then
+			ailment.name = language.current_language.ailments.waterblight;
+		elseif ailment_id == this.fire_id then
+			ailment.name = language.current_language.ailments.fireblight;
+		elseif ailment_id == this.ice_id then
+			ailment.name = language.current_language.ailments.iceblight;
+		elseif ailment_id == this.thunder_id then
+			ailment.name = language.current_language.ailments.thunderblight;
+		elseif ailment_id == this.fall_trap_id then
+			ailment.name = language.current_language.ailments.fall_trap;
+		elseif ailment_id == this.shock_trap_id then
+			ailment.name = language.current_language.ailments.shock_trap;
+		elseif ailment_id == this.capture_id then
+			ailment.name = language.current_language.ailments.tranq_bomb;
+		elseif ailment_id == this.koyashi_id then
+			ailment.name = language.current_language.ailments.dung_bomb;
+		elseif ailment_id == this.steel_fang_id then
+			ailment.name = language.current_language.ailments.steel_fang;
+		elseif ailment_id == this.fall_quick_sand_id then
+			ailment.name = language.current_language.ailments.quick_sand;
+		elseif ailment_id == this.fall_otomo_trap_id then
+			ailment.name = language.current_language.ailments.fall_otomo_trap;
+		elseif ailment_id == this.shock_otomo_trap_id then
+			ailment.name = language.current_language.ailments.shock_otomo_trap;
+		end
+	end
 end
 
 local enemy_character_base_type_def = sdk.find_type_definition("snow.enemy.EnemyCharacterBase");
@@ -182,7 +274,7 @@ local system_array_type_def = sdk.find_type_definition("System.Array");
 local length_method = system_array_type_def:get_method("get_Length");
 local get_value_method = system_array_type_def:get_method("GetValue(System.Int32)");
 
-function ailments.update_ailments(enemy, monster)
+function this.update_ailments(enemy, monster)
 	if enemy == nil then
 		return;
 	end
@@ -191,7 +283,7 @@ function ailments.update_ailments(enemy, monster)
 		return;
 	end
 
-	ailments.update_stun_poison_blast_ailments(monster, damage_param);
+	this.update_stun_poison_blast_ailments(monster, damage_param);
 
 	if not config.current_config.large_monster_UI.dynamic.ailments.visibility
 		and not config.current_config.large_monster_UI.static.ailments.visibility
@@ -215,7 +307,7 @@ function ailments.update_ailments(enemy, monster)
 	end
 
 	for id = 0, condition_param_array_length - 1 do
-		if id == ailments.stun_id or id == ailments.poison_id or id == ailments.blast_id then
+		if id == this.stun_id or id == this.poison_id or id == this.blast_id then
 			goto continue
 		end
 
@@ -224,29 +316,29 @@ function ailments.update_ailments(enemy, monster)
 			goto continue
 		end
 
-		ailments.update_ailment(monster, ailment_param, id);
+		this.update_ailment(monster, ailment_param, id);
 		::continue::
 	end
 end
 
-function ailments.update_stun_poison_blast_ailments(monster, damage_param)
+function this.update_stun_poison_blast_ailments(monster, damage_param)
 	local stun_param = stun_param_field:get_data(damage_param);
 	if stun_param ~= nil then
-		ailments.update_ailment(monster, stun_param, ailments.stun_id);
+		this.update_ailment(monster, stun_param, this.stun_id);
 	end
 
 	local poison_param = poison_param_field:get_data(damage_param);
 	if poison_param ~= nil then
-		ailments.update_ailment(monster, poison_param, ailments.poison_id);
+		this.update_ailment(monster, poison_param, this.poison_id);
 	end
 
 	local blast_param = blast_param_field:get_data(damage_param);
 	if blast_param ~= nil then
-		ailments.update_ailment(monster, blast_param, ailments.blast_id);
+		this.update_ailment(monster, blast_param, this.blast_id);
 	end
 end
 
-function ailments.update_ailment(monster, ailment_param, id)
+function this.update_ailment(monster, ailment_param, id)
 	local is_enable = get_is_enable_method:call(ailment_param);
 	local activate_count_array = get_activate_count_method:call(ailment_param);
 	local buildup_array = get_stock_method:call(ailment_param);
@@ -321,17 +413,17 @@ function ailments.update_ailment(monster, ailment_param, id)
 	end
 	
 	if is_enable ~= monster.ailments[id].is_enable then
-		ailments.update_last_change_time(monster, id);
+		this.update_last_change_time(monster, id);
 	end
 	
 	monster.ailments[id].is_enable = is_enable;
 	
 	if activate_count ~= nil then
 		if activate_count ~= monster.ailments[id].activate_count then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 
-			if id == ailments.stun_id then
-				ailments.clear_ailment_contribution(monster, ailments.stun_id);
+			if id == this.stun_id then
+				this.clear_ailment_contribution(monster, this.stun_id);
 			end
 		end
 
@@ -340,7 +432,7 @@ function ailments.update_ailment(monster, ailment_param, id)
 	
 	if buildup ~= nil then
 		if buildup ~= monster.ailments[id].total_buildup then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 		end
 
 		monster.ailments[id].total_buildup = buildup;
@@ -348,7 +440,7 @@ function ailments.update_ailment(monster, ailment_param, id)
 	
 	if buildup_limit ~= nil then
 		if buildup_limit ~= monster.ailments[id].buildup_limit then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 		end
 
 		monster.ailments[id].buildup_limit = buildup_limit;
@@ -360,7 +452,7 @@ function ailments.update_ailment(monster, ailment_param, id)
 	
 	if timer ~= nil then
 		if timer ~= monster.ailments[id].timer then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 		end
 
 		monster.ailments[id].timer = timer;
@@ -368,7 +460,7 @@ function ailments.update_ailment(monster, ailment_param, id)
 	
 	if is_active ~= nil then
 		if is_active ~= monster.ailments[id].is_active then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 		end
 
 		monster.ailments[id].is_active = is_active;
@@ -376,7 +468,7 @@ function ailments.update_ailment(monster, ailment_param, id)
 	
 	if duration ~= nil and not monster.ailments[id].is_active then
 		if duration ~= monster.ailments[id].duration then
-			ailments.update_last_change_time(monster, id);
+			this.update_last_change_time(monster, id);
 		end
 
 		monster.ailments[id].duration = duration;
@@ -403,12 +495,12 @@ function ailments.update_ailment(monster, ailment_param, id)
 	end
 end
 
-function ailments.update_last_change_time(monster, id)
+function this.update_last_change_time(monster, id)
 	monster.ailments[id].last_change_time = time.total_elapsed_script_seconds;
 end
 
 -- Code by coavins
-function ailments.update_poison(monster, poison_param)
+function this.update_poison(monster, poison_param)
 	if monster == nil then
 		return;
 	end
@@ -419,95 +511,95 @@ function ailments.update_poison(monster, poison_param)
 		if is_damage then
 			local poison_damage = poison_damage_field:get_data(poison_param);
 
-			ailments.apply_ailment_damage(monster, ailments.poison_id, poison_damage);
+			this.apply_ailment_damage(monster, this.poison_id, poison_damage);
 		end
 	end
 end
 
-function ailments.draw(monster, ailment_UI, cached_config, ailments_position_on_screen, opacity_scale)
+function this.draw(monster, ailment_UI, cached_config, ailments_position_on_screen, opacity_scale)
 	local cached_config = cached_config.ailments;
 	local global_scale_modifier = config.current_config.global_settings.modifiers.global_scale_modifier;
 
 	--sort parts here
 	local displayed_ailments = {};
 	for id, ailment in pairs(monster.ailments) do
-		if id == ailments.paralyze_id then
+		if id == this.paralyze_id then
 			if not cached_config.filter.paralysis then
 				goto continue
 			end
-		elseif id == ailments.sleep_id then
+		elseif id == this.sleep_id then
 			if not cached_config.filter.sleep then
 				goto continue
 			end
-		elseif id == ailments.stun_id then
+		elseif id == this.stun_id then
 			if not cached_config.filter.stun then
 				goto continue
 			end
-		elseif id == ailments.flash_id then
+		elseif id == this.flash_id then
 			if not cached_config.filter.flash then
 				goto continue
 			end
-		elseif id == ailments.poison_id then
+		elseif id == this.poison_id then
 			if not cached_config.filter.poison then
 				goto continue
 			end
-		elseif id == ailments.blast_id then
+		elseif id == this.blast_id then
 			if not cached_config.filter.blast then
 				goto continue
 			end
-		elseif id == ailments.exhaust_id then
+		elseif id == this.exhaust_id then
 			if not cached_config.filter.exhaust then
 				goto continue
 			end
-		elseif id == ailments.ride_id then
+		elseif id == this.ride_id then
 			if not cached_config.filter.ride then
 				goto continue
 			end
-		elseif id == ailments.water_id then
+		elseif id == this.water_id then
 			if not cached_config.filter.waterblight then
 				goto continue
 			end
-		elseif id == ailments.fire_id then
+		elseif id == this.fire_id then
 			if not cached_config.filter.fireblight then
 				goto continue
 			end
-		elseif id == ailments.ice_id then
+		elseif id == this.ice_id then
 			if not cached_config.filter.iceblight then
 				goto continue
 			end
-		elseif id == ailments.thunder_id then
+		elseif id == this.thunder_id then
 			if not cached_config.filter.thunderblight then
 				goto continue
 			end
-		elseif id == ailments.fall_trap_id then
+		elseif id == this.fall_trap_id then
 			if not cached_config.filter.fall_trap then
 				goto continue
 			end
-		elseif id == ailments.shock_trap_id then
+		elseif id == this.shock_trap_id then
 			if not cached_config.filter.shock_trap then
 				goto continue
 			end
-		elseif id == ailments.capture_id then
+		elseif id == this.capture_id then
 			if not cached_config.filter.tranq_bomb then
 				goto continue
 			end
-		elseif id == ailments.koyashi_id then
+		elseif id == this.koyashi_id then
 			if not cached_config.filter.dung_bomb then
 				goto continue
 			end
-		elseif id == ailments.steel_fang_id then
+		elseif id == this.steel_fang_id then
 			if not cached_config.filter.steel_fang then
 				goto continue
 			end
-		elseif id == ailments.fall_quick_sand_id then
+		elseif id == this.fall_quick_sand_id then
 			if not cached_config.filter.quick_sand then
 				goto continue
 			end
-		elseif id == ailments.fall_otomo_trap_id then
+		elseif id == this.fall_otomo_trap_id then
 			if not cached_config.filter.fall_otomo_trap then
 				goto continue
 			end
-		elseif id == ailments.shock_otomo_trap_id then
+		elseif id == this.shock_otomo_trap_id then
 			if not cached_config.filter.shock_otomo_trap then
 				goto continue
 			end
@@ -593,14 +685,10 @@ function ailments.draw(monster, ailment_UI, cached_config, ailments_position_on_
 
 end
 
-function ailments.apply_ailment_buildup(monster, attacker_id, ailment_type, ailment_buildup)
-
+function this.apply_ailment_buildup(monster, player, otomo, ailment_type, ailment_buildup)
 	if monster == nil or
-		(ailment_type ~= ailments.poison_id and ailment_type ~= ailments.blast_id and ailment_type ~= ailments.stun_id) then
-		return;
-	end
-
-	if ailment_buildup == 0 or ailment_buildup == nil then
+	(ailment_type ~= this.poison_id and ailment_type ~= this.blast_id and ailment_type ~= this.stun_id)
+	or (ailment_buildup == 0 or ailment_buildup == nil) then
 		return;
 	end
 
@@ -609,53 +697,83 @@ function ailments.apply_ailment_buildup(monster, attacker_id, ailment_type, ailm
 		monster.ailments[ailment_type].buildup = {};
 	end
 
-	-- accumulate this buildup for this attacker
-	monster.ailments[ailment_type].buildup[attacker_id] = (monster.ailments[ailment_type].buildup[attacker_id] or 0) + ailment_buildup;
+	-- get the otomo buildup accumulator for this type
+	if monster.ailments[ailment_type].otomo_buildup == nil then
+		monster.ailments[ailment_type].otomo_buildup = {};
+	end
 
-	ailments.calculate_ailment_contribution(monster, ailment_type);
+	if otomo == nil then
+		monster.ailments[ailment_type].buildup[player] = (monster.ailments[ailment_type].buildup[player] or 0) + ailment_buildup;
+	else
+		monster.ailments[ailment_type].otomo_buildup[otomo] = (monster.ailments[ailment_type].otomo_buildup[otomo] or 0) + ailment_buildup;
+	end
+
+
+	this.calculate_ailment_contribution(monster, ailment_type);
 end
 
 -- Code by coavins
-function ailments.calculate_ailment_contribution(monster, ailment_type)
+function this.calculate_ailment_contribution(monster, ailment_type)
 	-- get total
 	local total = 0;
-	for attacker_id, player_buildup in pairs(monster.ailments[ailment_type].buildup) do
+	for player, player_buildup in pairs(monster.ailments[ailment_type].buildup) do
 		total = total + player_buildup;
 	end
 
-	for attacker_id, player_buildup in pairs(monster.ailments[ailment_type].buildup) do
-		-- update ratio for this attacker
-		monster.ailments[ailment_type].buildup_share[attacker_id] = player_buildup / total;
+	for otomo, otomo_buildup in pairs(monster.ailments[ailment_type].otomo_buildup) do
+		total = total + otomo_buildup;
+	end
+
+	if total == 0 then
+		total = 1;
+	end
+
+	for player, player_buildup in pairs(monster.ailments[ailment_type].buildup) do
+		-- update ratio for this player
+		monster.ailments[ailment_type].buildup_share[player] = player_buildup / total;
+	end
+
+	for otomo, otomo_buildup in pairs(monster.ailments[ailment_type].otomo_buildup) do
+		-- update ratio for this otomo
+		monster.ailments[ailment_type].otomo_buildup_share[otomo] = otomo_buildup / total;
 	end
 end
 
-function ailments.clear_ailment_contribution(monster, ailment_type)
-	for attacker_id, player_buildup in pairs(monster.ailments[ailment_type].buildup) do
-		monster.ailments[ailment_type].buildup_share[attacker_id] = 0;
-		monster.ailments[ailment_type].buildup[attacker_id] = 0;
-	end
+function this.clear_ailment_contribution(monster, ailment_type)
+	monster.ailments[ailment_type].buildup = {};
+	monster.ailments[ailment_type].otomo_buildup = {};
+
+	monster.ailments[ailment_type].buildup_share = {};
+	monster.ailments[ailment_type].otomo_buildup_share = {};
 end
 
 -- Code by coavins
-function ailments.apply_ailment_damage(monster, ailment_type, ailment_damage)
+function this.apply_ailment_damage(monster, ailment_type, ailment_damage)
 	-- we only track poison and blast for now
 	if ailment_type == nil or ailment_damage == nil then
 		return;
 	end
 
 	local damage_source_type = "";
+	local otomo_damage_source_type = "";
 	local buildup_share = monster.ailments[ailment_type].buildup_share;
-	if ailment_type == ailments.poison_id then
+	local otomo_buildup_share = monster.ailments[ailment_type].otomo_buildup_share;
+	
+	if ailment_type == this.poison_id then
 		damage_source_type = "poison";
+		otomo_damage_source_type = "otomo poison";
 		buildup_share = monster.ailments[ailment_type].cached_buildup_share;
-	elseif ailment_type == ailments.blast_id then
+		otomo_buildup_share = monster.ailments[ailment_type].cached_otomo_buildup_share;
+		
+	elseif ailment_type == this.blast_id then
 		damage_source_type = "blast";
+		otomo_damage_source_type = "otomo blast";
 	else
 		return;
 	end
 
 	-- split up damage according to ratio of buildup on boss for this type
-	for attacker_id, percentage in pairs(buildup_share) do
+	for player, percentage in pairs(buildup_share) do
 		local damage_portion = ailment_damage * percentage;
 
 		local damage_object = {};
@@ -664,11 +782,26 @@ function ailments.apply_ailment_damage(monster, ailment_type, ailment_damage)
 		damage_object.elemental_damage = 0;
 		damage_object.ailment_damage = damage_portion;
 
-		local attacking_player = player.get_player(attacker_id);
+		players.update_damage(player, damage_source_type, monster.is_large, damage_object);
+	end
 
-		if attacking_player ~= nil then
-			player.update_damage(attacking_player, damage_source_type, true, damage_object);
+	-- split up damage according to ratio of buildup on boss for this type
+	for otomo, percentage in pairs(otomo_buildup_share) do
+		local damage_portion = ailment_damage * percentage;
+
+		local damage_object = {};
+		damage_object.total_damage = damage_portion;
+		damage_object.physical_damage = 0;
+		damage_object.elemental_damage = 0;
+		damage_object.ailment_damage = damage_portion;
+
+		local player = players.get_player(otomo.id);
+		
+		if player ~= nil then
+			players.update_damage(player, otomo_damage_source_type, monster.is_large, damage_object);
 		end
+		
+		players.update_damage(otomo, otomo_damage_source_type, monster.is_large, damage_object);
 	end
 
 	local damage_object = {};
@@ -677,11 +810,12 @@ function ailments.apply_ailment_damage(monster, ailment_type, ailment_damage)
 	damage_object.elemental_damage = 0;
 	damage_object.ailment_damage = ailment_damage;
 
-	player.update_damage(player.total, damage_source_type, true, damage_object);
+	players.update_damage(players.total, damage_source_type, monster.is_large, damage_object);
 end
 
-function ailments.init_module()
-	player = require("MHR_Overlay.Damage_Meter.player");
+function this.init_module()
+	players = require("MHR_Overlay.Damage_Meter.players");
+	non_players = require("MHR_Overlay.Damage_Meter.non_players");
 	language = require("MHR_Overlay.Misc.language");
 	config = require("MHR_Overlay.Misc.config");
 	ailment_UI_entity = require("MHR_Overlay.UI.UI_Entities.ailment_UI_entity");
@@ -689,7 +823,6 @@ function ailments.init_module()
 	time = require("MHR_Overlay.Game_Handler.time");
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 end
 
-return ailments;
+return this;

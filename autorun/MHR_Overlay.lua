@@ -1,4 +1,34 @@
-xy = "";
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 local debug = require("MHR_Overlay.Misc.debug");
 
@@ -10,11 +40,12 @@ local time = require("MHR_Overlay.Game_Handler.time");
 
 local config = require("MHR_Overlay.Misc.config");
 local language = require("MHR_Overlay.Misc.language");
-local table_helpers = require("MHR_Overlay.Misc.table_helpers");
-local unicode_helpers = require("MHR_Overlay.Misc.unicode_helpers");
 local part_names = require("MHR_Overlay.Misc.part_names");
+local utils = require("MHR_Overlay.Misc.utils");
 
-local player = require("MHR_Overlay.Damage_Meter.player");
+--local buffs = require("MHR_Overlay.Buffs.buffs");
+
+local players = require("MHR_Overlay.Damage_Meter.players");
 local non_players = require("MHR_Overlay.Damage_Meter.non_players");
 local damage_hook = require("MHR_Overlay.Damage_Meter.damage_hook");
 
@@ -34,15 +65,16 @@ local large_monster_UI = require("MHR_Overlay.UI.Modules.large_monster_UI");
 local small_monster_UI = require("MHR_Overlay.UI.Modules.small_monster_UI");
 local time_UI = require("MHR_Overlay.UI.Modules.time_UI");
 local env_creature_UI = require("MHR_Overlay.UI.Modules.env_creature_UI");
+--local buff_UI = require("MHR_Overlay.UI.Modules.buff_UI");
 
 local body_part_UI_entity = require("MHR_Overlay.UI.UI_Entities.body_part_UI_entity");
-local player_damage_UI_entity = require("MHR_Overlay.UI.UI_Entities.player_damage_UI_entity");
-local non_player_damage_UI_entity = require("MHR_Overlay.UI.UI_Entities.non_player_damage_UI_entity");
+local damage_UI_entity = require("MHR_Overlay.UI.UI_Entities.damage_UI_entity");
 local health_UI_entity = require("MHR_Overlay.UI.UI_Entities.health_UI_entity");
 local stamina_UI_entity = require("MHR_Overlay.UI.UI_Entities.stamina_UI_entity");
 local rage_UI_entity = require("MHR_Overlay.UI.UI_Entities.rage_UI_entity");
 local ailment_UI_entity = require("MHR_Overlay.UI.UI_Entities.ailment_UI_entity");
 local ailment_buildup_UI_entity = require("MHR_Overlay.UI.UI_Entities.ailment_buildup_UI_entity");
+--local buff_UI_entity = require("MHR_Overlay.UI.UI_Entities.buff_UI_entity");
 
 local customization_menu = require("MHR_Overlay.UI.customization_menu");
 local label_customization = require("MHR_Overlay.UI.Customizations.label_customization");
@@ -61,29 +93,34 @@ local large_monster_UI_customization = require("MHR_Overlay.UI.Customizations.la
 
 local drawing = require("MHR_Overlay.UI.drawing");
 
+if debug ~= nil and debug.enabled then
+	xy = "";
+end
+
 ------------------------INIT MODULES-------------------------
 -- #region
 screen.init_module();
 singletons.init_module();
-table_helpers.init_module();
-unicode_helpers.init_module();
+utils.init_module();
 time.init_module();
 
 language.init_module();
 config.init_module();
 part_names.init_module();
 
-player_damage_UI_entity.init_module();
-non_player_damage_UI_entity.init_module();
+damage_UI_entity.init_module();
 health_UI_entity.init_module();
 stamina_UI_entity.init_module();
 rage_UI_entity.init_module();
 ailment_UI_entity.init_module();
 ailment_buildup_UI_entity.init_module();
 body_part_UI_entity.init_module();
+--buff_UI_entity.init_module();
+
+--buffs.init_module();
 
 damage_hook.init_module();
-player.init_module();
+players.init_module();
 non_players.init_module();
 quest_status.init_module();
 
@@ -121,6 +158,7 @@ large_monster_UI.init_module();
 small_monster_UI.init_module();
 time_UI.init_module();
 env_creature_UI.init_module();
+--buff_UI.init_module();
 
 keyboard.init_module();
 
@@ -135,7 +173,7 @@ local function draw_modules(module_visibility_config, flow_state_name)
 	if module_visibility_config.small_monster_UI and config.current_config.small_monster_UI.enabled then
 		local success = pcall(small_monster_UI.draw);
 		if not success then
-			customization_menu.status = string.format("[%s] Small monster drawing function threw an exception", flow_state_name);
+			customization_menu.status = string.format("[%s] Small Monster UI Drawing Function threw an Exception", flow_state_name);
 		end
 	end
 
@@ -151,43 +189,47 @@ local function draw_modules(module_visibility_config, flow_state_name)
 	if dynamic_enabled or static_enabled or highlighted_enabled then
 		local success = pcall(large_monster_UI.draw, dynamic_enabled, static_enabled, highlighted_enabled);
 		if not success then
-			customization_menu.status = string.format("[%s] Large Monster drawing function threw an exception", flow_state_name);
+			customization_menu.status = string.format("[%s] Large Monster UI Drawing Function threw an Exception", flow_state_name);
 		end
 	end
 
 	if config.current_config.time_UI.enabled and module_visibility_config.time_UI then
 		local success = pcall(time_UI.draw);
 		if not success then
-			customization_menu.status = string.format("[%s] Time Drawing function threw an exception", flow_state_name);
+			customization_menu.status = string.format("[%s] Time UI Drawing Function threw an Exception", flow_state_name);
 		end
 	end
 
 	if config.current_config.damage_meter_UI.enabled and module_visibility_config.damage_meter_UI then
 		local success = pcall(damage_meter_UI.draw);
 		if not success then
-			customization_menu.status = string.format("[%s] Damage Meter drawing function threw an exception", flow_state_name);
+			customization_menu.status = string.format("[%s] Damage Meter UI Drawing Function threw an Exception", flow_state_name);
 		end
 	end
 
 	if config.current_config.endemic_life_UI.enabled and module_visibility_config.endemic_life_UI then
 		local success = pcall(env_creature_UI.draw);
 		if not success then
-			customization_menu.status = string.format("[%s] Endemic Life drawing function threw an exception", flow_state_name);
+			customization_menu.status = string.format("[%s] Endemic Life UI Drawing Function threw an Exception", flow_state_name);
 		end
 	end
+
+	--[[if config.current_config.buff_UI.enabled and module_visibility_config.buff_UI then
+		local success = truepcall(buff_UI.draw);
+		if not success then
+			customization_menu.status = string.format("[%s] Buff UI Drawing Function threw an Exception", flow_state_name);
+		end
+	end]]
 end
 
 local function main_loop()
 	customization_menu.status = "OK";
 	singletons.init();
 	screen.update_window_size();
-	player.update_myself_position();
+	players.update_myself_position();
 	quest_status.update_is_online();
 	--quest_status.update_is_quest_host();
 	time.tick();
-
-	player.update_player_list(quest_status.index >= 2);
-	non_players.update_servant_list();
 
 	if quest_status.flow_state == quest_status.flow_states.IN_TRAINING_AREA then
 
@@ -201,23 +243,31 @@ local function main_loop()
 		if dynamic_enabled or static_enabled or highlighted_enabled then
 			local success = pcall(large_monster_UI.draw, dynamic_enabled, static_enabled, highlighted_enabled);
 			if not success then
-				customization_menu.status = "[In Training Area] Large monster drawing function threw an exception";
+				customization_menu.status = "[In Training Area] Large Monster UI Drawing Function threw an Exception";
 			end
 		end
 
 		if config.current_config.damage_meter_UI.enabled and module_visibility_config.damage_meter_UI then
 			local success = pcall(damage_meter_UI.draw);
 			if not success then
-				customization_menu.status = "[In Training Area] Damage meter drawing function threw an exception";
+				customization_menu.status = "[In Training Area] Damage Meter UI Drawing Function threw an Exception";
 			end
 		end
 
 		if config.current_config.endemic_life_UI.enabled and module_visibility_config.endemic_life_UI then
 			local success = pcall(env_creature_UI.draw);
 			if not success then
-				customization_menu.status = "[In Training Area] Endemic life drawing function threw an exception";
+				customization_menu.status = "[In Training Area] Endemic Life UI Drawing Function threw an Exception";
 			end
 		end
+
+		--[[if config.current_config.buff_UI.enabled and module_visibility_config.buff_UI then
+			local success = pcall(buff_UI.draw);
+			if not success then
+				customization_menu.status = "[In Training Area] Buff UI Drawing Function threw an Exception";
+			end
+		end]]
+
 
 	elseif quest_status.flow_state == quest_status.flow_states.CUTSCENE then
 		draw_modules(config.current_config.global_settings.module_visibility.cutscene, "Cutscene");
@@ -287,7 +337,7 @@ end);
 -- #endregion
 ----------------------------D2D------------------------------
 
-if debug.enabled then
+if debug ~= nil and debug.enabled then
 	if d2d ~= nil then
 		d2d.register(function()
 		end, function()
@@ -296,8 +346,8 @@ if debug.enabled then
 			end
 
 			if xy ~= "" then
-				d2d.text(drawing.font, "xy:\n" .. tostring(xy), 551, 11, 0xFF000000);
-				d2d.text(drawing.font, "xy:\n" .. tostring(xy), 550, 10, 0xFFFFFFFF);
+				d2d.text(drawing.font, "xy:\n" .. tostring(xy), 256, 71, 0xFF000000);
+				d2d.text(drawing.font, "xy:\n" .. tostring(xy), 255, 70, 0xFFFFFFFF);
 			end
 		end);
 	end
@@ -308,8 +358,8 @@ if debug.enabled then
 		end
 
 		if xy ~= "" then
-			draw.text("xy:\n" .. tostring(xy), 551, 11, 0xFF000000);	
-			draw.text("xy:\n" .. tostring(xy), 550, 10, 0xFFFFFFFF);
+			draw.text("xy:\n" .. tostring(xy), 256, 31, 0xFF000000);	
+			draw.text("xy:\n" .. tostring(xy), 255, 30, 0xFFFFFFFF);
 		end
 	end);
 end

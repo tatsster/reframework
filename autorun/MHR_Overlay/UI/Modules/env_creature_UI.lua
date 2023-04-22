@@ -1,20 +1,52 @@
-local env_creature_UI = {};
+local this = {};
+
 local singletons;
 local config;
 local customization_menu;
 local large_monster;
 local screen;
-local player;
+local players;
 local drawing;
-local table_helpers;
 local health_UI_entity;
 local stamina_UI_entity;
 local rage_UI_entity;
 local env_creature;
 
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
+
 local enemy_manager_type_def = sdk.find_type_definition("snow.enemy.EnemyManager");
 
-function env_creature_UI.draw()
+function this.draw()
 	if singletons.enemy_manager == nil then
 		return;
 	end
@@ -46,7 +78,7 @@ function env_creature_UI.draw()
 		position_on_screen.x = position_on_screen.x + cached_config.viewport_offset.x * global_scale_modifier;
 		position_on_screen.y = position_on_screen.y + cached_config.viewport_offset.y * global_scale_modifier;
 
-		creature.distance = (player.myself_position - creature.position):length();
+		creature.distance = (players.myself_position - creature.position):length();
 
 		local opacity_scale = 1;
 		if creature.distance > cached_config.settings.max_distance then
@@ -62,19 +94,18 @@ function env_creature_UI.draw()
 	end
 end
 
-function env_creature_UI.init_module()
+function this.init_module()
 	singletons = require("MHR_Overlay.Game_Handler.singletons");
 	config = require("MHR_Overlay.Misc.config");
 	customization_menu = require("MHR_Overlay.UI.customization_menu");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	screen = require("MHR_Overlay.Game_Handler.screen");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	drawing = require("MHR_Overlay.UI.drawing");
-	table_helpers = require("MHR_Overlay.Misc.table_helpers");
 	health_UI_entity = require("MHR_Overlay.UI.UI_Entities.health_UI_entity");
 	stamina_UI_entity = require("MHR_Overlay.UI.UI_Entities.stamina_UI_entity");
 	rage_UI_entity = require("MHR_Overlay.UI.UI_Entities.rage_UI_entity");
 	env_creature = require("MHR_Overlay.Endemic_Life.env_creature");
 end
 
-return env_creature_UI;
+return this;

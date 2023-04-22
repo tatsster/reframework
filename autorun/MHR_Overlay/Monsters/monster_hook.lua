@@ -1,10 +1,43 @@
-local monster_hook = {};
+local this = {};
+
 local small_monster;
 local large_monster;
 local config;
 local ailments;
-local player;
+local players;
 local quest_status;
+
+local sdk = sdk;
+local tostring = tostring;
+local pairs = pairs;
+local ipairs = ipairs;
+local tonumber = tonumber;
+local require = require;
+local pcall = pcall;
+local table = table;
+local string = string;
+local Vector3f = Vector3f;
+local d2d = d2d;
+local math = math;
+local json = json;
+local log = log;
+local fs = fs;
+local next = next;
+local type = type;
+local setmetatable = setmetatable;
+local getmetatable = getmetatable;
+local assert = assert;
+local select = select;
+local coroutine = coroutine;
+local utf8 = utf8;
+local re = re;
+local imgui = imgui;
+local draw = draw;
+local Vector2f = Vector2f;
+local reframework = reframework;
+local os = os;
+local ValueType = ValueType;
+local package = package;
 
 local enemy_character_base_type_def = sdk.find_type_definition("snow.enemy.EnemyCharacterBase");
 local enemy_character_base_update_method = enemy_character_base_type_def:get_method("update");
@@ -13,12 +46,14 @@ local is_boss_enemy_method = enemy_character_base_type_def:get_method("get_isBos
 
 local enemy_damage_check_type_def = sdk.find_type_definition("snow.enemy.EnemyDamageCheck");
 local damage_check_update_param_update_method = enemy_damage_check_type_def:get_method("updateParam");
+local get_ref_enemy = enemy_damage_check_type_def:get_method("get_RefEnemy");
 
 local anger_param_type_def = sdk.find_type_definition("snow.enemy.EnemyAngerParam");
 local anger_add_method = anger_param_type_def:get_method("add");
 
 local stamina_param_type_def = sdk.find_type_definition("snow.enemy.EnemyStaminaParam");
 local stamina_sub_method = stamina_param_type_def:get_method("sub");
+local get_enemy_method = stamina_param_type_def:get_method("get_Em");
 
 local tick_count = 0;
 local last_update_tick = 0;
@@ -52,7 +87,7 @@ re.on_pre_application_entry("UpdateBehavior", function()
 	end
 end)
 
-function monster_hook.update_monster(enemy)
+function this.update_monster(enemy)
 	if enemy == nil then
 		return;
 	end
@@ -73,13 +108,13 @@ function monster_hook.update_monster(enemy)
 	end
 
 	if is_large then
-		monster_hook.update_large_monster(enemy);
+		this.update_large_monster(enemy);
 	else
-		monster_hook.update_small_monster(enemy);
+		this.update_small_monster(enemy);
 	end
 end
 
-function monster_hook.update_large_monster(enemy)
+function this.update_large_monster(enemy)
 	local cached_config = config.current_config.large_monster_UI;
 
 	if not cached_config.dynamic.enabled and
@@ -118,7 +153,7 @@ function monster_hook.update_large_monster(enemy)
 	large_monster.update_stamina_timer(enemy, monster, nil);
 	large_monster.update_rage_timer(enemy, monster, nil);
 
-	if quest_status.is_online and player.myself.id ~= 0 then
+	if quest_status.is_online and players.myself.id ~= 0 then
 		local physical_param = large_monster.update_health(enemy, monster);
 		pcall(large_monster.update_parts, enemy, monster, physical_param);
 	end
@@ -126,7 +161,7 @@ function monster_hook.update_large_monster(enemy)
 	large_monster.update(enemy, monster);
 end
 
-function monster_hook.update_small_monster(enemy)
+function this.update_small_monster(enemy)
 	if not config.current_config.small_monster_UI.enabled then
 		return;
 	end
@@ -158,13 +193,13 @@ function monster_hook.update_small_monster(enemy)
 
 	small_monster.update(enemy, monster);
 
-	if quest_status.is_online and player.myself.id ~= 0 then
+	if quest_status.is_online and players.myself.id ~= 0 then
 		small_monster.update_health(enemy, monster);
 	end
 end
 
-function monster_hook.update_health(enemy_damage_stock_param)
-	local enemy = enemy_damage_stock_param:call("get_RefEnemy");
+function this.update_health(enemy_damage_check)
+	local enemy = get_ref_enemy:call(enemy_damage_check);
 	if enemy == nil then
 		return;
 	end
@@ -185,12 +220,12 @@ function monster_hook.update_health(enemy_damage_stock_param)
 	end
 end
 
-function monster_hook.update_stamina(stamina_param, stamina_sub)
+function this.update_stamina(stamina_param, stamina_sub)
 	if stamina_sub <= 0 then
 		return;
 	end
 
-	local enemy = stamina_param:call("get_Em");
+	local enemy = get_enemy_method:call(stamina_param);
 	if enemy == nil then
 		return;
 	end
@@ -199,12 +234,12 @@ function monster_hook.update_stamina(stamina_param, stamina_sub)
 	large_monster.update_stamina(enemy, monster, stamina_param);
 end
 
-function monster_hook.update_stamina_timer(stamina_param, enemy)
+function this.update_stamina_timer(stamina_param, enemy)
 	local monster = large_monster.get_monster(enemy);
 	large_monster.update_stamina_timer(enemy, monster, stamina_param);
 end
 
-function monster_hook.update_rage(anger_param, anger_add, enemy)
+function this.update_rage(anger_param, anger_add, enemy)
 	if anger_add <= 0 then
 		return;
 	end
@@ -213,43 +248,43 @@ function monster_hook.update_rage(anger_param, anger_add, enemy)
 	large_monster.update_rage(enemy, monster, anger_param);
 end
 
-function monster_hook.update_rage_timer(anger_param, enemy)
+function this.update_rage_timer(anger_param, enemy)
 	local monster = large_monster.get_monster(enemy);
 	large_monster.update_rage_timer(enemy, monster, anger_param);
 end
 
-function monster_hook.init_module()
+function this.init_module()
 	small_monster = require("MHR_Overlay.Monsters.small_monster");
 	large_monster = require("MHR_Overlay.Monsters.large_monster");
 	config = require("MHR_Overlay.Misc.config");
 	ailments = require("MHR_Overlay.Monsters.ailments");
-	player = require("MHR_Overlay.Damage_Meter.player");
+	players = require("MHR_Overlay.Damage_Meter.players");
 	quest_status = require("MHR_Overlay.Game_Handler.quest_status");
 
 	sdk.hook(enemy_character_base_update_method, function(args)
-		pcall(monster_hook.update_monster, sdk.to_managed_object(args[2]));
+		pcall(this.update_monster, sdk.to_managed_object(args[2]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(damage_check_update_param_update_method, function(args)
-		pcall(monster_hook.update_health, sdk.to_managed_object(args[2]));
+		pcall(this.update_health, sdk.to_managed_object(args[2]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(stamina_sub_method, function(args)
-		pcall(monster_hook.update_stamina, sdk.to_managed_object(args[2]), sdk.to_float(args[3]));
+		pcall(this.update_stamina, sdk.to_managed_object(args[2]), sdk.to_float(args[3]));
 	end, function(retval)
 		return retval;
 	end);
 
 	sdk.hook(anger_add_method, function(args)
-		pcall(monster_hook.update_rage, sdk.to_managed_object(args[2]), sdk.to_float(args[3]),
+		pcall(this.update_rage, sdk.to_managed_object(args[2]), sdk.to_float(args[3]),
 			sdk.to_managed_object(args[4]));
 	end, function(retval)
 		return retval;
 	end);
 end
 
-return monster_hook;
+return this;
